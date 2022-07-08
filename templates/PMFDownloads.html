@@ -1,0 +1,83 @@
+<!--
+     This is the downloads page for Puzzle Minefield
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Puzzle Minefield</title>
+  <link rel="icon" href="..\static\PuzzleMinefield\hd-spray-logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="..\static\css\puzzleMinefield.css">
+</head>
+
+<!-- Background video -->
+<video autoplay muted loop id="backgroundVideo">
+  <source src="..\static\PuzzleMinefield\bgvideo.mp4" type="video/mp4">
+</video>
+
+<body>
+
+<div class="main">
+  <!-- The top navbar header.  -->
+  <div class="navbar">
+    <a href="/" class="logo">
+      <img src="..\static\Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+    </a>
+
+    <a href="/PuzzleMinefield">About</a>
+    <a href="/PuzzleMinefield/downloads">Downloads</a>
+    <a href="/PuzzleMinefield/community">Support</a>
+  </div>
+
+  <div class="row">
+    <!-- Banner -->
+    <img src="..\static\PuzzleMinefield\hd-banner.png" alt="PuzzleMinefield Banner" style="max-width: 50%; max-height: 50%;">
+    <br>
+
+    <article>
+
+      <header>
+        <h1>
+          Downloads
+        </h1>
+      </header>
+
+
+      <section>
+        <p>
+            Download the latest version of Puzzle Minefield here. <br>
+            Currently, the project is in the Alpha stage, so please <br> report any bugs you encounter to PyroNeon Games. <br>
+            <br>
+            Supported Platforms: Desktop (Windows / Linux)
+        </p>
+
+        <br>
+
+        <button onclick="window.location.href='/PuzzleMinefield/download-jar';">
+          Download As .JAR
+        </button>
+
+        <br><br><br>
+
+        <button onclick="window.location.href='https://github.com/JLeopolt/PuzzleMinefield-Releases';">
+          Other Versions
+        </button>
+      </section>
+
+    </article>
+    </div>
+
+    <!-- Footer with extra links at the bottom of the page. -->
+    <div class="footer">
+      <a href="/">PyroNeon Software</a>
+      <a href="https://www.reddit.com/r/pyroneon/">Reddit</a>
+      <a href="https://twitter.com/PyroNeonGames">Twitter</a>
+      <a href="https://forms.gle/jJkvXrN67hCTx2ot7">Report a Bug</a>
+      <a href="/PuzzleMinefield/community">Community</a>
+    </div>
+
+  </div>
+</body>
+</html>

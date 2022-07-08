@@ -1,0 +1,29 @@
+<!--<h1>Puzzle Minefield</h1>-->
+<!--<p>-->
+<!--    <a href="{{url_for('download_file')}}">Download v0.1.2</a>-->
+<!--</p>-->
+
+<!DOCTYPE html>
+<html>
+<!--  Webpage data like Title and css file to use. -->
+  <head>
+    <title>PyroNeon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/old_pmf.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='spray-logo.png') }}">
+  </head>
+
+<!-- Banner -->
+  <img src="{{ url_for('static', filename='pmf_banner.png') }}" alt="Puzzle Minefield Banner">
+
+  <body>
+    <p>The classic game, with a competitive twist!</p>
+
+    <br>
+
+    <button onclick="window.location.href='/download';">
+      Download v0.1.8
+    </button>
+
+  </body>
+
+</html>
