@@ -26,6 +26,8 @@ p {
 /* Increase the font size of the heading */
 header h1 {
   font-size: 60px;
+  color: white;
+  font-family: HighwayGothic;
 }
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
@@ -135,6 +137,11 @@ ul li {
   padding: 12px;
   font-family: HighwayGothic;
   font-size: 40px;
+  opacity: 0.8;
+}
+
+li:hover {
+  opacity: 1;
 }
 
 li a{
