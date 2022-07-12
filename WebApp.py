@@ -1,4 +1,4 @@
-from flask import Flask, send_file, render_template
+from flask import Flask, send_file, render_template, redirect
 
 app = Flask(__name__)
 
@@ -33,9 +33,17 @@ def puzzleMinefieldCommunity():
 
 
 @app.route('/PuzzleMinefield/download-jar')
-def download_file():
-    p = "static\PuzzleMinefield\Downloads\desktop-0.2.3-alpha.jar"
-    return send_file(p, as_attachment=True)
+def download_jar():
+    # This will only work for Full Releases; 'Pre-Releases' will not work..
+    return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield-Desktop.jar", code=302)
+    # p = "<filepath>"
+    # return send_file(p, as_attachment=True)
+
+
+@app.route('/PuzzleMinefield/download-exe')
+def download_exe():
+    # This will only work for Full Releases; 'Pre-Releases' will not work..
+    return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield-Desktop.exe", code=302)
 
 
 if __name__ == "__main__":
