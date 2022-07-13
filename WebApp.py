@@ -22,6 +22,7 @@ def community():
 def puzzleMinefield():
     return render_template('PuzzleMinefield.html')
 
+
 @app.route('/PuzzleMinefield/downloads')
 def puzzleMinefieldDownloads():
     return render_template('PMFDownloads.html')
@@ -30,6 +31,11 @@ def puzzleMinefieldDownloads():
 @app.route('/PuzzleMinefield/community')
 def puzzleMinefieldCommunity():
     return render_template('PMFcommunity.html')
+
+
+@app.route('/PuzzleMinefield/FAQ')
+def puzzleMinefieldFAQ():
+    return render_template('PMFFAQ.html')
 
 
 @app.route('/PuzzleMinefield/download-jar')
