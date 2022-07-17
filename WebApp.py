@@ -41,7 +41,7 @@ def puzzleMinefieldFAQ():
 @app.route('/PuzzleMinefield/download-jar')
 def download_jar():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
-    return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield-Desktop.jar", code=302)
+    return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield.jar", code=302)
     # p = "<filepath>"
     # return send_file(p, as_attachment=True)
 
@@ -49,7 +49,7 @@ def download_jar():
 @app.route('/PuzzleMinefield/download-exe')
 def download_exe():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
-    return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield-Desktop.exe", code=302)
+    return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield.exe", code=302)
 
 
 if __name__ == "__main__":
