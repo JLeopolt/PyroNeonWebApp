@@ -94,6 +94,12 @@ header h1 {
   height: 100%;
 }
 
+.paragraph {
+  inline-size: 50%;
+  overflow-wrap: break-word;
+  margin: auto;
+}
+
 .main{
   position: relative;
   left:0;
