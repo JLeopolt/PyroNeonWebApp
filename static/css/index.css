@@ -18,7 +18,7 @@ body {
   text-align: center;
 
   /* height: 100%; */
-  min-height: 100%;
+  /* min-height: 100%; */
   display: flex;
   flex-direction: column;
 }
@@ -127,30 +127,41 @@ article header h3 {
 
 
 .grid-container{
-  /* grid-template-areas:
-    'header header header header header header'
-    'menu main main main right right'
-    'menu footer footer footer footer footer'; */
-  grid-template-areas: 'main';
-  flex: auto;
+  /* grid-template-columns: auto auto auto; */
+  /* grid-template-columns: 66% 1fr; */
+  grid-template-areas:
+  "head1 head1 head1"
+  "side1 slab1 slab1";
   display: grid;
-  width: 100%;
+  grid-gap: 0px 0px;
+  background-color: black;
+}
+.grid-item{
   height: 100%;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.grid1 {
-  grid-area: main;
- }
-.grid2 {
-  grid-area: menu;
- }
-.grid3 {
-  grid-area: header;
+/* Change color on hover */
+.grid-item:hover {
+  background-color: #333333;
 }
-.grid4 {
-  grid-area: right;
+.grid-item div{
+  inline-size: 80%;
 }
-.grid5 {
-  grid-area: footer;
+.grid-container a{
+  font-size:30px;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  color: white;
+}
+.grid-item img{
+  max-width: 100%;
+  max-height: 100%;
 }
 
 
