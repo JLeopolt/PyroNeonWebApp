@@ -22,6 +22,16 @@ def community():
 def missingpage():
     return render_template('PyroNeon/404.html')
 
+
+
+
+
+
+
+
+
+
+
 # Landing page for the Puzzle Minefield game
 @app.route('/PuzzleMinefield')
 def puzzleMinefield():
@@ -53,6 +63,51 @@ def download_jar():
 def download_exe():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
     return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield.exe", code=302)
+
+
+
+
+
+
+
+# Landing page for CLIPnP
+@app.route('/clipnp')
+def clipnp():
+    return render_template('CLIPnP/index.html')
+
+
+
+
+
+
+
+
+# Landing page for CLIPnP
+@app.route('/scraps')
+def scraps():
+    return render_template('Scraps/index.html')
+
+# Landing page for CLIPnP
+@app.route('/scraps/join')
+def scrapsJoin():
+    return render_template('Scraps/join.html')
+
+# Landing page for CLIPnP
+@app.route('/scraps/community')
+def scrapsCommunity():
+    return render_template('Scraps/community.html')
+
+# Landing page for CLIPnP
+@app.route('/scraps/guide')
+def scrapsGuide():
+    return render_template('Scraps/guide.html')
+
+
+
+
+
+
+
 
 # Handles users entering a wrong link or other 404 errors.
 @app.errorhandler(404)

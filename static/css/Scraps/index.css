@@ -1,0 +1,156 @@
+/* Define custom font */
+@font-face {
+   font-family: NewTown; src: url('../../Global/NEWTOW_.TTF');
+   font-family: HighwayGothic; src: url('../../Global/HWYGNRRW.TTF');
+}
+
+html {
+  min-height: 100%;
+  background-repeat:no-repeat;
+  background-size: cover;
+  background: linear-gradient(0deg, rgba(255,111,0,1) 0%, rgba(255,196,44,1) 100%);
+}
+
+/* Style the body */
+body {
+  font-family: NewTown;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 30px;
+}
+
+/* Increase the font size of the heading */
+header h1 {
+  font-size: 60px;
+  color: white;
+  font-family: HighwayGothic;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: black;
+  position: sticky;
+  position: -webkit-sticky;
+  width: 100%;
+  text-align: center;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  flex: none;
+  /* float: left; */
+  display: inline-table;
+  vertical-align: middle;
+  color: white;
+  text-align: center;
+
+  font-size: 40px;
+
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  width: calc(25% - 50px);
+  height: 50px;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Logo in the Navbar */
+.navbar img{
+  width:50px;
+  height:50px;
+}
+.navbar a.logo {
+  /* padding: 5px 10px; */
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  /* display: flex; */
+  text-align: bottom;
+}
+
+
+
+/* Wrap paragraphs into blocks without using <br> */
+.paragraph {
+  inline-size: 50%;
+  overflow-wrap: break-word;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 0;
+
+  color:white;
+  text-shadow: 3px 3px 2px black;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  font-size: 30px;
+}
+.paragraph h3 {
+  font-size: 50px;
+}
+.paragraph a {
+  text-decoration: none;
+  color: gold;
+}
+.paragraph a:hover {
+  color: yellow;
+}
+
+
+
+
+/* Footer styles */
+.footer {
+  flex: none;
+  width: 100%;
+  text-align: center;
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color: black;
+}
+
+.footer a {
+  /* float: left; */
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  width: 10%;
+  position: relative;
+}
+
+/* Change color on hover */
+.footer a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
+
+
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+
+  .paragraph {
+    inline-size: 75%;
+  }
+}
