@@ -4,19 +4,23 @@
 
 /* Define custom font */
 @font-face {
-   font-family: NewTown; src: url('../NEWTOW_.TTF');
-   font-family: HighwayGothic; src: url('../HWYGNRRW.TTF');
+   font-family: NewTown; src: url('../../Global/NEWTOW_.TTF');
+   font-family: HighwayGothic; src: url('../../Global/HWYGNRRW.TTF');
 }
 
 /* Style the body */
 body {
   /* font-family: Arial, Helvetica, sans-serif; */
   font-family: NewTown;
-  background-color: rgba(0,0,0,0.8);
+  background: #1C1C1C;
   margin: 0;
   padding: 0;
   text-align: center;
-  /* overflow: hidden; */
+
+  /* height: 100%; */
+  /* min-height: 100%; */
+  display: flex;
+  flex-direction: column;
 }
 
 p {
@@ -26,6 +30,8 @@ p {
 /* Increase the font size of the heading */
 header h1 {
   font-size: 60px;
+  color: white;
+  font-family: HighwayGothic;
 }
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
@@ -41,6 +47,7 @@ header h1 {
 
 /* Style the navigation bar links */
 .navbar a {
+  flex: none;
   /* float: left; */
   display: inline-table;
   vertical-align: middle;
@@ -51,7 +58,7 @@ header h1 {
 
   padding: 10px 10px 10px 10px;
   text-decoration: none;
-  width: calc(25% - 50px);
+  width: calc(33% - 50px);
   height: 50px;
 }
 
@@ -81,19 +88,7 @@ header h1 {
   background-color: rgba(0,0,0,0.8);
 } */
 
-#backgroundVideo {
-  overflow:hidden;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-
-  width: 100%;
-  height: 100%;
-}
-
+/* Wrap paragraphs into blocks without using <br> */
 .paragraph {
   inline-size: 50%;
   overflow-wrap: break-word;
@@ -106,31 +101,24 @@ header h1 {
   margin-left: auto;
   margin-right: auto;
 }
-.row header h1{
-  font-size: 60px;
-  text-shadow: 3px 3px 0px black;
-  font-family: HighwayGothic;
-  color:white;
-}
 
 article{
   text-align:center;
-  display: block;
+  height: 100vh;
   width: 100%;
   color:white;
   text-decoration: none;
   font-family: HighwayGothic;
-
-  text-shadow: 3px 3px 0px black;
 }
 article p{
   font-size: 30px;
 }
 article a{
   text-decoration: none;
-}
-.screenshot{
-  border: 5px solid white;
+  display: inline-block;
+  color:white;
+  margin-left: auto;
+  margin-right: auto;
 }
 article header h3 {
   font-size: 50px;
@@ -138,29 +126,44 @@ article header h3 {
 
 
 
-
-
-ul{
-  list-style-type: none;
-  padding: 0;
-  /* width:75%; */
-  margin-left: auto;
-  margin-right: auto;
+.grid-container{
+  /* grid-template-columns: auto auto auto; */
+  /* grid-template-columns: 66% 1fr; */
+  grid-template-areas:
+  "head1 head1 head1"
+  "head1 head1 head1"
+  "side1 slab1 slab1";
+  display: grid;
+  grid-gap: 0px 0px;
+  background-color: black;
 }
+.grid-item{
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  text-align: center;
 
-ul li {
-  /* background-color: #393939; */
-  padding: 12px;
-  font-family: HighwayGothic;
-  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-li a{
+/* Change color on hover */
+.grid-item:hover {
+  background-color: #333333;
+}
+.grid-item div{
+  inline-size: 80%;
+}
+.grid-container a{
+  font-size:30px;
   text-decoration: none;
-  display: inline;
+  font-family: HighwayGothic;
+  color: white;
 }
-
-
+.grid-item img{
+  max-width: 90%;
+  max-height: 90%;
+}
 
 
 button {
@@ -187,6 +190,7 @@ button:hover {
 
 /* Footer styles */
 .footer {
+  flex: none;
   width: 100%;
   text-align: center;
   position:fixed;
@@ -222,5 +226,9 @@ button:hover {
   .navbar a {
     float: none;
     width: 100%;
+  }
+
+  .paragraph {
+    inline-size: 75%;
   }
 }
