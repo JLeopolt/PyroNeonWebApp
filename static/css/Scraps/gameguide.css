@@ -28,8 +28,8 @@ body {
 
 
 /* Wrap paragraphs into blocks without using <br> */
-article p, article h1, article h2, article a {
-  inline-size: 50%;
+article p, article h1, article h2, article h3, article a {
+  inline-size: 75%;
   overflow-wrap: break-word;
   margin: auto;
   margin-bottom: 0;
@@ -40,8 +40,10 @@ article p, article h1, article h2, article a {
   text-decoration: none;
   font-family: HighwayGothic;
   font-size: 30px;
+
+  scroll-margin-top: 5rem;
 }
-.sidebar article p, article h1, article h2, article a{
+.sidebar article p, article h1, article h2, article h3, article a{
   inline-size: 90%;
   overflow-wrap: none;
 }
@@ -50,6 +52,9 @@ article h1 {
   font-family: HighwayGothic;
 }
 article h2 {
+  font-size: 50px;
+}
+article h3 {
   font-size: 40px;
 }
 article a {
@@ -60,7 +65,9 @@ article a:hover {
 }
 
 
-
+section{
+  scroll-margin-top: 5rem;
+}
 
 
 
@@ -77,29 +84,43 @@ article a:hover {
 .content{
   width: 80%;
   min-height: 100%;
+  margin-left: 20%;
   display: inline-block;
 }
 
-.major-link, .minor-link{
-  color: white;
+.head-link, .major-link, .minor-link{
   text-align: left;
   text-shadow: 0px 0px 0px black;
 }
+.head-link{
+  color: gold;
+  padding-inline-start: 1ch;
+  font-size: 45px;
+}
 .major-link{
-  padding-left: 1ch;
+  color: #0098FF;
+  padding-inline-start: 3ch;
   font-size: 40px;
 }
 .minor-link{
-  padding-inline-start: 3ch;
+  color: white;
+  padding-inline-start: 6ch;
   font-size: 30px;
 }
-.major-link:hover , .minor-link:hover{
+.head-link:hover, .major-link:hover , .minor-link:hover{
   background-color: #FF7800;
   color: white;
 }
 
+details summary a{
+  display: inline-block;
+}
 
-
+/* Affects the drop-down arrow on the sidebar links. */
+details summary::marker {
+  align-items: center;
+  color: white;
+}
 
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */

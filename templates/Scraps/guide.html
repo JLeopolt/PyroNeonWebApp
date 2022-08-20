@@ -31,25 +31,88 @@
 <div class="sidebar">
   <article>
     <h2>Shortcuts</h2>
-    <section style="padding-top: 1ch;">
-      <a href="#">
-        <div class="major-link">
-          Game Guide
-        </div>
-      </a>
+    <details open style="padding-top: 1ch;">
+      <summary>
+        <a href="#game-guide">
+          <div class="head-link">
+            Game Guide
+          </div>
+        </a>
+      </summary>
 
-      <a href="#before-you-start">
-        <div class="minor-link">
-          'Before You Start'
-        </div>
-      </a>
+      <details>
+        <summary>
+          <a href="#basics">
+            <div class="major-link">
+              Basics
+            </div>
+          </a>
+        </summary>
 
-      <a href="#first-steps">
-        <div class="minor-link">
-          'The First Steps'
-        </div>
-      </a>
-    </section>
+        <a href="#before-you-start">
+          <div class="minor-link">
+            'Before You Start'
+          </div>
+        </a>
+
+        <a href="#first-steps">
+          <div class="minor-link">
+            'The First Steps'
+          </div>
+        </a>
+      </details>
+    </details>
+
+    <!-- Mechanics Section -->
+    <details open style="padding-top: 1ch;">
+      <summary>
+        <a href="#mechanics">
+          <div class="head-link">
+            Mechanics
+          </div>
+        </a>
+      </summary>
+
+      <details>
+        <summary>
+          <a href="#survival-mechanics">
+            <div class="major-link">
+              Survival
+            </div>
+          </a>
+        </summary>
+
+        <a href="#temperature">
+          <div class="minor-link">
+            Temperature
+          </div>
+        </a>
+      </details>
+
+      <details>
+        <summary>
+          <a href="#">
+            <div class="major-link">
+              Global
+            </div>
+          </a>
+        </summary>
+        <!-- Links go here -->
+      </details>
+
+      <details>
+        <summary>
+          <a href="#">
+            <div class="major-link">
+              Region-Locking
+            </div>
+          </a>
+        </summary>
+        <!-- Links go here -->
+      </details>
+
+
+    </details>
   </article>
 </div>
 
@@ -58,45 +121,61 @@
 <article>
   <!-- Banner -->
   <img src="../static/Scraps/Scraps-Title-Logo.png" alt="Scraps Banner" style="max-width: 30%; max-height: 30%;">
-  <!-- Page Title -->
-  <h1>
+
+  <!-- Header title -->
+  <h1 id="game-guide">
     Game Guide
   </h1>
-
-
-
-
-
-  <!-- Beginning of Article content -->
-  <section id="before-you-start" style="padding-top: 2ch; padding-bottom: 1ch;">
-    <h2 >
-      Before You Start
+    <!-- Major Title -->
+    <h2 id="basics">
+      Basics
     </h2>
-    <p>
-      Welcome to the official Scraps Game Guide! Whether you're a new player who wants to know what they're in for, or just looking for helpful tips
-      and tricks, you've come to the right place. Before you get started, you should know that Scraps is an online experience, and PyroNeon Software is
-      not responsible for what individuals do on our server. By playing on our server, you are agreeing to our server-rules, and will be held accountable
-      for any rules you break on our server. Severe or repeated rule violations may result in account or IP bans from our servers.
-    </p>
-  </section>
+      <!-- Sections -->
+      <section id="before-you-start" style="padding-top: 2ch; padding-bottom: 1ch;">
+        <h3>
+          Before You Start
+        </h3>
+        <p>
+          Welcome to the official Scraps Game Guide! Whether you're a new player who wants to know what you're in for, or just looking for helpful tips
+          and tricks, you've come to the right place. Before you get started, you should know that Scraps is an online experience, and PyroNeon Software is
+          not responsible for what individuals do on our server. By playing on our server, you are agreeing to our server-rules, and will be held accountable
+          for any rules you break on our server. Severe or repeated rule violations may result in account or IP bans from our servers.
+        </p>
+      </section>
+
+      <section id="first-steps" style="padding-top: 2ch; padding-bottom: 1ch;">
+        <h3>
+          The First Steps
+        </h3>
+        <p>
+          When you hop into the game for the first time ever, you will find yourself in the wilderness. This is one of the most difficult stages of the game.
+          If you were unlucky enough to spawn in an arctic region or at night-time, you will probably start freezing to death. This is one of the many new
+          survival features added to the game; <a href="#temperature">Temperature</a>.
+        </p>
+      </section>
 
 
-  <section id="first-steps" style="padding-top: 2ch; padding-bottom: 1ch;">
-    <h2>
-      The First Steps
+
+
+  <h1 id="mechanics">
+    Mechanics
+  </h1>
+
+    <h2 id="survival-mechanics">
+      Survival Mechanics
     </h2>
-    <p>
-      When you hop into the game for the first time ever, you will find yourself in the wilderness. This is one of the most difficult stages of the game.
-      If you were unlucky enough to spawn in an arctic region or at night-time, you will probably start freezing to death. This is one of the many new
-      survival features added to the game; <a href="#temperature"> Temperature </a>.
-    </p>
-  </section>
 
-
-
-
-
-
+      <section id="temperature" style="padding-top: 2ch; padding-bottom: 1ch;">
+        <h3>
+          Temperature
+        </h3>
+        <p>
+          The new Temperature mechanic causes you to suffer from frostbite whenever you are exposed to the sky, during the night in most biomes, and all day in the Snowy Biome.
+          Frostbite can be prevented by standing close to a light source like a campfire, but the frost may continue damaging you for a period of time until it finally wears off.
+          Wearing more than 3 pieces of armor will keep you warm, and one piece of leather armor is all that is required to keep you from taking damage.
+          Wearing armor will not protect you during the night time in the snowy biome.
+        </p>
+      </section>
 
 
 </article>
