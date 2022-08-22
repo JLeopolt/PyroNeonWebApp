@@ -20,12 +20,14 @@ body {
 }
 
 p {
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 1.5625vw;
 }
 
 /* Increase the font size of the heading */
 header h1 {
-  font-size: 60px;
+  /* font-size: 60px; */
+  font-size: 3.125vw;
 }
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
@@ -47,7 +49,8 @@ header h1 {
   color: white;
   text-align: center;
 
-  font-size: 40px;
+  /* font-size: 40px; */
+  font-size: 2.0833vw;
 
   padding: 10px 10px 10px 10px;
   text-decoration: none;
@@ -107,7 +110,8 @@ header h1 {
   margin-right: auto;
 }
 .row header h1{
-  font-size: 60px;
+  /* font-size: 60px; */
+  font-size: 3.125vw;
   text-shadow: 3px 3px 0px black;
   font-family: HighwayGothic;
   color:white;
@@ -124,7 +128,8 @@ article{
   text-shadow: 3px 3px 0px black;
 }
 article p{
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 1.5625vw;
 }
 article a{
   text-decoration: none;
@@ -133,7 +138,8 @@ article a{
   border: 5px solid white;
 }
 article header h3 {
-  font-size: 50px;
+  /* font-size: 50px; */
+  font-size: 2.6vw;
 }
 
 
@@ -152,7 +158,8 @@ ul li {
   /* background-color: #393939; */
   padding: 12px;
   font-family: HighwayGothic;
-  font-size: 40px;
+  /* font-size: 40px; */
+  font-size: 2.083vw;
 }
 
 li a{
@@ -171,7 +178,8 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  /* font-size: 16px; */
+  font-size: 0.8333vw;
 }
 button:hover {
   background-color: #2b632d;
@@ -219,8 +227,8 @@ button:hover {
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
-  .navbar a {
+  /* .navbar a {
     float: none;
     width: 100%;
-  }
+  } */
 }

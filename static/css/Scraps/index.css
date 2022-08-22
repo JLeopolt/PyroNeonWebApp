@@ -22,12 +22,14 @@ body {
 }
 
 p {
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 1.5625vw;
 }
 
 /* Increase the font size of the heading */
 header h1 {
-  font-size: 60px;
+  /* font-size: 60px; */
+  font-size: 3.125vw;
   color: white;
   font-family: HighwayGothic;
 }
@@ -52,7 +54,8 @@ header h1 {
   color: white;
   text-align: center;
 
-  font-size: 40px;
+  /* font-size: 40px; */
+  font-size: 2.0833vw;
 
   padding: 10px 10px 10px 10px;
   text-decoration: none;
@@ -94,10 +97,12 @@ header h1 {
   text-shadow: 3px 3px 2px black;
   text-decoration: none;
   font-family: HighwayGothic;
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 1.5625vw;
 }
 .paragraph h3 {
-  font-size: 50px;
+  /* font-size: 50px; */
+  font-size: 2.6vw;
 }
 .paragraph a {
   text-decoration: none;
@@ -145,12 +150,12 @@ header h1 {
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
-  .navbar a {
+  /* .navbar a {
     float: none;
     width: 100%;
   }
 
   .paragraph {
     inline-size: 75%;
-  }
+  } */
 }
