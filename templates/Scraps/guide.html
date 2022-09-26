@@ -200,6 +200,11 @@
             Explosives
           </div>
         </a>
+        <a href="#repairs">
+          <div class="minor-link">
+            Repairs
+          </div>
+        </a>
         <a href="#raid-chart">
           <div class="minor-link">
             Raid Chart
@@ -267,9 +272,9 @@
           When you hop into the game for the first time ever, you will find yourself in the wilderness. This is one of the most difficult stages of the game.
           If you were unlucky enough to spawn in an arctic region or at night-time, you will probably start freezing to death. This is one of the many new
           survival features added to the game; <a href="#temperature">Temperature</a>. If you die, it's not a big deal. It's very likely that you will die on your
-          first run before you can build a base. Just focus on getting out of the cold however you can, whether by hiding out by a campfire or using torches. You
+          first few tries before you can build a base. Just focus on getting out of the cold however you can, whether by hiding out by a campfire or finding clothes. You
           should also look for some food if possible, sometimes provisions can be found in monuments. Try to avoid other players if possible. If you are adequately
-          warm and have some food for the time being, you can try gathering wood and scavenging loot boxes. Once you have stone tools, start mining. You need three
+          warm and have some food for the time being, you can start gathering wood and exploring. Once you have stone tools, start mining. You'll need three
           copper ingots to craft a <a href="#lockbox">Lockbox</a>, which is necessary for your base. Smelt your copper ore and craft the lockbox, you're now ready
           to build a starter base!
         </p>
@@ -343,7 +348,8 @@
         </h3>
         <p>
           When you start your playthrough, you may notice that some vanilla crafting recipes are different, or don’t exist at all. Certain items’ crafting has been disabled,
-          such as the Flint and Steel. Use the Recipe Book in your crafting table GUI to view the new recipes.
+          such as the Flint and Steel. Use the Recipe Book in your crafting table GUI to view the new recipes. Some blocks have custom Crafting Interfaces, such as the
+          fletching table, smithing table, water cauldron, brewing stand, and smoker.
         </p>
       </section>
 
@@ -369,7 +375,7 @@
         </h3>
         <p style="font-size: 25px; padding-top: 2ch;">
           - Oxidized copper is easier to break.<br><br>
-          - Naturally spawning creepers cannot destroy blocks on explosion.<br><br>
+          - Creepers do not spawn naturally.<br><br>
           - Players spawn with less HP and less hunger than normal.<br><br>
           - Players will get hungry twice as fast.<br><br>
           - Explosives can destroy Water and Lava blocks.<br><br>
@@ -411,7 +417,8 @@
         <p>
           You will get hungry twice as fast in Scraps. It is crucial that you secure a stable food source before you can start fighting other players and exploring the
           wilderness. Some manage to get by through scavenged rations, but having a farm or some other stable, consistent food source is ideal. On your first run, you
-          may die of starvation or become too weak to build a starter base if you aren't on top of your hunger bar.
+          may die of starvation or become too weak to build a starter base if you don't stay on top of your hunger bar. You can create high tier food in the new custom
+          Kitchen Workstation (Smoker) and the Stew Pot (Water Cauldron).
         </p>
       </section>
 
@@ -439,7 +446,7 @@
           Players can view and modify their respawn point list using the command /beds.
           Destroyed beds will be removed from their owner’s respawn point list, so if a bed is missing from your list, it was either claimed by a different person, or destroyed.
           You will always respawn at the bed at the top of your respawn list, which can be viewed using /beds list. To rename a bed, use /beds rename <oldname> <newname>,
-          and to reorder a bed, use /beds set <bedname> <index> (Indices start from 0 upwards).
+          and to reorder a bed, use /beds set <bedname> <index> (Indices start from 1 upwards).
           If no beds are present in your respawn list, you will be spawned <a href="#random-spawning">randomly</a>.
         </p>
       </section>
@@ -466,10 +473,8 @@
           Mining
         </h3>
         <p>
-          You may have noticed that certain blocks in the <a href="#raid-chart">Raid Chart</a> have Mining Resistance values. This is a new mechanic included in this server.
-          When a player tries to mine one of those blocks, they will have Mining Fatigue of the corresponding mining resistance value applied to them, to make mining much more difficult.
-          More information about the effects of different mining fatigue levels can be found on the <a href="https://minecraft.fandom.com/wiki/Mining_Fatigue?so=search#Effect">Minecraft Wikia</a>.
-          Note: If you are going to attempt to mine a resistant block, click on it once to apply fatigue, then click again to actually begin mining, or else it will fail!
+          You may have noticed that certain blocks in the <a href="#raid-chart">Raid Chart</a> are mineable. Every time you attempt to mine the block, instead of being destroyed,
+          the block will have a chance to lose one durability. The chance to damage the block is about 10%.
         </p>
       </section>
 
@@ -478,8 +483,8 @@
           Fire
         </h3>
         <p>
-          Whereas Vanilla fire spread is extremely powerful, Scraps will override the fire spread for building blocks like Spruce Planks and other spruce blocks.
-          Fire has a much lower chance of destroying a block, and a much lower chance of spreading to another block.
+          Some blocks are flammable, especially Spruce blocks. Flammable blocks will take 1 damage every time a fire block tries to destroy it. Fire has a lower chance of spreading,
+          and it has a chance to extinguish itself when trying to destroy a block.
         </p>
       </section>
 
@@ -488,11 +493,34 @@
           Explosives
         </h3>
         <p>
-          Once a nearby rival has built up a nice little nest egg in their base, you might be tempted to evict them. Different building materials have different explosive resistances.
-          For example, Stone Bricks have an explosive resistance of 3. This means that to destroy a stone brick block, you will need at LEAST an explosive yield of 3.0.
-          If you were to use an explosive more powerful, then a simple algorithm can calculate how much damage it would do. Every block of distance between the explosive
-          and a target block reduces the yield by one point. So, if you were to detonate a TNT with an explosive yield of 4.0, then it would destroy any stone bricks within a
-          circular radius of 2 blocks around it. Notice: Netherite Blocks will only ever break if the explosive is touching them, they will never be destroyed from a further distance, no matter the yield.
+          Once a nearby rival has built up a nest egg, you might be tempted to evict them. You can destroy blocks using explosives, regardless of whether or not you have
+          lockbox authorization in their base. Be sure to check the <a href="#raid-chart">Raid Chart</a> to see how many explosives you'll need to break into their base.
+        </p>
+      </section>
+
+      <section id="repairs" style="padding-top: 2ch; padding-bottom: 1ch;">
+        <h3>
+          Repairs
+        </h3>
+        <p>
+          When one of your blocks has been damaged, you can repair it after 30 seconds. Repair a block by right clicking on it with one of it's repair items.
+          You can find the block's repair type in the <a href="#raid-chart">Raid Chart</a>. The repair items and their values can be seen below:
+          <table>
+            <!-- Label Row -->
+            <tr class="tr-head"><td>Repair Item</td><td>Repair Type</td><td>Value</td></tr>
+                            <tr><td>Stick</td><td>Wood</td><td>5</td></tr>
+                            <tr><td>Spruce Slab</td><td>Wood</td><td>10</td></tr>
+                            <tr><td>Stone</td><td>Stone</td><td>10</td></tr>
+                            <tr><td>Smooth Stone</td><td>Stone</td><td>20</td></tr>
+                            <tr><td>Raw Copper</td><td>Copper</td><td>25</td></tr>
+                            <tr><td>Copper Ingot</td><td>Copper</td><td>50</td></tr>
+                            <tr><td>Raw Iron</td><td>Iron</td><td>50</td></tr>
+                            <tr><td>Iron Ingot</td><td>Iron</td><td>100</td></tr>
+                            <tr><td>Netherite Scrap</td><td>Netherite</td><td>50</td></tr>
+                            <tr><td>Netherite Ingot</td><td>Netherite</td><td>200</td></tr>
+                            <tr><td>Glass Pane</td><td>Glass</td><td>10</td></tr>
+                            <tr><td>Copper Ingot</td><td>Glass</td><td>50</td></tr>
+          </table>
         </p>
       </section>
 
@@ -503,51 +531,69 @@
         <p style="padding-top: 2ch; padding-bottom: -2ch;">Building Material Resistances</p><br>
           <table>
             <!-- Label Row -->
-            <tr class="tr-head"><td> Material </td><td>Mining Resistance</td><td>Blast Resistance</td><td>Fire Resistance</td></tr>
-            <tr><td>Spruce Planks</td><td>3</td><td>1</td><td>9</td></tr>
-            <tr><td>Stone Bricks</td><td>4</td><td>3</td><td></td></tr>
-            <tr><td>Copper Block</td><td></td><td>4</td><td></td></tr>
-            <tr><td>Oxidized Copper</td><td>4</td><td>4</td><td></td></tr>
-            <tr><td>Iron Block</td><td></td><td>8</td><td></td></tr>
-            <tr><td>Netherite Block</td><td></td><td>10</td><td></td></tr>
-            <tr><td>Spruce Other*</td><td>2</td><td>1</td><td>6</td></tr>
-            <tr><td>Stone Brick Other*</td><td>4</td><td>2</td><td></td></tr>
-            <tr><td>Cut Copper Other*</td><td></td><td>3</td><td></td></tr>
-            <tr><td>Oxidized Copper Other*</td><td>4</td><td>2</td><td></td></tr>
+            <tr class="tr-head"><td>Material</td><td>Durability</td><td>Repair Type</td><td>Mineable?</td><td>Flammable?</td></tr>
+                            <tr><td>Spruce Planks</td><td>20</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+                            <tr><td>Spruce Other*</td><td>15</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+                            <tr><td>Stone Bricks</td><td>100</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Stone Brick Other*</td><td>75</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Copper Block</td><td>200</td><td>Copper</td><td>No</td><td>No</td></tr>
+                            <tr><td>Cut Copper Other*</td><td>150</td><td>Copper</td><td>No</td><td>No</td></tr>
+                            <tr><td>Exposed Copper</td><td>175</td><td>Copper</td><td>No</td><td>No</td></tr>
+                            <tr><td>Exposed Cut Copper Other*</td><td>131</td><td>Copper</td><td>No</td><td>No</td></tr>
+                            <tr><td>Weathered Copper</td><td>150</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Weathered Cut Copper Other*</td><td>112</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Oxidized Copper</td><td>125</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Oxidized Cut Copper Other*</td><td>93</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Iron Block</td><td>400</td><td>Iron</td><td>No</td><td>No</td></tr>
+                            <tr><td>Netherite Block</td><td>800</td><td>Netherite</td><td>No</td><td>No</td></tr>
           </table>
         <p><i>*Other: Slabs, Stairs, Fences/Walls</i></p> <br>
 
-        <p style="padding-top: 4ch; padding-bottom: -1ch;">Doors</p><br>
+        <p style="padding-top: 4ch; padding-bottom: -1ch;">Base Features</p><br>
           <table>
-            <tr class="tr-head"><td> Door </td><td>Mining Resistance</td><td>Blast Resistance</td><td>Fire Resistance</td></tr>
-            <tr><td> Spruce </td><td>4</td><td>2</td><td></td></tr>
-            <tr><td> Iron </td><td></td><td>4</td><td></td></tr>
+            <tr class="tr-head"><td>Block</td><td>Durability</td><td>Repair Type</td><td>Mineable?</td><td>Flammable?</td></tr>
+                            <tr><td>Spruce Door</td><td>15</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+                            <tr><td>Iron Door</td><td>125</td><td>Iron</td><td>No</td><td>No</td></tr>
+                            <tr><td>Iron Bars</td><td>75</td><td>Iron</td><td>No</td><td>No</td></tr>
+                            <tr><td>Glass Block*</td><td>50</td><td>Glass</td><td>No</td><td>No</td></tr>
+                            <tr><td>Glass Pane*</td><td>25</td><td>Glass</td><td>Yes</td><td>No</td></tr>
           </table>
+        <p><i>*Includes stained glass of any color.</i></p> <br>
 
-        <p style="padding-top: 4ch; padding-bottom: -1ch;">Deployables</p><br>
+        <p style="padding-top: 4ch; padding-bottom: -1ch;">Furniture</p><br>
           <table>
-            <tr class="tr-head"><td> Block </td><td>Mining Resistance</td><td>Blast Resistance</td><td>Fire Resistance</td></tr>
-            <tr><td>Lockbox</td><td></td><td>4</td><td>4</td></tr>
-            <tr><td>Chest</td><td></td><td>4</td><td></td></tr>
-            <tr><td>Barrel</td><td></td><td>4</td><td></td></tr>
+            <tr class="tr-head"><td>Block</td><td>Durability</td><td>Repair Type</td><td>Mineable?</td><td>Flammable?</td></tr>
+                            <tr><td>Lockbox</td><td>10</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+                            <tr><td>Chest</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Barrel</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Bed*</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Fletching Table</td><td>10</td><td>Iron</td><td>Yes</td><td>Yes</td></tr>
+                            <tr><td>Smithing Table</td><td>20</td><td>Netherite</td><td>Yes</td><td>No</td></tr>
           </table>
+        <p><i>*Includes any colored bed.</i></p> <br>
 
         <p style="padding-top: 4ch; padding-bottom: -1ch;">Miscellaneous</p><br>
           <table>
-            <tr class="tr-head"><td> Block </td><td>Mining Resistance</td><td>Blast Resistance</td><td>Fire Resistance</td></tr>
-            <tr><td>Glass Pane</td><td>3</td><td>2</td><td></td></tr>
-            <tr><td>Iron Bars</td><td></td><td>4</td><td></td></tr>
+            <tr class="tr-head"><td>Block</td><td>Durability</td><td>Repair Type</td><td>Mineable?</td><td>Flammable?</td></tr>
+                            <tr><td>Lever</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Spruce Button</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Stone Button</td><td>20</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Note Block</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Dispenser</td><td>20</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Dropper</td><td>20</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Water</td><td>20</td><td>None</td><td>No</td><td>No</td></tr>
+                            <tr><td>Lava</td><td>20</td><td>None</td><td>No</td><td>No</td></tr>
           </table>
 
-        <p style="padding-top: 4ch; padding-bottom: -1ch;">Explosive Yields</p><br>
+        <p style="padding-top: 4ch; padding-bottom: -1ch;">Explosives</p><br>
           <table>
-            <tr class="tr-head"><td> Explosive </td><td> Yield </td></tr>
-            <tr><td>Creeper</td><td>3.0</td></tr>
-            <tr><td>Fire Charge</td><td>3.0 (Incendiary)</td></tr>
-            <tr><td>TNT</td><td>4.0</td></tr>
-            <tr><td>Sticky TNT</td><td>4.0</td></tr>
-            <tr><td>Medium Grade Explosive</td><td>8.0</td></tr>
-            <tr><td>High Grade Explosive</td><td>11.0</td></tr>
+            <tr class="tr-head"><td> Explosive </td><td> Damage (Durability) </td></tr>
+                              <tr><td>Creeper</td><td>30</td></tr>
+                              <tr><td>Fire Charge</td><td>30 (Incendiary)</td></tr>
+                              <tr><td>TNT</td><td>40</td></tr>
+                              <tr><td>Sticky TNT</td><td>40</td></tr>
+                              <tr><td>Satchel Charge</td><td>80</td></tr>
+                              <tr><td>Shaped Explosive Charge</td><td>110</td></tr>
           </table>
       </section>
 
@@ -565,7 +611,7 @@
         will be under your control. A LockBox is used to lock doors and chests, to prevent unauthorized players from entering your base. It can also prevent other players from
         building on your territory. NOTE: Other players can still BREAK blocks on your territory! So be sure to use strong building materials to prevent others from blowing up your base!
         (See <a href="#raid-chart">Raid Chart</a>) Anyone who can reach your LockBox will be able to authorize themselves. Admins on a LockBox can break blocks without reduced mining speed.
-        <i>LockBox controls are: RIGHT CLICK - Authorize yourself, LEFT CLICK - View admins, SHIFT + LEFT CLICK - Remove all authorized users.</i>
+        <i>LockBox controls are: RIGHT CLICK - Authorize yourself, SHIFT + RIGHT CLICK - Remove yourself, LEFT CLICK - View admins, SHIFT + LEFT CLICK - Remove all authorized users.</i>
       </p>
     </section>
 
@@ -576,7 +622,7 @@
       <p>
         Monuments are regions where no players can build, break, or destroy blocks with explosives/fire. Players can open doors and chests in monuments.
         Monument regions do NOT extend the entire world height, but rather a radius up and down. Monuments may have loot containers inside,
-        which use Loot Tables to generate random items inside. Loot containers will refill about every 15 minutes. They will refill no matter what is inside them,
+        which use Loot Tables to generate random items inside. Loot containers will refill randomly. They will refill no matter what is inside them,
         so don’t put any items inside them, or they may be despawned.
       </p>
     </section>
