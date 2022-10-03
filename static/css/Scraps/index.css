@@ -1,7 +1,11 @@
-/* Define custom font */
+/* Define custom fonts */
 @font-face {
-   font-family: NewTown; src: url('../../Global/NEWTOW_.TTF');
-   font-family: HighwayGothic; src: url('../../Global/HWYGNRRW.TTF');
+   font-family: HighwayGothic;
+   src: url('../../Global/HWYGNRRW.TTF');
+}
+@font-face {
+  font-family: NewTown;
+  src: url('../../Global/NEWTOW__.WOFF');
 }
 
 html {

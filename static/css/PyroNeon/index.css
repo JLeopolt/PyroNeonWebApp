@@ -1,36 +1,31 @@
-/* * {
-  box-sizing: border-box;
-} */
-
-/* Define custom font */
+/* Define custom fonts */
 @font-face {
-   font-family: NewTown; src: url('../../Global/NEWTOW_.TTF');
-   font-family: HighwayGothic; src: url('../../Global/HWYGNRRW.TTF');
+   font-family: HighwayGothic;
+   src: url('../../Global/HWYGNRRW.TTF');
+}
+@font-face {
+  font-family: NewTown;
+  src: url('../../Global/NEWTOW__.WOFF');
 }
 
 /* Style the body */
 body {
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: NewTown;
   background: #1C1C1C;
   margin: 0;
   padding: 0;
   text-align: center;
 
-  /* height: 100%; */
-  /* min-height: 100%; */
   display: flex;
   flex-direction: column;
 }
 
 p {
-  /* font-size: 30px; */
   font-size: 1.5625vw;
 }
 
 /* Increase the font size of the heading */
 header h1 {
-  /* font-size: 60px; */
   font-size: 3.125vw;
   color: white;
   font-family: HighwayGothic;
@@ -50,16 +45,13 @@ header h1 {
 /* Style the navigation bar links */
 .navbar a {
   flex: none;
-  /* float: left; */
   display: inline-table;
   vertical-align: middle;
   color: white;
   text-align: center;
 
-  /* font-size: 40px; */
   font-size: 2.0833vw;
 
-  /* padding: 10px 10px 10px 10px; */
   padding: 0.5vw 0.5vw 0.5vw 0.5vw;
 
   text-decoration: none;
@@ -109,7 +101,6 @@ article{
   font-family: HighwayGothic;
 }
 article p{
-  /* font-size: 30px; */
   font-size: 1.5625vw;
 }
 article a{
@@ -120,15 +111,12 @@ article a{
   margin-right: auto;
 }
 article header h3 {
-  /* font-size: 50px; */
   font-size: 2.6vw;
 }
 
 
 
 .grid-container{
-  /* grid-template-columns: auto auto auto; */
-  /* grid-template-columns: 66% 1fr; */
   grid-template-areas:
   "head1 head1 head1"
   "head1 head1 head1"
@@ -155,7 +143,6 @@ article header h3 {
   inline-size: 80%;
 }
 .grid-container a{
-  /* font-size: 30px; */
   font-size: 1.5625vw;
   text-decoration: none;
   font-family: HighwayGothic;
@@ -175,7 +162,6 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  /* font-size: 16px; */
   font-size: 0.8333vw;
 }
 button:hover {
@@ -202,7 +188,6 @@ button:hover {
 }
 
 .footer a {
-  /* float: left; */
   display: inline-block;
   color: white;
   text-align: center;
@@ -225,12 +210,5 @@ button:hover {
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
-  /* .navbar a {
-    float: none;
-    width: 100%;
-  }
 
-  .paragraph {
-    inline-size: 75%;
-  } */
 }
