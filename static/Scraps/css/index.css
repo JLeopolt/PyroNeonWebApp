@@ -1,0 +1,64 @@
+/* Import navbar/footer stuff */
+@import "../../Global/css/header-navbar.css";
+
+/* Make the navbar 4x */
+.navbar a {
+  width: calc(25% - 50px);
+}
+
+html {
+  min-height: 100%;
+  background-repeat:no-repeat;
+  background-size: cover;
+  background: linear-gradient(0deg, rgba(255,111,0,1) 0%, rgba(255,196,44,1) 100%);
+}
+
+/* Style the body */
+body {
+  font-family: NewTown;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  /* font-size: 30px; */
+  font-size: 1.5625vw;
+}
+
+/* Increase the font size of the heading */
+header h1 {
+  /* font-size: 60px; */
+  font-size: 3.125vw;
+  color: white;
+  font-family: HighwayGothic;
+}
+
+/* Wrap paragraphs into blocks without using <br> */
+.paragraph {
+  inline-size: 50%;
+  overflow-wrap: break-word;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 0;
+
+  color:white;
+  text-shadow: 3px 3px 2px black;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  /* font-size: 30px; */
+  font-size: 1.5625vw;
+}
+.paragraph h3 {
+  /* font-size: 50px; */
+  font-size: 2.6vw;
+}
+.paragraph a {
+  text-decoration: none;
+  color: gold;
+}
+.paragraph a:hover {
+  color: yellow;
+}
