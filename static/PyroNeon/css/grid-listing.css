@@ -1,0 +1,58 @@
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 75%;
+  margin: auto;
+}
+.grid-item{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  text-align: left;
+  position: relative;
+}
+/* Change color on hover */
+.grid-item:hover {
+  background-color: #333333;
+}
+.grid-item div{
+  inline-size: 90%;
+}
+.grid-item h1{
+  font-size: 1.8vw;
+  text-decoration: none;
+  font-family: NewTown;
+  color: gold;
+  margin: 0;
+}
+.grid-item h2{
+  font-size: 1.6vw;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  color: #0098FF;
+  margin: 0;
+}
+.grid-item h3{
+  font-size: 1.2vw;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  color: #696969;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+}
+.grid-item p{
+  margin:0;
+  font-size: 1.3vw;
+}
+.grid-container a{
+  font-size: 1.5625vw;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  color: white;
+}
+.grid-item img{
+  max-width: 100%;
+  max-height: 100%;
+}
