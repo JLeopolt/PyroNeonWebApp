@@ -1,11 +1,6 @@
 /* Import navbar/footer stuff */
 @import "../../Global/css/header-navbar.css";
 
-/* Make the navbar 4x */
-.navbar a {
-  width: calc(25% - 50px);
-}
-
 /* Adjust accordingly for mobile */
 @media (orientation: portrait) {
   .navbar a {
