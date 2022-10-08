@@ -15,7 +15,7 @@ def products():
 # Contacts / Social links page for the company
 @app.route('/community')
 def community():
-    return render_template('PyroNeon/contacts.html')
+    return render_template('PyroNeon/community.html')
 
 # Directs to the 404 page.
 @app.route('/missing')
