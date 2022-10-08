@@ -8,7 +8,7 @@
 .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -50px;
@@ -22,8 +22,7 @@
 
 /* Position the image container (needed to position the left and right arrows) */
 .slideshow-container {
-  /* position: relative; */
-  /* background-color: black; */
+  position: relative;
 }
 
 /* Position the "next button" to the right */
