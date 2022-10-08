@@ -1,10 +1,19 @@
 .grid-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 2vh;
   width: 75%;
   margin: auto;
 }
+
+@media (orientation: portrait) {
+  .grid-container{
+    /* Vertical Grid */
+    grid-template-columns: 1fr;
+    width: 75%;
+  }
+}
+
 .grid-item{
   height: 100%;
   width: 100%;
@@ -51,6 +60,23 @@
   text-decoration: none;
   font-family: HighwayGothic;
   color: white;
+}
+@media (orientation: portrait) {
+  .grid-item h1{
+    font-size: 2rem;
+  }
+  .grid-item h2{
+    font-size: 1.5rem;
+  }
+  .grid-item h3{
+    font-size: 1rem;
+  }
+  .grid-item p{
+    font-size: 0.9rem;
+  }
+  .grid-container a{
+    font-size: 1.3rem;
+  }
 }
 .grid-item img{
   max-width: 100%;
