@@ -6,6 +6,16 @@
   width: calc(25% - 50px);
 }
 
+/* Adjust accordingly for mobile */
+@media (orientation: portrait) {
+  .navbar a {
+    font-size: 1.25rem;
+  }
+  .footer a{
+    font-size: 0.8rem;
+  }
+}
+
 html {
   min-height: 100%;
   background-repeat:no-repeat;

@@ -6,6 +6,17 @@
   width: calc(25% - 50px);
 }
 
+/* Adjust accordingly for mobile */
+@media (orientation: portrait) {
+  .navbar a {
+    font-size: 1.25rem;
+  }
+  .footer a{
+    font-size: 0.8rem;
+  }
+}
+
+
 /* Style the body */
 body {
   /* font-family: Arial, Helvetica, sans-serif; */
@@ -77,13 +88,19 @@ article p{
 article a{
   text-decoration: none;
 }
-.screenshot{
-  border: 5px solid white;
-}
 article header h3 {
   /* font-size: 50px; */
   font-size: 2.6vw;
 }
+
+.slide{
+  background-color: black;
+}
+.screenshot{
+  max-width: 50%;
+  max-height: 50%;
+}
+
 
 
 
