@@ -4,6 +4,12 @@
   grid-gap: 2vh;
   width: 75%;
   margin: auto;
+
+  z-index: -1;
+}
+
+.navbar{
+  z-index: 2;
 }
 
 @media (orientation: portrait) {
