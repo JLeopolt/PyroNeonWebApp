@@ -1,10 +1,6 @@
 /* Import navbar/footer stuff */
 @import "../../Global/css/header-navbar.css";
 
-p {
-  font-size: 1.5625vw;
-}
-
 /* Style the body */
 body {
   font-family: NewTown;
@@ -17,11 +13,17 @@ body {
   flex-direction: column;
 }
 
-/* Increase the font size of the heading */
-header h1 {
+/* Increase the font size of the headings */
+h1 {
   font-size: 3.125vw;
-  color: white;
   font-family: HighwayGothic;
+  margin: 0;
+  color: white;
+}
+
+p {
+  font-size: 1.5625vw;
+  color: #C9C9C9;
 }
 
 /* Wrap paragraphs into blocks without using <br> */
@@ -29,6 +31,8 @@ header h1 {
   inline-size: 50%;
   overflow-wrap: break-word;
   margin: auto;
+
+  padding-bottom: 3rem;
 }
 
 .main{
@@ -39,15 +43,16 @@ header h1 {
 }
 
 article{
+  display: table;
   text-align:center;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   color:white;
   text-decoration: none;
   font-family: HighwayGothic;
 }
 article p{
-  font-size: 1.5625vw;
+  margin: 0;
 }
 article a{
   text-decoration: none;
@@ -56,6 +61,94 @@ article a{
   margin-left: auto;
   margin-right: auto;
 }
-article header h3 {
-  font-size: 2.6vw;
+
+
+
+.teamMembers{
+  /* background-color: #2C2C2C; */
+  display: table;
+  table-layout: 1fr;
+  margin: auto;
+}
+#teamProfile{
+  vertical-align: middle;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+/* Name */
+#teamProfile h1{
+  color: white;
+  font-size: 2.5vw;
+  margin: 0;
+}
+/* Title */
+#teamProfile h2{
+  font-size: 1.75vw;
+  color: #0098FF;
+  margin: 0;
+}
+/* Handle */
+#teamProfile h3{
+  font-size: 1.2vw;
+  color: #696969;
+  margin: 0;
+}
+
+#teamProfile img{
+  height: 10rem;
+  width: 10rem;
+}
+
+@media (orientation: portrait) {
+  #teamProfile{
+    display: block;
+  }
+  #teamProfile h1{
+    font-size: 3rem;
+  }
+  #teamProfile h2{
+    font-size: 2rem;
+  }
+  #teamProfile h3{
+    font-size: 1.5rem;
+  }
+  #teamProfile img{
+    height: 15rem;
+    width: 15rem;
+  }
+}
+
+
+
+#contactsTable{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30vh;
+}
+
+#logoBanner{
+  max-width: 50%;
+  max-height: 50%;
+}
+
+#socialLink{
+  width: 7.5vw;
+  height: 7.5vw;
+}
+
+@media (orientation: portrait) {
+  h1{
+    font-size: 3rem;
+  }
+  p{
+    font-size: 1.5rem;
+  }
+  .paragraph {
+    inline-size: 90%;
+  }
+  #logoBanner{
+    max-width: 100%;
+    max-height: 100%;
+  }
 }

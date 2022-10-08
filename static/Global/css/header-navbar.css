@@ -45,15 +45,15 @@
 
 /* Logo in the Navbar */
 .navbar a.logo img{
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 
 @media (orientation: portrait) {
   .navbar a{
     font-size: 1.5rem;
-    padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
   }
   .navbar a.logo img {
     width: 1.5rem;

@@ -8,6 +8,7 @@
   z-index: -1;
 }
 
+/* Fix clashing issue with slideshow */
 .navbar{
   z-index: 2;
 }
