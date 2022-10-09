@@ -52,12 +52,12 @@
 
 @media (orientation: portrait) {
   .navbar a{
-    font-size: 1.5rem;
-    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    font-size: 5vw;
+    padding: 2vw 4vw;
   }
   .navbar a.logo img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 5vw;
+    height: 5vw;
   }
 }
 
@@ -80,15 +80,15 @@
   text-align: center;
   text-decoration: none;
 
-  font-size: 1vw;
+  font-size: 2vh;
   padding: 1vw 3vw;
 }
 
-@media (orientation: portrait) {
+/* @media (orientation: portrait) {
   .footer a {
-    font-size: 1rem;
+    font-size: 2vh;
   }
-}
+} */
 
 /* Change color on hover */
 .footer a:hover {

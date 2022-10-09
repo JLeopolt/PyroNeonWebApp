@@ -5,11 +5,11 @@
   width: 75%;
   margin: auto;
 
-  z-index: -1;
+  z-index: 1;
 }
 
 /* Fix clashing issue with slideshow */
-.navbar{
+.navbar, .footer{
   z-index: 2;
 }
 
