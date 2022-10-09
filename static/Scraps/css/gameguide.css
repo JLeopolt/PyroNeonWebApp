@@ -136,6 +136,7 @@ section{
 }
 
 .head-link, .major-link, .minor-link{
+  width: auto;
   text-align: left;
   text-shadow: 0px 0px 0px black;
 }
@@ -187,6 +188,14 @@ details summary::marker {
   border: none;
   color: white;
 }
+#shortcutsLabel{
+  display: block;
+  color:white;
+  padding-top: 10vh;
+  font-size: 4vh;
+  width: 50%;
+  margin: 0;
+}
 /* Portrait mode */
 @media (orientation: portrait) {
   /* Sidebar is hidden by default. */
@@ -209,6 +218,9 @@ details summary::marker {
   }
   summary::marker {
     margin: 0;
+  }
+  #shortcutsLabel{
+    padding-top: 5vh;
   }
 }
 /* Landscape mode */
