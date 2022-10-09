@@ -14,15 +14,19 @@ body {
 }
 
 p {
+  margin: 0;
+  font-family: HighwayGothic;
   font-size: 1.5625vw;
 }
 
 /* Increase the font size of the heading */
-header h1 {
-  /* font-size: 60px; */
+h1 {
+  margin: 0;
   font-size: 3.125vw;
-  color: white;
+  color: gold;
   font-family: HighwayGothic;
+
+  padding-top: 5rem;
 }
 
 /* Wrap paragraphs into blocks without using <br> */
@@ -35,18 +39,34 @@ header h1 {
 
   color:white;
   text-decoration: none;
-  font-family: HighwayGothic;
-  /* font-size: 30px; */
-  font-size: 1.5625vw;
-}
-.paragraph h3 {
-  /* font-size: 50px; */
-  font-size: 2.6vw;
+  padding-bottom: 10vh;
 }
 .paragraph a {
   text-decoration: none;
-  color: gold;
+  color: #0098FF;
 }
 .paragraph a:hover {
-  color: yellow;
+  color: #71C6FF;
+}
+
+#banner{
+  max-width: 50%;
+  max-height: 50%;
+  margin: auto;
+}
+
+@media (orientation: portrait) {
+  p{
+    font-size: 2rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .paragraph {
+    inline-size: 90%;
+  }
+  #banner{
+    max-width: 80%;
+    max-height: 80%;
+  }
 }
