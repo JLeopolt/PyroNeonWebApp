@@ -1,6 +1,21 @@
 /* Import navbar/footer stuff */
 @import "../../Global/css/header-navbar.css";
 
+.navbar, .footer{
+  z-index: 2;
+}
+
+/* Adjust accordingly for mobile */
+@media (orientation: portrait) {
+  .navbar a {
+    font-size: 2vh;
+    padding: 1vw 2vw;
+  }
+  .footer a{
+    font-size: 1.5vh;
+  }
+}
+
 html {
   min-height: 100%;
   background-repeat:no-repeat;
@@ -20,6 +35,11 @@ body {
   /* display: flex;
   flex-direction: column; */
 }
+#logoBanner{
+  margin: auto;
+  max-width: 50%;
+  max-height: 50%;
+}
 
 /* Wrap paragraphs into blocks without using <br> */
 article p, article h1, article h2, article h3, article a {
@@ -36,7 +56,7 @@ article p, article h1, article h2, article h3, article a {
   /* font-size: 30px; */
   font-size: 1.5625vw;
 
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 5vh;
 }
 .sidebar article p, article h1, article h2, article h3, article a{
   inline-size: 90%;
@@ -63,12 +83,43 @@ article a {
 article a:hover {
   color: yellow;
 }
-
-
 section{
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 5vh;
+}
+.content{
+  width: 80%;
+  min-height: 100%;
+  margin-left: 20%;
+  display: inline-block;
+  padding-bottom: 10%;
 }
 
+@media (orientation: portrait) {
+  #logoBanner{
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .content{
+    margin-left: 0;
+    width: 95%;
+  }
+  article{
+    width: 100%;
+  }
+  article p, article h1, article h2, article h3, article a {
+    inline-size: 95%;
+    font-size: 2vh;
+  }
+  article h1 {
+    font-size: 3.125vh;
+  }
+  article h2 {
+    font-size: 3vh;
+  }
+  article h3 {
+    font-size: 2.5vh;
+  }
+}
 
 
 .sidebar{
@@ -78,16 +129,10 @@ section{
   background-color: #181818;
 
   position: fixed;
-  top: 2ch;
+  z-index: 1;
+  top: 0;
   left: 0;
   display: inline-block;
-}
-.content{
-  width: 80%;
-  min-height: 100%;
-  margin-left: 20%;
-  display: inline-block;
-  padding-bottom: 10%;
 }
 
 .head-link, .major-link, .minor-link{
@@ -116,21 +161,66 @@ section{
   background-color: #FF7800;
   color: white;
 }
-
 details summary a{
   display: inline-block;
 }
-
 /* Affects the drop-down arrow on the sidebar links. */
 details summary::marker {
   align-items: center;
   color: white;
 }
+#viewShortcuts{
+  color:white;
+  background-color: #0098FF;
+  border: 2px solid #0075C4;
+  font-size: 4vh;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
 
+  z-index: 2;
+  position: fixed;
+  left: 0;
+}
+#viewShortcuts:hover {
+  background-color: #8BD0FF;
+  border: none;
+  color: white;
+}
+/* Portrait mode */
+@media (orientation: portrait) {
+  /* Sidebar is hidden by default. */
+  .sidebar{
+    display: none;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .head-link{
+    font-size: 3.6vh;
+  }
+  .major-link{
+    font-size: 3vh;
+  }
+  .minor-link{
+    font-size: 2.3vh;
+  }
+  details {
+    padding-left: 5%;
+  }
+  summary::marker {
+    margin: 0;
+  }
+}
+/* Landscape mode */
+@media (orientation: landscape) {
+  /* Disable viewShortcuts button on landscape. */
+  #viewShortcuts{
+    display: none;
+  }
+}
 
 
 table {
-  /* border-spacing: 2px; */
   border-collapse: collapse;
   background-color: #696969;
   color:white;
@@ -152,4 +242,9 @@ tr{
 }
 .tr-head{
   background-color: #444444;
+}
+@media (orientation: portrait) {
+  table {
+    font-size: 2vh;
+  }
 }

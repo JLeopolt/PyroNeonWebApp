@@ -25,12 +25,13 @@
   <a href="/scraps/community">Community</a>
 </div>
 
-
+<button onclick="toggleDisplay('sidebar')" type="button" id="viewShortcuts"> &#8801; </button>
+<script src="../../static/Scraps/js/revealSidebar.js"></script>
 
 <!-- Sidebar, Table of Contents -->
 <div class="sidebar">
   <article>
-    <h2 style="color:white;">Shortcuts</h2>
+    <h2 style="color:white; padding-top: 5vh; font-size: 4vh;">Shortcuts</h2>
     <details open style="padding-top: 1ch;">
       <summary>
         <a href="#game-guide">
@@ -241,7 +242,7 @@
 <div class="content">
 <article>
   <!-- Banner -->
-  <img src="../static/Scraps/img/Scraps-Title-Logo.png" alt="Scraps Banner" style="max-width: 30%; max-height: 30%;">
+  <img src="../static/Scraps/img/Scraps-Title-Logo.png" alt="Scraps Banner" id="logoBanner">
 
   <!-- Header title -->
   <h1 id="game-guide">
@@ -357,7 +358,7 @@
         <h3>
           Base Building Tips
         </h3>
-        <p style="font-size: 25px; padding-top: 2ch;">
+        <p>
           - Keep your base modular, with many individual rooms.<br><br>
           - Always take the extra mile to upgrade your base. <br><br>
           - Try not to leave your base unattended too long. <br><br>
@@ -373,7 +374,7 @@
         <h3>
           Miscellaneous Tips
         </h3>
-        <p style="font-size: 25px; padding-top: 2ch;">
+        <p>
           - Oxidized copper is easier to break.<br><br>
           - Creepers do not spawn naturally.<br><br>
           - Players spawn with less HP and less hunger than normal.<br><br>
