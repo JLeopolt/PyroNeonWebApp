@@ -3,9 +3,17 @@
    font-family: HighwayGothic;
    src: url('../../Global/fonts/HWYGNRRW.TTF');
 }
-@font-face {
+/* @font-face {
   font-family: NewTown;
-  src: url('../../Global/fonts/NEWTOW__.WOFF');
+  src: url('../../Global/fonts/NEWTOW_.TTF');
+} */
+@font-face {
+    font-family: 'Newtown';
+    src: url('../../Global/fonts/Newtown.woff2') format('woff2'),
+        url('../../Global/fonts/Newtown.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
