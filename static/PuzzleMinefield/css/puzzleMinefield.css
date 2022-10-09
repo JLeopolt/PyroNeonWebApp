@@ -4,10 +4,11 @@
 /* Adjust accordingly for mobile */
 @media (orientation: portrait) {
   .navbar a {
-    font-size: 1.25rem;
+    font-size: 2vh;
+    padding: 1vw 2vw;
   }
   .footer a{
-    font-size: 0.8rem;
+    font-size: 1.5vh;
   }
 }
 
@@ -20,18 +21,8 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  /* overflow: hidden; */
+  overflow: auto;
 }
-
-p {
-  font-size: 1.5625vw;
-}
-
-/* Increase the font size of the heading */
-header h1 {
-  font-size: 3.125vw;
-}
-
 
 #backgroundVideo {
   overflow:hidden;
@@ -44,49 +35,54 @@ header h1 {
 
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 
+#logoBanner{
+  margin: auto;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.paragraph, h1, h3{
+  text-shadow: 3px 3px 0px black;
+  font-family: HighwayGothic;
+  color:white;
+}
 .paragraph {
+  width: auto;
   inline-size: 50%;
   overflow-wrap: break-word;
   margin: auto;
-}
-
-.main{
-  position: relative;
-  left:0;
-  margin-left: auto;
-  margin-right: auto;
-}
-.row header h1{
-  /* font-size: 60px; */
-  font-size: 3.125vw;
-  text-shadow: 3px 3px 0px black;
-  font-family: HighwayGothic;
-  color:white;
-}
-
-article{
   text-align:center;
   display: block;
-  width: 100%;
-  color:white;
-  text-decoration: none;
-  font-family: HighwayGothic;
 
-  text-shadow: 3px 3px 0px black;
-}
-article p{
-  /* font-size: 30px; */
-  font-size: 1.5625vw;
-}
-article a{
   text-decoration: none;
+
+  padding-bottom: 3vh;
 }
-article header h3 {
-  /* font-size: 50px; */
+
+h1{
+  margin: 0;
+  font-size: 3.125vw;
+}
+h3 {
+  margin: 0;
   font-size: 2.6vw;
 }
+
+p{
+  margin: 0;
+  font-size: 1.5625vw;
+}
+a{
+  text-decoration: none;
+}
+i{
+  margin:0;
+  font-size: 1.5625vw;
+}
+
 
 .slide{
   background-color: black;
@@ -94,6 +90,31 @@ article header h3 {
 .screenshot{
   max-width: 50%;
   max-height: 50%;
+}
+
+@media (orientation: portrait) {
+  #logoBanner{
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .paragraph, h1{
+    text-shadow: 2px 2px 0px black;
+  }
+  .paragraph {
+    inline-size: 90%;
+  }
+  h1{
+    font-size: 5vh;
+  }
+  p{
+    font-size: 3vh;
+  }
+  h3 {
+    font-size: 4vh;
+  }
+  i{
+    font-size: 2vh;
+  }
 }
 
 

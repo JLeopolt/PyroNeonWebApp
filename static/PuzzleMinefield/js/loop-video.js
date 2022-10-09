@@ -1,4 +1,7 @@
-document.getElementsByTagName('backgroundVideo')[0].onended = function () {
-  this.load();
-  this.play();
+
+var video = document.getElementById('backgroundVideo');
+video.onended = (event) => {
+  // video.currentTime = 0;
+  video.load();
+  video.play();
 };

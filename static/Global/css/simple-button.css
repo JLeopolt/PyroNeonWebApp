@@ -2,11 +2,17 @@ button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 0.5vw 0.5vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 0.8333vw;
+  font-size: 1vw;
+}
+@media (orientation: portrait) {
+  button{
+    padding: 2vw 2vw;
+    font-size: 2vh;
+  }
 }
 button:hover {
   background-color: #2b632d;
