@@ -4,18 +4,22 @@
 /* Adjust accordingly for mobile */
 @media (orientation: portrait) {
   .navbar a {
-    font-size: 1.25rem;
+    font-size: 2vh;
+    padding: 1vw 2vw;
   }
   .footer a{
-    font-size: 0.8rem;
+    font-size: 1.5vh;
   }
 }
 
 html {
+  /* background: linear-gradient(0deg, rgba(255,111,0,1) 0%, rgba(255,196,44,1) 100%); */
   min-height: 100%;
+  background-image: url("../img/wallpaper.png");
+  background-attachment:fixed;
   background-repeat:no-repeat;
+  background-position: center center;
   background-size: cover;
-  background: linear-gradient(0deg, rgba(255,111,0,1) 0%, rgba(255,196,44,1) 100%);
 }
 
 /* Style the body */
@@ -28,17 +32,23 @@ body {
   flex-direction: column;
 }
 
-p {
-  /* font-size: 30px; */
-  font-size: 1.5625vw;
+#logoBanner{
+  margin: auto;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 /* Increase the font size of the heading */
-header h1 {
-  /* font-size: 60px; */
+h1 {
+  margin: 0;
   font-size: 3.125vw;
   color: white;
   font-family: HighwayGothic;
+  padding-top: 4vh;
+}
+
+p{
+  margin: 0;
 }
 
 /* Wrap paragraphs into blocks without using <br> */
@@ -50,10 +60,17 @@ header h1 {
   margin-top: 0;
 
   color:white;
-  text-shadow: 3px 3px 2px black;
+
+  /* Stroke text */
+  text-shadow:
+       3px 3px 0 black,
+     -3px -3px 0 black,
+      3px -3px 0 black,
+      -3px 3px 0 black,
+       3px 3px 0 black;
+
   text-decoration: none;
   font-family: HighwayGothic;
-  /* font-size: 30px; */
   font-size: 1.5625vw;
 }
 .paragraph h3 {
@@ -66,4 +83,21 @@ header h1 {
 }
 .paragraph a:hover {
   color: yellow;
+}
+
+@media (orientation: portrait) {
+  #logoBanner{
+    max-width: 100%;
+    max-height: 100%;
+  }
+  h1 {
+    font-size: 5vh;
+  }
+  .paragraph {
+    inline-size: 95%;
+    font-size: 3vh;
+  }
+  .paragraph h3 {
+    font-size: 4vh;
+  }
 }
