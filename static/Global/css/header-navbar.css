@@ -3,10 +3,6 @@
    font-family: HighwayGothic;
    src: url('../../Global/fonts/HWYGNRRW.TTF');
 }
-/* @font-face {
-  font-family: NewTown;
-  src: url('../../Global/fonts/NEWTOW_.TTF');
-} */
 @font-face {
     font-family: 'Newtown';
     src: url('../../Global/fonts/Newtown.woff2') format('woff2'),
@@ -42,7 +38,6 @@
   text-align: center;
 
   padding: 1rem 2rem 1rem 2rem;
-  /* padding: 1vh 2vw 1vh 2vw; */
 }
 
 /* Change color on hover */
@@ -91,12 +86,6 @@
   font-size: 2vh;
   padding: 1vw 3vw;
 }
-
-/* @media (orientation: portrait) {
-  .footer a {
-    font-size: 2vh;
-  }
-} */
 
 /* Change color on hover */
 .footer a:hover {

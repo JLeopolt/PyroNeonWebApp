@@ -105,6 +105,14 @@ def scrapsGuide():
 
 
 
+# Register for a new PN account
+@app.route('/accounts/register')
+def registerAccount():
+    return render_template('Accounts/register.html')
+
+@app.route('/accounts/account-created-success')
+def createdAccountSuccessfully():
+    return render_template('Accounts/email/created-account.html')
 
 
 

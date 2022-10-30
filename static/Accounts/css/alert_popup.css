@@ -1,0 +1,53 @@
+/* Import navbar/footer stuff */
+@import "../../Global/css/header-navbar.css";
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* The alert message box */
+.alert {
+  background-color: #f44336; /* Red */
+  align-items: center;
+  justify-content: center;
+  display: none;
+  position: relative;
+
+  z-index: 3;
+  bottom: 5vh;
+}
+
+.alert_message{
+  margin-left: auto;
+  color: white;
+  font-size: 2vw;
+  font-family: HighwayGothic;
+}
+
+/* The close button */
+.close_alert_button {
+  color: white;
+  margin-left: auto;
+  padding-right: 1vw;
+  font-size: 3vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.close_alert_button:hover {
+  color: black;
+}
+
+
+@media (orientation: portrait) {
+  .alert {
+    bottom: 0;
+  }
+  .alert_message{
+    font-size: 3vh;
+  }
+  .close_alert_button {
+    font-size: 4vh;
+  }
+}
