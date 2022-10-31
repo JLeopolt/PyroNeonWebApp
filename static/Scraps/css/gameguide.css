@@ -1,5 +1,5 @@
 /* Import navbar/footer stuff */
-@import "/Global/css/header-navbar.css";
+@import "/static/Global/css/header-navbar.css";
 
 .navbar, .footer{
   z-index: 2;
