@@ -1,18 +1,18 @@
 <!--
-  This page is shown when a user has created an account successfully, and notifies them to check their email inbox.
+  This page is shown when a user clicked the email confirmation link from their inbox, and was redirected to this page with a querystring containing the token.
  -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sign Up - PyroNeon</title>
+  <title>Activate Your Account - PyroNeon</title>
   <link rel="icon" href="../../static/Global/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../../static/Accounts/css/accounts.css">
 </head>
 
-<body style="background: linear-gradient(9deg, rgba(0,236,255,1) 0%, rgba(44,66,255,1) 100%); background-attachment: fixed;">
+<body style="background: linear-gradient(10deg, rgba(15,223,74,1) 0%, rgba(2,105,0,1) 100%); background-attachment: fixed; background-repeat: no-repeat;">
 
 <!-- The top navbar header.  -->
 <div class="navbar">
@@ -28,15 +28,17 @@
 
 <article style="position: fixed; top: 40%; text-shadow: -1px 1px 2px #000,1px 1px 2px #000,1px -1px 0 #000,-1px -1px 0 #000;">
   <h1>
-    You're signed up with PyroNeon Software!
+    You're all done!
   </h1>
 
   <div class="paragraph" style="padding-bottom: 0;">
     <p>
-      Please check your email inbox (and spam folder) for a link to confirm your email address and activate your account.
+      Your email address was confirmed, and your account is fully activated. <a style="color: gold;" href="/accounts/login">Log in here.</a>
     </p>
   </div>
 </article>
+
+<script type="module" src="../../static/Accounts/js/email/confirm_email_address.js"></script>
 
 <!-- Footer with extra links at the bottom of the page. -->
 <div class="footer">

@@ -1,0 +1,54 @@
+<!--
+  This page is shown when a user has created an account successfully, and notifies them to check their email inbox.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Check Your Inbox - PyroNeon</title>
+  <link rel="icon" href="../../static/Global/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../static/Accounts/css/accounts.css">
+  <link rel="stylesheet" href="../../static/Global/css/simple-button.css">
+</head>
+
+<body style="background: linear-gradient(9deg, rgba(0,236,255,1) 0%, rgba(44,66,255,1) 100%); background-attachment: fixed; background-repeat: no-repeat;">
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="../../static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+
+<article style="position: fixed; top: 40%; text-shadow: -1px 1px 2px #000,1px 1px 2px #000,1px -1px 0 #000,-1px -1px 0 #000;">
+  <h1>
+    You're signed up with PyroNeon Software!
+  </h1>
+
+  <div class="paragraph" style="padding-bottom: 0;">
+    <p>
+      Please check your email inbox and spam folder for a link to confirm your email address and activate your account.
+    </p>
+  </div>
+  <br>
+  <button onclick="location.href = '/accounts/resend-email-code';">Didn't Get An Email?</button>
+
+</article>
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="https://www.reddit.com/r/pyroneon/">Reddit</a>
+  <a href="https://twitter.com/PyroNeonGames">Twitter</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>

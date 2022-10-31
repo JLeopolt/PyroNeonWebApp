@@ -1,0 +1,71 @@
+<!--
+  This page is shown when a user has created an account successfully, and notifies them to check their email inbox.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Resend Confirmation Code - PyroNeon</title>
+  <link rel="icon" href="../../static/Global/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../static/Accounts/css/accounts.css">
+  <link rel="stylesheet" href="../../static/Accounts/css/alert_popup.css">
+</head>
+
+<body style="background: linear-gradient(9deg, rgba(0,236,255,1) 0%, rgba(44,66,255,1) 100%); background-attachment: fixed; background-repeat: no-repeat;">
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="../../static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+
+<article style="text-shadow: -1px 1px 2px #000,1px 1px 2px #000,1px -1px 0 #000,-1px -1px 0 #000; position: fixed; top: 35%;">
+  <h1>
+    Manually Confirm Your Email Address
+  </h1>
+
+  <div class="paragraph" style="padding-bottom: 0;">
+    <p>
+      Please enter the username you just signed up with.
+    </p>
+  </div>
+
+  <form action="" id="username_submit_form">
+    <table class="form-table">
+      <tr class="form-row">
+        <td class="form-label">Username</td>
+        <td><input type="text" class="input-text-field" name="username" id="username"></td>
+      </tr>
+      <tr class="form-row">
+        <td colspan=2><button type="submit" class="submitButton" id="submitUsernameButton">Resend Confirmation Code</button></td>
+      </tr>
+    </table>
+  </form>
+</article>
+
+<div class="alert" id="alert_box">
+  <div class="alert_message">This is an alert.</div>
+  <!-- Hide the alert box, then scroll to the top of the page. -->
+  <span class="close_alert_button" onclick="this.parentElement.style.display='none'; window.location.href = '#';">&times;</span>
+</div>
+
+<script type="module" src="../../static/Accounts/js/email/resend_confirmation_code.js"></script>
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="https://www.reddit.com/r/pyroneon/">Reddit</a>
+  <a href="https://twitter.com/PyroNeonGames">Twitter</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>

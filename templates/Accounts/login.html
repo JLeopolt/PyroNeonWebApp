@@ -1,16 +1,16 @@
 <!--
-  This page is used to register a new PyroNeon Software account.
+  This page is used to log into an existing PyroNeon Software account.
  -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sign Up - PyroNeon</title>
-  <link rel="icon" href="../../static/Global/img/favicon.ico" type="image/x-icon">
+  <title>Log In - PyroNeon</title>
+  <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../static/Accounts/css/accounts.css">
-  <link rel="stylesheet" href="../../static/Accounts/css/alert_popup.css">
+  <link rel="stylesheet" href="/static/Accounts/css/accounts.css">
+  <link rel="stylesheet" href="/static/Accounts/css/alert_popup.css">
 </head>
 
 <body>
@@ -33,16 +33,16 @@
   <img src="../../static/PyroNeon/img/banner.png" alt="PyroNeon Banner" id="logoBanner">
 
   <h1>
-    Sign Up
+    Log in
   </h1>
 
   <div class="paragraph" style="padding-bottom: 0;">
     <p>
-      Create a new PyroNeon Software account here. If you already have an account, <a style="color: gold;" href="/accounts/login">log in here.</a>
+      Log into your PyroNeon Software account. Don't have an account? <a style="color: gold;" href="/accounts/register">Sign up here.</a>
     </p>
   </div>
 
-  <form action="" id="register_submit_form">
+  <form action="" id="login_submit_form">
     <table class="form-table">
       <tr class="form-row">
         <td class="form-label">Username</td>
@@ -54,16 +54,7 @@
         <td><input type="checkbox" onclick="togglePasswordVisibility('password')">Show Password</input></td>
       </tr>
       <tr class="form-row">
-        <td class="form-label">Confirm Password</td>
-        <td><input type="password" class="input-text-field" name="confirm_password" id="confirm_password"></td>
-        <td><input type="checkbox" onclick="togglePasswordVisibility('confirm_password')">Show Password</input></td>
-      </tr>
-      <tr class="form-row">
-        <td class="form-label">Email Address</td>
-        <td><input type="text" class="input-text-field" name="email_address" id="email_address"></td>
-      </tr>
-      <tr class="form-row">
-        <td colspan=3><button type="submit" class="submitButton" id="registerSubmitButton">Register</button></td>
+        <td colspan=3><button type="submit" class="submitButton" id="loginSubmitButton">Log in</button></td>
       </tr>
     </table>
   </form>
@@ -79,7 +70,7 @@
 <script src="../../static/Accounts/js/password_visibility.js"></script>
 
 <!-- Used to send POST requests to the API. -->
-<script type="module" src="../../static/Accounts/js/submit_form.js"></script>
+<script type="module" src="../../static/Accounts/js/login.js"></script>
 
 <!-- Footer with extra links at the bottom of the page. -->
 <div class="footer">

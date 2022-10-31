@@ -104,6 +104,9 @@ def scrapsGuide():
 
 
 
+@app.route('/accounts')
+def accountsHomepage():
+    return redirect("/accounts/login", code=302)
 
 # Register for a new PN account
 @app.route('/accounts/register')
@@ -112,7 +115,24 @@ def registerAccount():
 
 @app.route('/accounts/account-created-success')
 def createdAccountSuccessfully():
-    return render_template('Accounts/email/created-account.html')
+    return render_template('Accounts/email/account-created-success.html')
+
+@app.route('/accounts/activate')
+def activateEmailAddress():
+    return render_template('Accounts/email/activate-email-address.html')
+
+@app.route('/accounts/resend-email-code')
+def resendEmailCode():
+    return render_template('Accounts/email/resend-confirmation-code.html')
+
+@app.route('/accounts/enter-manual-confirmation-code')
+def enterManualConfirmationCode():
+    return render_template('Accounts/email/enter-manual-confirmation-code.html')
+
+@app.route('/accounts/login')
+def login():
+    return render_template('Accounts/login.html')
+
 
 
 

@@ -7,9 +7,9 @@ const formUtils = new FormUtils();
 const alertPopup = new AlertPopup();
 
 // Call submitForm() on form submission.
-const register_submit_form = document.querySelector("#register_submit_form");
-if(register_submit_form){
-  register_submit_form.addEventListener("submit", function(e) {
+const login_submit_form = document.querySelector("#login_submit_form");
+if(login_submit_form){
+  login_submit_form.addEventListener("submit", function(e) {
     submitForm(e, this);
   });
 }
@@ -18,7 +18,7 @@ async function submitForm(e, form){
   // Prevent reloading page
   e.preventDefault();
   // Deactivate the submit button for a few seconds.
-  const submit_button = document.getElementById("registerSubmitButton");
+  const submit_button = document.getElementById("loginSubmitButton");
   formUtils.disableButton(submit_button);
   // Build an object from the form data.
   const jsonFormData = formUtils.buildJsonFormData(form);
@@ -29,13 +29,11 @@ async function submitForm(e, form){
     alertPopup.createAlertPopup("warning", errorMessage);
     return;
   }
-  // Don't need to send this.
-  delete jsonFormData.confirm_password;
 
   // Prepare headers
   const headers = formUtils.buildHeaders();
   // Send the post request and get a JSON String as a response.
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/register", headers, jsonFormData);
+  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/authenticate", headers, jsonFormData);
   if(!response){
     alertPopup.createAlertPopup("error", "Could not connect to PyroNeonAuth server.");
     return;
@@ -45,7 +43,13 @@ async function submitForm(e, form){
   const statusType = String(response.status)[0];
   // Successful responses
   if(statusType === "2"){
-    window.location.href = "/accounts/account-created-success";
+    // JWT as string
+    const jwt = response.jwt;
+
+    // Account manager page
+    alertPopup.createAlertPopup("success", "Successfully logged in.");
+    setTimeout(() => {
+      window.location.href = "/";}, 1000);
   }
   // Client error
   else if(statusType === "4"){
@@ -59,14 +63,10 @@ async function submitForm(e, form){
 
 function validateForm(form){
   // If missing parameters, notify the user and fail the attempt before requesting the API.
-  const errorMessage = formUtils.validateForm(form, ["username","password","confirm_password","email_address"]);
+  const errorMessage = formUtils.validateForm(form, ["username","password"]);
   if(errorMessage){
     // Return the error message.
     return errorMessage;
-  }
-  // If password doesn't match confirm password.
-  else if(form.password !== form.confirm_password){
-    return "Confirm password doesn't match password.";
   }
   // If successful, return nothing.
   return null;

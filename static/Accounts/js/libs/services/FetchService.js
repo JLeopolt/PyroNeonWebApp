@@ -1,7 +1,5 @@
 export default class FetchService {
-    constructor() {
-
-    }
+    constructor() {}
 
     async performPostHttpRequest(fetchLink, headers, body) {
         if(!fetchLink || !headers || !body) {
@@ -18,6 +16,25 @@ export default class FetchService {
         }
         catch(err) {
             console.error(`Error at fetch POST: ${err}`);
+            throw err;
+        }
+    }
+
+    async performGetHttpRequest(fetchLink, headers, query=null) {
+        if(!fetchLink || !headers) {
+            throw new Error("One or more GET request parameters was not passed.");
+        }
+        try {
+            const rawResponse = await fetch(fetchLink, {
+                method: "GET",
+                headers: headers,
+                query: (query != null) ? query : ""
+            });
+            const content = await rawResponse.json();
+            return content;
+        }
+        catch(err) {
+            console.error(`Error at fetch GET: ${err}`);
             throw err;
         }
     }

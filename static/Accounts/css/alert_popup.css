@@ -11,8 +11,7 @@ html{
   align-items: center;
   justify-content: center;
   display: none;
-  position: relative;
-
+  position: static;
   z-index: 3;
   bottom: 5vh;
 }

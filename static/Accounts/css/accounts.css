@@ -29,7 +29,7 @@ p {
 
 /* Wrap paragraphs into blocks without using <br> */
 .paragraph {
-  inline-size: 40%;
+  inline-size: 25%;
   overflow-wrap: break-word;
   margin: auto;
   padding-bottom: 3rem;
@@ -100,6 +100,12 @@ article a{
   font-size: 1.5vw;
   padding: 0.5vw;
 }
+.big-input-text-field{
+  font-family: HighwayGothic;
+  box-sizing: border-box;
+  font-size: 3vw;
+  padding: 0.5vw;
+}
 .submitButton{
   font-family: HighwayGothic;
   padding: 0.5vw;
@@ -128,6 +134,10 @@ article a{
   }
   .input-text-field {
     font-size: 2vh;
+    padding: 0.5vh;
+  }
+  .big-input-text-field{
+    font-size: 4vh;
     padding: 0.5vh;
   }
   .submitButton{
