@@ -1,6 +1,3 @@
-/* Import navbar/footer stuff */
-@import "../../Global/css/header-navbar.css";
-
 html{
   scroll-behavior: smooth;
 }

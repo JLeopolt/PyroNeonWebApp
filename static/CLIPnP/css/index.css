@@ -1,10 +1,10 @@
 /* Import navbar/footer stuff */
-@import "../../Global/css/header-navbar.css";
+@import "/Global/css/header-navbar.css";
 
 /* Style the body */
 body {
   font-family: NewTown;
-  background-image: url("../../CLIPnP/img/wallpaper.png");
+  background-image: url("/CLIPnP/img/wallpaper.png");
   margin: 0;
   padding: 0;
   text-align: center;

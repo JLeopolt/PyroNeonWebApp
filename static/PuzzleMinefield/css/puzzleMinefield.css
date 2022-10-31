@@ -1,5 +1,5 @@
 /* Import navbar/footer stuff */
-@import "../../Global/css/header-navbar.css";
+@import "/Global/css/header-navbar.css";
 
 /* Adjust accordingly for mobile */
 @media (orientation: portrait) {

@@ -1,5 +1,5 @@
 /* Import navbar/footer stuff */
-@import "../../Global/css/header-navbar.css";
+@import "/Global/css/header-navbar.css";
 
 /* Adjust accordingly for mobile */
 @media (orientation: portrait) {
@@ -15,7 +15,7 @@
 html {
   /* background: linear-gradient(0deg, rgba(255,111,0,1) 0%, rgba(255,196,44,1) 100%); */
   min-height: 100%;
-  background-image: url("../img/wallpaper.png");
+  background-image: url("/static/Scraps/img/wallpaper.png");
   background-attachment:fixed;
   background-repeat:no-repeat;
   background-position: center center;

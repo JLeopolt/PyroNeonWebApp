@@ -1,12 +1,12 @@
 /* Define custom fonts */
 @font-face {
    font-family: HighwayGothic;
-   src: url('../../Global/fonts/HWYGNRRW.TTF');
+   src: url('/Global/fonts/HWYGNRRW.TTF');
 }
 @font-face {
     font-family: 'Newtown';
-    src: url('../../Global/fonts/Newtown.woff2') format('woff2'),
-        url('../../Global/fonts/Newtown.woff') format('woff');
+    src: url('/Global/fonts/Newtown.woff2') format('woff2'),
+        url('/Global/fonts/Newtown.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
