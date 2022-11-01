@@ -1,11 +1,10 @@
 <!--
-  This page is used to log into an existing PyroNeon Software account.
+  This page is used to delete a PyroNeon account.
  -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Log In - PyroNeon</title>
+  <title>Delete Account - PyroNeon</title>
   <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,18 +31,17 @@
   <!-- Banner -->
   <img src="/static/PyroNeon/img/banner.png" alt="PyroNeon Banner" id="logoBanner">
 
-  <h1>
-    Log in
-  </h1>
+  <h1>Delete Account</h1>
 
   <div class="paragraph" style="padding-bottom: 0;">
     <p>
-      Log into your PyroNeon Software account. Don't have an account? <a style="color: gold;" href="/accounts/register">Sign up here.</a>
+      Permanently delete your PyroNeon Software account here. <a href="https://forms.gle/a8uMY9GhmmWGGy3J7" style="color:gold;">What did we do wrong?</a>
     </p>
   </div>
 
-  <form action="" id="login_submit_form">
+  <form action="" id="update_submit_form">
     <table class="form-table">
+      <tr class="form-row"><td colspan=3><h1>Confirm Your Credentials</h1></td></tr>
       <tr class="form-row">
         <td class="form-label">Username</td>
         <td><input type="text" class="input-text-field" name="username" id="username"></td>
@@ -54,10 +52,7 @@
         <td><input type="checkbox" onclick="togglePasswordVisibility('password')">Show Password</input></td>
       </tr>
       <tr class="form-row">
-        <td colspan=3><button type="submit" class="submitButton" id="loginSubmitButton">Log in</button></td>
-      </tr>
-      <tr class="form-row">
-        <td colspan=3><a style="color:gold; font-size: 3vh;" href="#">Forgot password?</a></td>
+        <td colspan=3><button type="submit" class="redButton" id="updateSubmitButton">Delete Account</button></td>
       </tr>
     </table>
   </form>
@@ -73,7 +68,7 @@
 <script src="/static/Accounts/js/password_visibility.js"></script>
 
 <!-- Used to send POST requests to the API. -->
-<script type="module" src="/static/Accounts/js/login.js"></script>
+<script type="module" src="/static/Accounts/js/updates/delete_account.js"></script>
 
 <!-- Footer with extra links at the bottom of the page. -->
 <div class="footer">

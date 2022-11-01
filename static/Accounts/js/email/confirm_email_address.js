@@ -1,5 +1,5 @@
-import FetchService from '../libs/services/FetchService.js';
-import FormUtils from '../libs/utils/FormUtils.js';
+import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
+import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 
 const formUtils = new FormUtils();
 

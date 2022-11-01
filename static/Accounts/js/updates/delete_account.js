@@ -7,9 +7,9 @@ const formUtils = new FormUtils();
 const alertPopup = new AlertPopup();
 
 // Call submitForm() on form submission.
-const login_submit_form = document.querySelector("#login_submit_form");
-if(login_submit_form){
-  login_submit_form.addEventListener("submit", function(e) {
+const update_submit_form = document.querySelector("#update_submit_form");
+if(update_submit_form){
+  update_submit_form.addEventListener("submit", function(e) {
     submitForm(e, this);
   });
 }
@@ -18,7 +18,7 @@ async function submitForm(e, form){
   // Prevent reloading page
   e.preventDefault();
   // Deactivate the submit button for a few seconds.
-  const submit_button = document.getElementById("loginSubmitButton");
+  const submit_button = document.getElementById("updateSubmitButton");
   formUtils.disableButton(submit_button);
   // Build an object from the form data.
   const jsonFormData = formUtils.buildJsonFormData(form);
@@ -33,21 +33,18 @@ async function submitForm(e, form){
   // Prepare headers
   const headers = formUtils.buildHeaders();
   // Send the post request and get a JSON String as a response.
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/authenticate", headers, jsonFormData);
+  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/delete_account", headers, jsonFormData);
   console.log(response);
   // Convert the HTTP Status into a single digit, representing response type.
   const statusType = String(response.status)[0];
   // Successful responses
   if(statusType === "2"){
-    // JWT as string
-    const jwt = response.jwt;
-    // Save the jwt to localstorage.
-    localStorage.setItem("pn-jwt", jwt);
-
-    // Account manager page
-    alertPopup.createAlertPopup("success", "Successfully logged in. Redirecting you..");
+    // Delete the JWT from localstorage
+    localStorage.removeItem("pn-jwt");
+    // Notify user of the success, then redirect them to homepage.
+    alertPopup.createAlertPopup("success", response.message);
     setTimeout(() => {
-      window.location.href = "/accounts/account-dashboard";}, 1000);
+      window.location.href = "/";}, 1000);
   }
   // Client error
   else if(statusType === "4"){

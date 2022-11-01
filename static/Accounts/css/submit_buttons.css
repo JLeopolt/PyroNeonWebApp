@@ -1,0 +1,31 @@
+.submitButton, .redButton{
+  font-family: HighwayGothic;
+  padding: 0.5vw;
+  font-size: 1.75vw;
+  color: white;
+  transition: 0.3s;
+  border: none;
+}
+.submitButton{
+  background-color: #0098FF;
+}
+.redButton{
+  background-color: #D13333;
+}
+.submitButton:hover, .redButton:hover{
+  transition: 0.3s;
+  cursor: pointer;
+}
+.submitButton:hover{
+  background-color: #58BCFF;
+}
+.redButton:hover{
+  background-color: #FF5151;
+}
+
+@media (orientation: portrait) {
+  .submitButton, .redButton{
+    padding: 0.5vh;
+    font-size: 2vh;
+  }
+}

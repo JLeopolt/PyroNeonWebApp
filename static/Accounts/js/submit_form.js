@@ -1,6 +1,6 @@
-import FetchService from './libs/services/FetchService.js';
-import FormUtils from './libs/utils/FormUtils.js';
-import AlertPopup from './libs/utils/AlertPopup.js';
+import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
+import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
+import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
 
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
@@ -36,16 +36,12 @@ async function submitForm(e, form){
   const headers = formUtils.buildHeaders();
   // Send the post request and get a JSON String as a response.
   const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/register", headers, jsonFormData);
-  if(!response){
-    alertPopup.createAlertPopup("error", "Could not connect to PyroNeonAuth server.");
-    return;
-  }
   console.log(response);
   // Convert the HTTP Status into a single digit, representing response type.
   const statusType = String(response.status)[0];
   // Successful responses
   if(statusType === "2"){
-    window.location.href = "/accounts/account-created-success";
+    window.location.href = "/accounts/email/account-created-success";
   }
   // Client error
   else if(statusType === "4"){

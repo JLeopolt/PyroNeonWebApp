@@ -36,10 +36,6 @@ async function submitForm(e, form){
   const headers = formUtils.buildHeaders();
 
   const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.ml:8443/api/resend-confirmation-code?un="+jsonFormData.username, headers);
-  if(!response){
-    alertPopup.createAlertPopup("error", "Could not connect to PyroNeonAuth server.");
-    return;
-  }
   console.log(response);
 
   // Convert the HTTP Status into a single digit, representing response type.
@@ -55,6 +51,6 @@ async function submitForm(e, form){
   }
   // Server errors, or other.
   else {
-    alertPopup.createAlertPopup("warning", "Status: " + response.status + ": " +response.statusMessage);
+    alertPopup.createAlertPopup("warning", "Status: " + response.status + ": " + response.statusMessage + ", " +response.errorMessage);
   }
 }

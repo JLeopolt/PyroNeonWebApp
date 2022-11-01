@@ -16,7 +16,7 @@ export default class FetchService {
         }
         catch(err) {
             console.error(`Error at fetch POST: ${err}`);
-            throw err;
+            return {"status":"503", "statusMessage":"Bad Gateway", "errorMessage":"Could not connect to PyroNeonAuth server."};
         }
     }
 
@@ -35,7 +35,7 @@ export default class FetchService {
         }
         catch(err) {
             console.error(`Error at fetch GET: ${err}`);
-            throw err;
+            return {"status":"503", "statusMessage":"Bad Gateway", "errorMessage":"Could not connect to PyroNeonAuth server."};
         }
     }
 }

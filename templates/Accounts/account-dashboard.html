@@ -1,0 +1,56 @@
+<!--
+  This is the dashboard for logged in users to manage their accounts. If accessed while not logged in, it will redirect to the log in page.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Account Dashboard - PyroNeon</title>
+  <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/Accounts/css/account_dashboard.css">
+  <link rel="stylesheet" href="/static/Global/css/loader.css">
+</head>
+
+<body>
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+<!-- Loading animation -->
+<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+<article id="dashboard" style="display: none; position: fixed; top: 10%;">
+
+  <h1>Account Dashboard</h1>
+
+  <div class="paragraph" style="padding-bottom: 0;">
+    <p>
+      Manage your account here, <span class="set-to-username">username</span>.
+    </p>
+  </div>
+
+  <button class="redButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
+
+</article>
+
+<!-- Handles the dashboard functionality. -->
+<script type="module" src="/static/Accounts/js/account_dashboard.js"></script>
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="https://www.reddit.com/r/pyroneon/">Reddit</a>
+  <a href="https://twitter.com/PyroNeonGames">Twitter</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>

@@ -113,19 +113,19 @@ def accountsHomepage():
 def registerAccount():
     return render_template('Accounts/register.html')
 
-@app.route('/accounts/account-created-success')
+@app.route('/accounts/email/account-created-success')
 def createdAccountSuccessfully():
     return render_template('Accounts/email/account-created-success.html')
 
-@app.route('/accounts/activate')
+@app.route('/accounts/email/activate')
 def activateEmailAddress():
     return render_template('Accounts/email/activate-email-address.html')
 
-@app.route('/accounts/resend-email-code')
+@app.route('/accounts/email/resend-email-code')
 def resendEmailCode():
     return render_template('Accounts/email/resend-confirmation-code.html')
 
-@app.route('/accounts/enter-manual-confirmation-code')
+@app.route('/accounts/email/enter-manual-confirmation-code')
 def enterManualConfirmationCode():
     return render_template('Accounts/email/enter-manual-confirmation-code.html')
 
@@ -133,6 +133,21 @@ def enterManualConfirmationCode():
 def login():
     return render_template('Accounts/login.html')
 
+@app.route('/accounts/account-dashboard')
+def accountDashboard():
+    return render_template('Accounts/account-dashboard.html')
+
+@app.route('/accounts/update/delete-account')
+def deleteAccount():
+    return render_template('Accounts/updates/delete-account.html')
+
+@app.route('/accounts/update/change-username')
+def changeUsername():
+    return render_template('Accounts/updates/change-username.html')
+
+@app.route('/accounts/update/change-password')
+def changePassword():
+    return render_template('Accounts/updates/change-password.html')
 
 
 

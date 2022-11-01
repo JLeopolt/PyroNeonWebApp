@@ -1,6 +1,6 @@
-import FetchService from '../libs/services/FetchService.js';
-import FormUtils from '../libs/utils/FormUtils.js';
-import AlertPopup from '../libs/utils/AlertPopup.js';
+import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
+import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
+import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
 
 const formUtils = new FormUtils();
 const alertPopup = new AlertPopup();
