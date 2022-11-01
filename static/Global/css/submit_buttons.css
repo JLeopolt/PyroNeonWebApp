@@ -1,4 +1,4 @@
-.submitButton, .redButton{
+.submitButton, .redButton, .greenButton{
   font-family: HighwayGothic;
   padding: 0.5vw;
   font-size: 1.75vw;
@@ -12,7 +12,10 @@
 .redButton{
   background-color: #D13333;
 }
-.submitButton:hover, .redButton:hover{
+.greenButton{
+  background-color: #41C427;
+}
+.submitButton:hover, .redButton:hover, .greenButton:hover{
   transition: 0.3s;
   cursor: pointer;
 }
@@ -22,9 +25,12 @@
 .redButton:hover{
   background-color: #FF5151;
 }
+.greenButton:hover{
+  background-color: #6DFB51;
+}
 
 @media (orientation: portrait) {
-  .submitButton, .redButton{
+  .submitButton, .redButton, .greenButton{
     padding: 0.5vh;
     font-size: 2vh;
   }

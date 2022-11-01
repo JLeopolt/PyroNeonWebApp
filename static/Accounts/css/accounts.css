@@ -1,6 +1,5 @@
 /* Import navbar/footer stuff */
 @import "/static/Global/css/header-navbar.css";
-@import "/static/Accounts/css/submit_buttons.css";
 
 /* Style the body */
 body {
@@ -30,7 +29,7 @@ p {
 
 /* Wrap paragraphs into blocks without using <br> */
 .paragraph {
-  inline-size: 25%;
+  inline-size: 33%;
   overflow-wrap: break-word;
   margin: auto;
   padding-bottom: 3rem;

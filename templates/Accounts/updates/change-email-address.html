@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Change Username - PyroNeon</title>
+  <title>Change Email Address - PyroNeon</title>
   <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+  
   <!-- Account Header above the navbar -->
   <div class="account-navbar">
     Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
@@ -40,12 +40,12 @@
 
 <article style="position: fixed; top: 15%;">
 
-  <h1>Change Username</h1>
+  <h1>Change Email Address</h1>
 
   <div class="paragraph" style="padding-bottom: 0;">
     <p>
-      Change your username here.
-      Please note, if you change your username, your old username will be freed up and someone else might take it.
+      Change your email address here.
+      Note: Your account will be inactivated, and you will need to reconfirm your email address before you can log in again.
     </p>
   </div>
 
@@ -62,11 +62,11 @@
         <td><input type="checkbox" onclick="togglePasswordVisibility('password')">Show Password</input></td>
       </tr>
       <tr class="form-row">
-        <td class="form-label">New Username</td>
-        <td><input type="text" class="input-text-field" name="new_username" id="new_username"></input></td>
+        <td class="form-label">New Email Address</td>
+        <td><input type="text" class="input-text-field" name="new_email_address" id="new_email_address"></input></td>
       </tr>
       <tr class="form-row">
-        <td colspan=3><button type="submit" class="submitButton" id="updateSubmitButton">Update Username</button></td>
+        <td colspan=3><button type="submit" class="submitButton" id="updateSubmitButton">Update Email Address</button></td>
       </tr>
     </table>
   </form>
@@ -82,7 +82,7 @@
 <script src="/static/Accounts/js/password_visibility.js"></script>
 
 <!-- Used to send POST requests to the API. -->
-<script type="module" src="/static/Accounts/js/updates/change_username.js"></script>
+<script type="module" src="/static/Accounts/js/updates/change_email_address.js"></script>
 
 <!-- Footer with extra links at the bottom of the page. -->
 <div class="footer">

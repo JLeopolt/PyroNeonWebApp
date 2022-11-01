@@ -106,7 +106,7 @@ def scrapsGuide():
 
 @app.route('/accounts')
 def accountsHomepage():
-    return redirect("/accounts/login", code=302)
+    return redirect("/accounts/account-dashboard", code=302)
 
 # Register for a new PN account
 @app.route('/accounts/register')
@@ -148,6 +148,10 @@ def changeUsername():
 @app.route('/accounts/update/change-password')
 def changePassword():
     return render_template('Accounts/updates/change-password.html')
+
+@app.route('/accounts/update/change-email-address')
+def changeEmailAddress():
+    return render_template('Accounts/updates/change-email-address.html')
 
 
 

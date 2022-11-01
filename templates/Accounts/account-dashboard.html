@@ -12,6 +12,18 @@
 </head>
 
 <body>
+  
+  <!-- Account Header above the navbar -->
+  <div class="account-navbar">
+    Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
+    <button class="submitButton" id="headerLoginButton" onclick="window.location.href = '/accounts/login';">Login</button>
+    <button class="greenButton" id="headerRegisterButton" onclick="window.location.href = '/accounts/register';">Sign Up</button>
+
+    <button class="submitButton" id="headerDashboardButton" onclick="window.location.href = '/accounts/account-dashboard';">Dashboard</button>
+    <button class="redButton" id="headerLogoutButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
+  </div>
+  <!-- Handles the accounts header functionality. -->
+  <script type="module" src="/static/Accounts/js/accounts_header.js"></script>
 
 <!-- The top navbar header.  -->
 <div class="navbar">
@@ -29,15 +41,32 @@
 
 <article id="dashboard" style="display: none; position: fixed; top: 10%;">
 
-  <h1>Account Dashboard</h1>
+  <img src="/static/PyroNeon/img/banner.png" alt="PyroNeon Banner" id="logoBanner">
 
-  <div class="paragraph" style="padding-bottom: 0;">
-    <p>
-      Manage your account here, <span class="set-to-username">username</span>.
-    </p>
+  <h1>Welcome back, <span class="set-to-username" style="color: #FFBB01;">username</span>.</h1>
+
+  <div class="paragraph" style="padding: 0; margin-top: 0;">
+    <p>Remember to log out when you're done.</p>
   </div>
 
-  <button class="redButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
+  <button class="redButton" style="margin-top: 2vh;" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
+
+  <h1 style="margin-top: 4vh;">Update Credentials</h1>
+
+  <table style="margin: auto; border-collapse: separate; border-spacing: 2vh;">
+    <tr>
+      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-username';">Change Username</button></td>
+    </tr>
+    <tr>
+      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-password';">Change Password</button></td>
+    </tr>
+    <tr>
+      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-email-address';">Change Email Address</button></td>
+    </tr>
+    <tr>
+      <td><button class="redButton" onclick="window.location.href = '/accounts/update/delete-account';">Delete Account</button></td>
+    </tr>
+  </table>
 
 </article>
 

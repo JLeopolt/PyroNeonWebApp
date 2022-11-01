@@ -43,7 +43,7 @@ async function submitForm(e, form){
 
   // Successful responses
   if(statusType === "2"){
-    window.location.href = "/accounts/enter-manual-confirmation-code";
+    window.location.href = "/accounts/email/enter-manual-confirmation-code";
   }
   // Client error
   else if(statusType === "4"){

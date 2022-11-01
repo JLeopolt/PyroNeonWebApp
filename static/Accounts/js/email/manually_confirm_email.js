@@ -21,7 +21,6 @@ async function submitForm(e, form){
   formUtils.disableButton(submit_button);
   // Build an object from the form data.
   const jsonFormData = formUtils.buildJsonFormData(form);
-
   validateToken(jsonFormData.token);
 }
 
