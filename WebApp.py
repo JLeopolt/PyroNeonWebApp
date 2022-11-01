@@ -153,6 +153,12 @@ def changePassword():
 def changeEmailAddress():
     return render_template('Accounts/updates/change-email-address.html')
 
+@app.route('/accounts/forgot-password')
+def forgotPassword():
+    return render_template('Accounts/password/forgot-password.html')
+@app.route('/accounts/reset-password')
+def resetPassword():
+    return render_template('Accounts/password/reset-password.html')
 
 
 

@@ -6,7 +6,7 @@ const fetchService = new FetchService();
 const formUtils = new FormUtils();
 const alertPopup = new AlertPopup();
 
-const register_submit_form = document.querySelector("#username_submit_form");
+const register_submit_form = document.querySelector("#forgot_password_submit_form");
 if(register_submit_form){
   register_submit_form.addEventListener("submit", function(e) {
     submitForm(e, this);
@@ -18,14 +18,14 @@ async function submitForm(e, form){
   e.preventDefault();
 
   // Deactivate the button for a few seconds.
-  const submit_button = document.getElementById("submitUsernameButton");
+  const submit_button = document.getElementById("submitForgotPasswordButton");
   formUtils.disableButton(submit_button);
 
   // Build a map from the form data.
   const jsonFormData = formUtils.buildJsonFormData(form);
 
   // Check if the json is valid.
-  const errorMessage = formUtils.validateForm(jsonFormData,["username"]);
+  const errorMessage = formUtils.validateForm(jsonFormData,["username", "email_address"]);
   if(errorMessage){
     // Spit out the error message and cancel.
     alertPopup.createAlertPopup("warning", errorMessage);
@@ -35,7 +35,7 @@ async function submitForm(e, form){
   // Prepare headers
   const headers = formUtils.buildHeaders();
 
-  const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.ml:8443/api/resend-confirmation-code?un="+jsonFormData.username, headers);
+  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/forgot_password", headers, jsonFormData);
   console.log(response);
 
   // Convert the HTTP Status into a single digit, representing response type.
@@ -43,7 +43,7 @@ async function submitForm(e, form){
 
   // Successful responses
   if(statusType === "2"){
-    window.location.href = "/accounts/email/enter-manual-confirmation-code";
+    alertPopup.createAlertPopup("success", response.message);
   }
   // Client error
   else if(statusType === "4"){
