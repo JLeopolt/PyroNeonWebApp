@@ -28,10 +28,6 @@ def missingpage():
 
 
 
-
-
-
-
 # Landing page for the Puzzle Minefield game
 @app.route('/PuzzleMinefield')
 def puzzleMinefield():
@@ -159,6 +155,16 @@ def forgotPassword():
 @app.route('/accounts/reset-password')
 def resetPassword():
     return render_template('Accounts/password/reset-password.html')
+
+# Terms of service for PyroNeon Accounts
+@app.route('/accounts/legal/terms-of-service')
+def termsOfService():
+    return render_template('Accounts/legal/tos.html')
+
+# Privacy policy for PyroNeon Accounts
+@app.route('/accounts/legal/privacy-policy')
+def privacyPolicy():
+    return render_template('Accounts/legal/privacy-policy.html')
 
 
 

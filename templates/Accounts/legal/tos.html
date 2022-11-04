@@ -1,0 +1,87 @@
+<!--
+  This page specifies the terms of service of PyroNeon Software accounts
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Terms of Service - PyroNeon</title>
+  <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/PyroNeon/css/index.css">
+</head>
+
+<body>
+<!-- Account Header above the navbar -->
+<div class="account-navbar">
+  Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
+  <button class="submitButton" id="headerLoginButton" onclick="window.location.href = '/accounts/login';">Login</button>
+  <button class="greenButton" id="headerRegisterButton" onclick="window.location.href = '/accounts/register';">Sign Up</button>
+
+  <button class="submitButton" id="headerDashboardButton" onclick="window.location.href = '/accounts/account-dashboard';">Dashboard</button>
+  <button class="redButton" id="headerLogoutButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
+</div>
+<!-- Handles the accounts header functionality. -->
+<script type="module" src="/static/Accounts/js/accounts_header.js"></script>
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+
+<article>
+
+  <!-- Banner -->
+  <img src="/static/PyroNeon/img/banner.png" alt="PyroNeon Banner" id="logoBanner">
+
+  <h1>Terms of Service</h1>
+  <h2 style="color: gold; margin: 0;">By signing up for a PyroNeon account, you agree to the following terms and conditions.</h2>
+
+  <div class="paragraph" style="padding-top: 2vh; margin-bottom: 5vh;">
+    <p>
+      We (PyroNeon Software) are not responsible for any unauthorized usage of your PyroNeon account.
+      Likewise, we are not responsible for lost progress, data, or purchases from unauthorized account usage,
+      account termination/suspension, account deletion, or malfunctions/errors.
+      <br><br>
+      Our software is provided as is, which may include bugs, vulnerabilities, or other errors. We are not
+      responsible for any damages or lost data caused by these.
+      <br><br>
+      If your account is found to be involved in illegal activities or otherwise associated with illegal
+      digital content or cybercrimes (Terrorism, Hacking, DDOS, Child Pornography, etc.) then your account may
+      be terminated without notice, and your information, including network addresses, username, email address,
+      or other information may be sent to the authorities.
+      <br><br>
+      Our account system and terms of service may change at any time, without warning. It is up to the consumer
+      to stay up to date on our policies.
+      <br><br>
+      We reserve the right to refuse to punish or terminate accounts expressing free speech.
+      <br><br>
+      Your account may be suspended or terminated at any time, without notice.
+      <br><br>
+      Please review the <a href="/accounts/legal/privacy-policy" style="color: gold;">privacy policy</a> for more information
+      about the data we collect about you.
+    </p>
+  </div>
+
+</article>
+
+
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="https://www.reddit.com/r/pyroneon/">Reddit</a>
+  <a href="https://twitter.com/PyroNeonGames">Twitter</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>
