@@ -4,7 +4,7 @@
 /* Style the body */
 body {
   font-family: NewTown;
-  background-image: url("/CLIPnP/img/wallpaper.png");
+  background-image: url("/static/CLIPnP/img/wallpaper.png");
   margin: 0;
   padding: 0;
   text-align: center;
