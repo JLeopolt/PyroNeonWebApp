@@ -1,11 +1,17 @@
-.grid-container{
+.grid-container, .single-grid-container{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2vh;
   width: 75%;
   margin: auto;
 
   z-index: 1;
+}
+.grid-container{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.single-grid-container{
+  grid-template-columns: 1fr;
+  width: calc(75% / 3 - 2vh);
 }
 
 /* Fix clashing issue with slideshow */
@@ -14,7 +20,7 @@
 }
 
 @media (orientation: portrait) {
-  .grid-container{
+  .grid-container, .single-grid-container{
     /* Vertical Grid */
     grid-template-columns: 1fr;
     width: 75%;
@@ -63,6 +69,12 @@
   font-size: 1.3vw;
 }
 .grid-container a{
+  font-size: 1.5625vw;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  color: white;
+}
+.single-grid-container a{
   font-size: 1.5625vw;
   text-decoration: none;
   font-family: HighwayGothic;

@@ -78,25 +78,47 @@ def clipnp():
 
 
 
-# Landing page for CLIPnP
+# Landing page for Scraps
 @app.route('/scraps')
 def scraps():
     return render_template('Scraps/index.html')
 
-# Landing page for CLIPnP
 @app.route('/scraps/join')
 def scrapsJoin():
     return render_template('Scraps/join.html')
 
-# Landing page for CLIPnP
 @app.route('/scraps/community')
 def scrapsCommunity():
     return render_template('Scraps/community.html')
 
-# Landing page for CLIPnP
 @app.route('/scraps/guide')
 def scrapsGuide():
     return render_template('Scraps/guide.html')
+
+
+
+
+
+
+@app.route('/experimental/TUMULT')
+def tumult():
+    return render_template('TUMULT/index.html')
+# Downloading TUMULT as a JAR file
+@app.route('/experimental/TUMULT/download-jar')
+def tum_download_jar():
+    # This will only work for Full Releases; 'Pre-Releases' will not work..
+    return redirect("https://github.com/JLeopolt/TUMULT-Releases/releases/latest/download/Tumult.jar", code=302)
+
+# Downloading TUMULT as an EXE file
+@app.route('/experimental/TUMULT/download-exe')
+def tum_download_exe():
+    # This will only work for Full Releases; 'Pre-Releases' will not work..
+    return redirect("https://github.com/JLeopolt/TUMULT-Releases/releases/latest/download/Tumult.exe", code=302)
+
+
+
+
+
 
 
 
