@@ -80,6 +80,11 @@
   font-family: HighwayGothic;
   color: white;
 }
+.experimental-bar{
+  text-shadow:3px 3px 0 black,-3px -3px 0 black,3px -3px 0 black,-3px 3px 0 black,3px 3px 0 black;
+  background-image: url("/static/TUMULT/img/construction-lines.png");
+}
+
 @media (orientation: portrait) {
   .grid-item h1{
     font-size: 2rem;

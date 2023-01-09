@@ -60,7 +60,15 @@ def download_exe():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
     return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield.exe", code=302)
 
+# Reporting a bug in Puzzle Minefield.
+@app.route('/PuzzleMinefield/report-a-bug')
+def puzzleMinefieldBugReport():
+    return redirect("https://forms.gle/jJkvXrN67hCTx2ot7", code=302)
 
+# Puzzle Minefield TOS
+@app.route('/PuzzleMinefield/tos')
+def puzzleMinefieldTOS():
+    return render_template('PuzzleMinefield/legal/tos.html')
 
 
 

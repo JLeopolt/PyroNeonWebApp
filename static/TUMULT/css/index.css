@@ -57,6 +57,10 @@ h1 {
 }
 
 @media (orientation: portrait) {
+  body{
+    background-image: none;
+    background-color: #373737;
+  }
   p{
     font-size: 2rem;
   }
