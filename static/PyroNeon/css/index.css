@@ -14,17 +14,25 @@ body {
 }
 
 /* Increase the font size of the headings */
-h1 {
+h1, h2 {
   font-size: 3.125vw;
   font-family: HighwayGothic;
   margin: 0;
   color: white;
 }
 
+h2 {
+  font-size: 2.675vw;
+}
+
 p {
   font-family: HighwayGothic;
   font-size: 1.5625vw;
   color: #C9C9C9;
+}
+
+ul{
+  inline-size: 40%;
 }
 
 /* Wrap paragraphs into blocks without using <br> */
@@ -72,6 +80,9 @@ article a{
 @media (orientation: portrait) {
   h1{
     font-size: 3rem;
+  }
+  h2{
+    font-size: 2rem;
   }
   p{
     font-size: 1.5rem;

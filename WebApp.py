@@ -17,6 +17,11 @@ def products():
 def community():
     return render_template('PyroNeon/community.html')
 
+# Contact Us by email.
+@app.route('/contact-us/email')
+def emailContactUs():
+    return render_template('PyroNeon/contact-us/emails.html')
+
 # Directs to the 404 page.
 @app.route('/missing')
 def missingpage():
