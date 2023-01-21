@@ -51,7 +51,13 @@ async function submitForm(e, form){
   }
   // Client error
   else if(statusType === "4"){
-    alertPopup.createAlertPopup("error", response.errorMessage);
+    // If it has an errorMessage
+    var error = response.errorMessage;
+    if(error == null){
+      // If it has an error
+      error = response.error;
+    }
+    alertPopup.createAlertPopup("error", error);
   }
   // Server errors, or other.
   else {
