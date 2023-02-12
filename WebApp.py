@@ -85,7 +85,10 @@ def clipnp():
     return render_template('CLIPnP/index.html')
 
 
-
+# Landing page for MUD
+@app.route('/mudtool')
+def mudtool():
+    return render_template('MUDTool/index.html')
 
 
 
