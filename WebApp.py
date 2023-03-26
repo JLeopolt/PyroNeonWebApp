@@ -55,13 +55,13 @@ def puzzleMinefieldFAQ():
 
 # Downloading Puzzle Minefield as a JAR file
 @app.route('/PuzzleMinefield/download-jar')
-def download_jar():
+def download_pmf_jar():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
     return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield.jar", code=302)
 
 # Downloading Puzzle Minefield as an EXE file
 @app.route('/PuzzleMinefield/download-exe')
-def download_exe():
+def download_pmf_exe():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
     return redirect("https://github.com/JLeopolt/PuzzleMinefield-Releases/releases/latest/download/PuzzleMinefield.exe", code=302)
 
@@ -90,6 +90,11 @@ def clipnp():
 def mudtool():
     return render_template('MUDTool/index.html')
 
+# Downloading MUD as an EXE file
+@app.route('/mudtool/download-exe')
+def download_mudtool_exe():
+    # This will only work for Full Releases; 'Pre-Releases' will not work..
+    return redirect("https://github.com/JLeopolt/MultimediaUtilityDownloadTool/releases/latest/download/MultimediaUtilityDownloadTool.exe", code=302)
 
 
 
