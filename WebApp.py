@@ -98,6 +98,19 @@ def download_mudtool_exe():
 
 
 
+# Landing page for muSign
+@app.route('/musign')
+def musignTool():
+    return render_template('muSign/index.html')
+
+# Downloading muSign as an EXE file
+@app.route('/musign/download-exe')
+def download_musign_exe():
+    # This will only work for Full Releases; 'Pre-Releases' will not work..
+    return redirect("https://github.com/JLeopolt/muSign/releases/latest/download/muSign.exe", code=302)
+
+
+
 
 # Landing page for Scraps
 @app.route('/scraps')

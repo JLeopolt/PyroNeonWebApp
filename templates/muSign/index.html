@@ -1,0 +1,89 @@
+<!--
+     This is the product page for muSign.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>μSign - Free .EXE File Signing Tool</title>
+  <link rel="icon" href="/static/muSign/img/icon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/muSign/css/index.css">
+</head>
+
+<body>
+
+  <!-- Account Header above the navbar -->
+  <div class="account-navbar">
+    Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
+    <button class="submitButton" id="headerLoginButton" onclick="window.location.href = '/accounts/login';">Login</button>
+    <button class="greenButton" id="headerRegisterButton" onclick="window.location.href = '/accounts/register';">Sign Up</button>
+
+    <button class="submitButton" id="headerDashboardButton" onclick="window.location.href = '/accounts/account-dashboard';">Dashboard</button>
+    <button class="redButton" id="headerLogoutButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
+  </div>
+  <!-- Handles the accounts header functionality. -->
+  <script type="module" src="/static/Accounts/js/accounts_header.js"></script>
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+
+<!-- Banner -->
+<img src="/static/muSign/img/muSign-Logo.png" alt="muSign Banner" id="banner">
+
+<div class="paragraph">
+
+  <h1 style="padding-top: 1rem;">
+    About
+  </h1>
+  <p>
+    μSign (pronounced muSign) is an open-source, lightweight GUI .EXE signing python program. If you're a developer compiling code into an .EXE binary file for
+    distribution online, you may have encountered issues with Windows and antivirus programs falsely blocking your app from running. With μSign, you can secure
+    your program and allow users to use it without restriction again. Additionally, by signing your files, clients can verify the authenticity of your program,
+    and ensure they are using a legitimate, unmodified copy of your software.
+  </p>
+
+  <br><br>
+
+  <button onclick="window.location.href='/musign/download-exe';"> Download Latest Release </button>
+  <button onclick="window.location.href='https://github.com/JLeopolt/muSign';"> View on Github </button>
+
+  <h1>
+    Features
+  </h1>
+  <p>
+    μSign supports signing regular EXE files, as well as Java compiled EXE files.
+    μSign is extremely lightweight, and a barebones piece of software. There is no junk or bloat included in the program.
+    Once you run the program, you can immediately start signing any .EXE files you have. Additionally, you can save and load
+    configurations, to automate repetitive signing every time you release a new version of your program.
+  </p>
+
+  <h1>
+    Licensing
+  </h1>
+  <p>
+    Our software is open-source on Github, and free to use under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0 License</a>.
+    Our source code is documented, and all the assets are available on our repository. Please check the GitHub repository for more licensing information.
+  </p>
+
+</div>
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="/accounts/legal/terms-of-service">TOS</a>
+  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>
