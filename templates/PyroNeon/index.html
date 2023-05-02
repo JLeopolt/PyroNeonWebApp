@@ -10,22 +10,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="static/PyroNeon/css/index.css">
+
+  <!-- Import.js handles importing HTML elements from other files. -->
+  <script type="module" src="/static/Global/js/import.js"></script>
 </head>
 
 <body>
 
 <!-- Account Header above the navbar -->
-<div class="account-navbar">
-  Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
-  <button class="submitButton" id="headerLoginButton" onclick="window.location.href = '/accounts/login';">Login</button>
-  <button class="greenButton" id="headerRegisterButton" onclick="window.location.href = '/accounts/register';">Sign Up</button>
-
-  <button class="submitButton" id="headerDashboardButton" onclick="window.location.href = '/accounts/account-dashboard';">Dashboard</button>
-  <button class="redButton" id="headerLogoutButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
-</div>
-<!-- Handles the accounts header functionality. -->
-<script type="module" src="/static/Accounts/js/accounts_header.js"></script>
-
+<div data-include="account-header"></div>
 
 <!-- The top navbar header.  -->
 <div class="navbar">
@@ -52,23 +45,35 @@
 
 <div class="paragraph">
   <p>
-    We are a small indie software company, focusing mainly
-    on game production. Check out some of our projects
-    on the 'Games' tab. Let's make something fun!
+    Hello! PyroNeon Software is a small indie software company,
+    focusing mainly on game production.
+    Check out some of our products <a href="/products" style="color:gold;">here</a>.
   </p>
 </div>
 
 
-<h1>
+<h1 style="padding-top: 2rem;">
+  Our Catalog
+</h1>
+
+<div class="paragraph">
+  <p>
+    Although we don't have the biggest lineup, some of our work might interest you!
+    Check it out on the <a href="/products" style="color:gold;">Products</a> page, where you can look through our whole library
+    and find something that interests you.
+  </p>
+</div>
+
+
+<h1 style="padding-top: 2rem;">
   The Team
 </h1>
 
 <div class="paragraph">
   <p>
-    Our team may be small, but don't be fooled,
-    our games are fun! And as such, they take a lot of
-    time and effort to create. Please consider supporting
-    our small studio by playing our games with your friends!
+    Our products take a lot of time and hard work to create.
+    If you enjoy playing our games or using our software, please
+    consider supporting us by sharing our work with your friends!
   </p>
 </div>
 
@@ -87,21 +92,6 @@
          <h3>#PyroNeonCareers</h3>
   </a>
 </div>
-
-
-
-<h1 style="padding-top: 3rem;">
-  Our Catalog
-</h1>
-
-<div class="paragraph">
-  <p>
-    Although we don't have the biggest lineup, some of our work might interest you!
-    Check it out on the <a href="/products" style="color:gold;">Products</a> page, where you can look through the whole library
-    and find something that interests you.
-  </p>
-</div>
-
 
 
 <!-- Bottom disclaimer -->

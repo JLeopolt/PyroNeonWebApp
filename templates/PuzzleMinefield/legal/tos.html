@@ -10,6 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/PuzzleMinefield/css/puzzleMinefield.css">
   <link rel="stylesheet" href="/static/Global/css/simple-button.css">
+
+  <!-- Import.js handles importing HTML elements from other files. -->
+  <script type="module" src="/static/Global/js/import.js"></script>
 </head>
 
 
@@ -23,16 +26,7 @@
 <body>
 
   <!-- Account Header above the navbar -->
-  <div class="account-navbar">
-    Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
-    <button class="submitButton" id="headerLoginButton" onclick="window.location.href = '/accounts/login';">Login</button>
-    <button class="greenButton" id="headerRegisterButton" onclick="window.location.href = '/accounts/register';">Sign Up</button>
-
-    <button class="submitButton" id="headerDashboardButton" onclick="window.location.href = '/accounts/account-dashboard';">Dashboard</button>
-    <button class="redButton" id="headerLogoutButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
-  </div>
-  <!-- Handles the accounts header functionality. -->
-  <script type="module" src="/static/Accounts/js/accounts_header.js"></script>
+  <div data-include="account-header"></div>
 
   <!-- The top navbar header.  -->
   <div class="navbar">

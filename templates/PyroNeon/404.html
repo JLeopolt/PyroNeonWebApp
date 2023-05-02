@@ -10,20 +10,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/PyroNeon/css/index.css">
+
+  <!-- Import.js handles importing HTML elements from other files. -->
+  <script type="module" src="/static/Global/js/import.js"></script>
 </head>
 
 <body>
-<!-- Account Header above the navbar -->
-<div class="account-navbar">
-  Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
-  <button class="submitButton" id="headerLoginButton" onclick="window.location.href = '/accounts/login';">Login</button>
-  <button class="greenButton" id="headerRegisterButton" onclick="window.location.href = '/accounts/register';">Sign Up</button>
 
-  <button class="submitButton" id="headerDashboardButton" onclick="window.location.href = '/accounts/account-dashboard';">Dashboard</button>
-  <button class="redButton" id="headerLogoutButton" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
-</div>
-<!-- Handles the accounts header functionality. -->
-<script type="module" src="/static/Accounts/js/accounts_header.js"></script>
+<!-- Account Header above the navbar -->
+<div data-include="account-header"></div>
 
 <!-- The top navbar header.  -->
 <div class="navbar">
@@ -49,9 +44,7 @@
     <p>
       Unfortunately, this page either isn't ready yet, or doesn't exist.
       If this problem persists or you're sure this page should be here, feel free to contact
-      PyroNeon Software for support at: <b> pyroneonbusiness@gmail.com </b>
-      <br><br>
-      For more contact options, reach us at the <a href="/community" style="color: gold;">Community</a> page.
+      PyroNeon Software for support on the <a href="/community" style="color: gold;">Community</a> page.
     </p>
   </div>
 
