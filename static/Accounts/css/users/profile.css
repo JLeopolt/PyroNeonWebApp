@@ -1,0 +1,131 @@
+/* Import navbar/footer stuff */
+@import "/static/Global/css/header-navbar.css";
+
+/* Style the body */
+body {
+  font-family: NewTown;
+  background: #1C1C1C;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  min-height: 100vh;
+}
+/* Increase the font size of the headings */
+h1 {
+  font-size: 3.125vw;
+  font-family: HighwayGothic;
+  margin: 0;
+  color: white;
+}
+p {
+  font-family: HighwayGothic;
+  font-size: 1.5625vw;
+  color: #C9C9C9;
+}
+@media (orientation: portrait) {
+  h1{
+    font-size: 3rem;
+  }
+  p{
+    font-size: 1.5rem;
+  }
+}
+
+/* Fix clashing issue with profile */
+.navbar, .footer{
+  z-index: 2;
+}
+
+
+.grid-container {
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr;
+  background-color: #2F2F2F;
+  z-index: 1;
+
+  /* width, max-width: 33%; */
+  width: 100%;
+  max-width: 100%;
+  min-height: 85vh;
+}
+
+.grid-item{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+
+  padding: 0;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+}
+/* Change color on hover */
+.grid-item:hover {
+  background-color: #333333;
+}
+.grid-item h1{
+  font-size: 2vw;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  color: #0098FF;
+  margin: 0;
+}
+.grid-item p{
+  margin:0;
+  font-size: 1.3vw;
+}
+
+@media (orientation: portrait) {
+  .grid-container{
+    width: 75%;
+  }
+  .grid-item h1{
+    font-size: 2rem;
+  }
+  .grid-item h2{
+    font-size: 1.5rem;
+  }
+  .grid-item h3{
+    font-size: 1rem;
+  }
+  .grid-item p{
+    font-size: 0.9rem;
+  }
+  .grid-container a{
+    font-size: 1.3rem;
+  }
+}
+
+/* Friend request buttons */
+.submitButton, .redButton, .greenButton{
+  font-size: 1vw;
+  padding: 0.25vw;
+}
+
+.profileEditButton {
+  font-size: 1.25vw;
+  padding: 0;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: white;
+}
+
+/* Wrap paragraphs into blocks without using <br> */
+.paragraph {
+  inline-size: 25%;
+  overflow-wrap: break-word;
+}
+
+@media (orientation: portrait) {
+  .submitButton, .redButton, .greenButton{
+    padding: 0.25vh;
+    font-size: 1.5rem;
+  }
+}

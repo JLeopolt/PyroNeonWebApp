@@ -1,0 +1,151 @@
+<!--
+  Represents a profile for a user, who is targetted based on the URL option provided.
+  Displays basic information about the user.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Profile - PyroNeon</title>
+  <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/Accounts/css/users/profile.css">
+  <link rel="stylesheet" href="/static/Global/css/loader.css">
+
+  <!-- Import.js handles importing HTML elements from other files. -->
+  <!-- <script type="module" src="/static/Global/js/import.js"></script> -->
+
+  <!-- This buildscript specifies how JS should be executed. -->
+  <script type="module" id="buildscript">
+    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
+    import { GenerateProfilePage } from '/static/Accounts/js/users/profile.js';
+    // First, include all requested elements.
+    ImportHTML();
+    // Code inside this funct only executes AFTER elements are imported.
+    $(window).on('load', function () {
+      // Activate the profile page's javascript. Automatically sets up AccountHeader.
+      GenerateProfilePage();
+    });
+  </script>
+</head>
+
+<body>
+
+<!-- Account Header above the navbar -->
+<!-- The account header is powered by profile.js -->
+<div data-include="account-header-nojs"></div>
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+
+
+<!-- Loading throbber -->
+<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+<!-- User's public profile information. -->
+<div class="grid-container" id="profilePage" style="display: none; position: relative;">
+
+  <div class="grid-item" id="friendControls" style="background-color: #191919;">
+    <p style="color:white; padding-bottom: 1vh;">
+      <span class="include-friend-status"></span>
+    </p>
+
+    <button class="submitButton" id="sendFriendRequest" style="display: none;" onclick="">Send Friend Request</button>
+    <button class="greenButton" id="acceptFriendRequest" style="display: none;" onclick="">Accept Friend Request</button>
+    <button class="redButton" id="rejectFriendRequest" style="display: none;" onclick="">Reject Friend Request</button>
+    <button class="redButton" id="removeFriend" style="display: none;" onclick="">Remove Friend</button>
+  </div>
+
+  <div class="grid-item profile-banner" style="background-color: #DF6007; padding-top: 1vh;">
+    <span style="display: inline-block;">
+      <img src="/static/Accounts/img/pfp.png" style="width: 75%; height: 75%;" alt="Profile Photo">
+    </span>
+    <h1 style="color: white;">
+      <span class="include-username">Username</span>
+    </h1>
+  </div>
+
+  <div class="grid-item">
+    <p>
+      <span style="color: #0098FF;"">About Me:</span>
+      <button class="profileEditButton" id="editProfileBio" style="display: none;" onclick="">✎</button>
+    </p>
+    <p style="color:white; margin:auto;" class="paragraph">
+      <span class="include-user-bio">User Bio </span>
+    </p>
+    <div id="profileBioEntry" style="display:none;">
+      <textarea rows="5" cols="50"></textarea>
+      <br>
+      <button class="submitButton" style="display: inline-block; margin:auto; padding: 0 1vh;" onclick="">Submit</button>
+      <button class="redButton" style="display: inline-block; margin:auto; padding: 0 1vh;" onclick="">Cancel</button>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <p>
+      <span style="color: #0098FF;">My Website:</span>
+      <button class="profileEditButton" id="editProfileWebsite" style="display: none;" onclick="">✎</button>
+    </p>
+    <p style="color:white; margin:auto;" class="paragraph">
+      <a style="color: gold;" class="include-user-website">Website Link</a>
+    </p>
+    <div id="profileWebsiteEntry" style="display:none;">
+      <textarea rows="1" cols="50"></textarea>
+      <br>
+      <button class="submitButton" style="display: inline-block; margin:auto; padding: 0 1vh;" onclick="">Submit</button>
+      <button class="redButton" style="display: inline-block; margin:auto; padding: 0 1vh;" onclick="">Cancel</button>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <p>
+      <span style="color: #0098FF;">Location:</span>
+      <button class="profileEditButton" id="editProfileLocation" style="display: none;" onclick="">✎</button>
+    </p>
+    <p style="color:white; margin:auto;" class="paragraph">
+      <span class="include-user-location">Location</span>
+    </p>
+    <div id="profileLocationEntry" style="display:none;">
+      <textarea rows="1" cols="50"></textarea>
+      <br>
+      <button class="submitButton" style="display: inline-block; margin:auto; padding: 0 1vh;" onclick="">Submit</button>
+      <button class="redButton" style="display: inline-block; margin:auto; padding: 0 1vh;" onclick="">Cancel</button>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <p>
+    <span style="color: #0098FF;">Account Created:</span>
+    </p>
+    <p style="color:white; margin:auto;" class="paragraph">
+      <!-- Shows time since creation, in terms of days or months or years. -->
+      <span class="include-time-since-creation">Elapsed Time</span>
+      <!-- Also show real creation date. -->
+      <i style="color: #A8A8A8;">(<span class="include-date-created">Timestamp</span>)</i>
+    </p>
+  </div>
+
+
+  <!-- Alert popup. -->
+  <div data-include="alert-box" style="position:absolute; bottom: 0; width: 100%; padding-bottom: 2vh;"></div>
+
+</div>
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="/accounts/legal/terms-of-service">TOS</a>
+  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>

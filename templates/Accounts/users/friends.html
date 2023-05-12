@@ -1,0 +1,63 @@
+<!--
+  Displays the currently logged-in user's Friends List, and other friendship information.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Friends - PyroNeon</title>
+  <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/Accounts/css/users/friends.css">
+  <link rel="stylesheet" href="/static/Global/css/loader.css">
+
+  <!-- This buildscript specifies how JS should be executed. -->
+  <script type="module" id="buildscript">
+    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
+    import { GenerateFriendsPage } from '/static/Accounts/js/users/friendslist.js';
+    // First, include all requested elements.
+    ImportHTML();
+    // Code inside this funct only executes AFTER elements are imported.
+    $(window).on('load', function () {
+      // Activate the profile page's javascript. Automatically sets up AccountHeader.
+      GenerateFriendsPage();
+    });
+  </script>
+</head>
+
+<body>
+
+<!-- Account Header above the navbar -->
+<!-- The account header is powered by profile.js -->
+<div data-include="account-header-nojs"></div>
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+
+
+<!-- Loading throbber -->
+<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+<table id="friendsList" style="display: none;">
+  <tr class="tr-head"><td>Friends</td><td>Pending</td></tr>
+  <tr><td>test</td><td>test</td></tr>
+</table>
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="/accounts/legal/terms-of-service">TOS</a>
+  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>

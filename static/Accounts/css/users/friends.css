@@ -1,0 +1,63 @@
+/* Import navbar/footer stuff */
+@import "/static/Global/css/header-navbar.css";
+
+/* Style the body */
+body {
+  font-family: NewTown;
+  background: #1C1C1C;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  min-height: 100vh;
+}
+/* Increase the font size of the headings */
+h1 {
+  font-size: 3.125vw;
+  font-family: HighwayGothic;
+  margin: 0;
+  color: white;
+}
+p {
+  font-family: HighwayGothic;
+  font-size: 1.5625vw;
+  color: #C9C9C9;
+}
+@media (orientation: portrait) {
+  h1{
+    font-size: 3rem;
+  }
+  p{
+    font-size: 1.5rem;
+  }
+}
+
+/* Wrap paragraphs into blocks without using <br> */
+.paragraph {
+  inline-size: 25%;
+  overflow-wrap: break-word;
+}
+
+/* table {
+  border-collapse: collapse;
+  background-color: #696969;
+  color:white;
+  text-shadow: 3px 3px 2px black;
+  text-decoration: none;
+  font-family: HighwayGothic;
+  font-size: 1.3vw;
+
+  margin: auto;
+}
+td{
+  padding: 1%;
+  padding-left: 2ch;
+  padding-right: 2ch;
+  border: 1px solid #444444;
+}
+tr{
+  border: 1px solid #444444;
+}
+.tr-head{
+  background-color: #444444;
+} */

@@ -1,5 +1,5 @@
-import FetchService from './libs/services/FetchService.js';
-import FormUtils from './libs/utils/FormUtils.js';
+import FetchService from '../libs/services/FetchService.js';
+import FormUtils from '../libs/utils/FormUtils.js';
 
 // On load, check if the client is Logged in (has a valid JWT saved in storage)
 const jwt = localStorage.getItem("pn-jwt");

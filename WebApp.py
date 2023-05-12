@@ -158,7 +158,7 @@ def tum_download_exe():
 
 @app.route('/accounts')
 def accountsHomepage():
-    return redirect("/accounts/account-dashboard", code=302)
+    return redirect("/accounts/dashboard", code=302)
 
 # Register for a new PN account
 @app.route('/accounts/register')
@@ -185,9 +185,9 @@ def enterManualConfirmationCode():
 def login():
     return render_template('Accounts/login.html')
 
-@app.route('/accounts/account-dashboard')
+@app.route('/accounts/dashboard')
 def accountDashboard():
-    return render_template('Accounts/account-dashboard.html')
+    return render_template('Accounts/users/dashboard.html')
 
 @app.route('/accounts/update/delete-account')
 def deleteAccount():
@@ -221,6 +221,27 @@ def termsOfService():
 @app.route('/accounts/legal/privacy-policy')
 def privacyPolicy():
     return render_template('Accounts/legal/privacy-policy.html')
+
+
+
+
+
+
+# Gets a profile for a user - depending on provided uuid url tag.
+@app.route('/accounts/profile')
+def userProfile():
+    return render_template('Accounts/users/profile.html')
+
+# Shows the friends list for the currently logged-in user.
+@app.route('/accounts/friends')
+def userFriendsList():
+    return render_template('Accounts/users/friends.html')
+
+
+
+
+
+
 
 
 

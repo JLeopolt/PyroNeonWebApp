@@ -1,40 +1,15 @@
-import FetchService from './libs/services/FetchService.js';
-import FormUtils from './libs/utils/FormUtils.js';
+import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
+import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 
-// On load, check if the client is Logged in (has a valid JWT saved in storage)
-const jwt = localStorage.getItem("pn-jwt");
-
-if(!jwt){
-  // No JWT was found, load as guest.
-  loadAsGuest();
-}
-else{
-  // Validate the JWT.
-  validateJWT(jwt);
-}
-
-async function validateJWT(jwt){
-  // Prepare utils
-  const fetchService = new FetchService();
-  const formUtils = new FormUtils();
-  // Prepare headers
-  const headers = formUtils.buildHeaders();
-  // Send the post request, body contains key pair "jwt":<token>
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/validate", headers, {"jwt":jwt});
-  console.log(response);
-  // Convert the HTTP Status into a single digit, representing response type.
-  const statusType = String(response.status)[0];
-  // Successful responses
-  if(statusType === "2"){
-    const claims = response.claims;
-    // Adopt the jwt, the user is validated.
-    loadAsUser(claims);
-    return;
-  }
-  else{
-    // Invalid JWT, generate account-header as guest.
-    loadAsGuest();
-  }
+// Sets up the account header. If claims is null, uses Guest header.
+// Be careful not to provide a promise here.
+export function SetupAccountsHeader(claims) {
+    if(claims != null){
+      loadAsUser(claims);
+    }
+    else{
+      loadAsGuest();
+    }
 }
 
 function loadAsGuest(){

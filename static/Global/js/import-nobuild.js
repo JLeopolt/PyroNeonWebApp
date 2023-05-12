@@ -4,9 +4,6 @@
 // Use <div data-include="THE HTML FILE'S NAME"></div> to import an html element.
 import * as jquery from 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js';
 
-// This code executes after the page initially loads.
-$(ImportHTML());
-
 // The import function can be used in a build script for more complex pages.
 export function ImportHTML() {
   var includes = $('[data-include]')
