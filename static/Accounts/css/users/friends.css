@@ -9,7 +9,10 @@ body {
   padding: 0;
   text-align: center;
 
-  min-height: 100vh;
+  min-height: 90vh;
+  display: flex;
+  flex-flow: column;
+  /* height: 100%; */
 }
 /* Increase the font size of the headings */
 h1 {
@@ -32,32 +35,65 @@ p {
   }
 }
 
-/* Wrap paragraphs into blocks without using <br> */
-.paragraph {
-  inline-size: 25%;
-  overflow-wrap: break-word;
-}
+.friendPanel {
+  background-color: #2B2B2B;
+  inline-size: 33%;
+  margin: auto;
+  flex: 1 1 auto;
 
-/* table {
-  border-collapse: collapse;
-  background-color: #696969;
-  color:white;
-  text-shadow: 3px 3px 2px black;
-  text-decoration: none;
+  border: none;
+  border-collapse:collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+.friendPanel thead {
+  background-color: black;
+}
+.friendPanel th {
   font-family: HighwayGothic;
   font-size: 1.3vw;
+  color: white;
+  background-color: black;
+  padding: 0.5vw 1vw;
+}
+.friendPanel th:hover {
+  background-color: #343434;
+}
 
-  margin: auto;
+.friendEntry {
+  cursor: pointer;
+  height: 10%;
+  overflow: hidden;
 }
-td{
-  padding: 1%;
-  padding-left: 2ch;
-  padding-right: 2ch;
-  border: 1px solid #444444;
+.friendEntry:hover{
+  background-color: #414141;
 }
-tr{
-  border: 1px solid #444444;
+.nameBadge{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.tr-head{
-  background-color: #444444;
-} */
+.nameBadge img {
+  max-width: 10%;
+  max-height: 10%;
+  display: inline-block;
+  padding-right: 2%;
+}
+.nameBadge p {
+  font-size: 1.9vw;
+  text-decoration: none;
+  margin: 0;
+  display: inline-block;
+}
+
+.pageButton{
+  font-family: HighwayGothic;
+  font-size: 1vw;
+  color: #C9C9C9;
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+.pageButton:hover {
+  background-color: #484848;
+}

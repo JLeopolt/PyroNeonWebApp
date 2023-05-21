@@ -1,9 +1,18 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 
+// config
+var pageSize = 5;
 // Prepare utils
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
+
+export function GetPageSize(){
+  return pageSize;
+}
+export function SetPageSize(newSize){
+  pageSize = newSize;
+}
 
 // Gets JWT from cookies, asks Friends API if the authenticated user is friends with UUID.
 // Will return a Friendship object if success, or null if failed.
@@ -74,6 +83,29 @@ export async function RemoveFriendship(target_uuid) {
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response. may return true/false.
   return processResponse(response);
+}
+
+// Gets JWT from cookies, either rejects all friendships / friend requests.
+// isAccepted determines if selecting pending or accepted friendships.
+// sent_by_friend is used to specify if the requests were made by you, or by the friend. May be null.
+// startId is used for pagination. If startId is null, starts from 0.
+// reverse is used for pagination. If reverse is true, gets elements in reverse order. If false or null, uses forward order.
+// Returns a JSON Array of friends, or null.
+export async function GetFriendsList(isAccepted, sent_by_friend, startId, reverse) {
+  // Check if the client is Logged in (has a valid JWT saved in storage)
+  const jwt = localStorage.getItem("pn-jwt");
+  // If no JWT saved, fail.
+  if(jwt == null){
+    return null;
+  }
+  // Send the post request with body.
+  const response = await fetchService.performPostHttpRequest(
+    "https://games.pyroneon.ml:6950/api/friends/list-friends",
+  formUtils.buildHeaders(),{"auth_token":jwt, "was_accepted":isAccepted, "start_uuid":startId, "reverse":reverse, "sent_by_friend":sent_by_friend, "page_size":pageSize});
+  // process response.
+  if(processResponse(response)){
+    return response.friends;
+  }
 }
 
 // Checks if a response returned successfully.

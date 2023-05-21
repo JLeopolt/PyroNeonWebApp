@@ -42,13 +42,79 @@
 </div>
 
 
+<h1>My Friends</h1>
+<br>
 
-<!-- Loading throbber -->
-<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<!-- Display everything using an HTML Table. -->
+<table class="friendPanel">
+  <!-- Header -- Contains 'Tabs' which toggle which mode is being used. -->
+  <thead>
+    <tr>
+      <th id="friendsTab">Friends</th>
+      <th id="incomingTab">Incoming</th>
+      <th id="outgoingTab">Outgoing</th>
+    </tr>
+  </thead>
 
-<table id="friendsList" style="display: none;">
-  <tr class="tr-head"><td>Friends</td><td>Pending</td></tr>
-  <tr><td>test</td><td>test</td></tr>
+  <!-- Body -- Contains the friend entries, which are procedurally generated. -->
+  <tbody id="friendsList">
+    <!-- Throbber, which is visible while the list is loading. Removed after list is generated. -->
+    <tr id="throbber" style="background-color: inherit; cursor: inherit; display: none;">
+      <td colspan="3">
+        <!-- Loading throbber -->
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      </td>
+    </tr>
+
+    <!-- Notifies the user that no results were found. -->
+    <tr id="noResultsNotice" style="display: none; background-color: inherit; cursor: inherit;">
+      <td colspan="3">
+        <p>
+          There's nothing here.
+        </p>
+      </td>
+    </tr>
+
+    <!-- A prebuilt friendEntry node which is cloned by JS and reproduced to create new user entries.  -->
+    <!-- The entire row is clickable, and should redirect client to the user's profile page. -->
+    <tr id="friendEntryNode" class="friendEntry" style="display:none;">
+      <td colspan="3">
+        <!-- Profile picture. Uses a span for proper resizing. -->
+        <div class="nameBadge">
+          <img src="/static/Accounts/img/pfp.png" alt="Profile Photo">
+          <!-- Friend's username. -->
+          <p>User</p>
+        </div>
+
+      </td>
+    </tr>
+
+    <!-- An empty row used for placeholder. -->
+    <tr id="emptyRowEntry" class="friendEntry" style="display:none; background-color: inherit; cursor: inherit;">
+      <td colspan="3"></td>
+    </tr>
+
+  </tbody>
+
+  <!-- Footer -- Contains navigation controls for pagination, if available. -->
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <!-- This flex container aligns the elements within their single shared column. -->
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <!-- Pagination controls. -->
+          <button class="pageButton" id="prevPageButton"> ◀ Prev </button>
+
+          <p style="margin: 0; padding-left: 1vw; padding-right: 1vw;">
+            <span id="pageNumber"> 1 </span>
+          </p>
+
+          <button class="pageButton" id="nextPageButton"> Next ▶ </button>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+
 </table>
 
 <!-- Footer with extra links at the bottom of the page. -->
