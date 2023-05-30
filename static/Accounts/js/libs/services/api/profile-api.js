@@ -56,6 +56,16 @@ export async function UpdateProfileLocation(content) {
   return response;
 }
 
+// Gets a UUID from a Username.
+// return response, which must be checked for success.
+export async function ResolveUsername(username) {
+  // Send the post request with body.
+  const response = await fetchService.performGetHttpRequest(
+    "https://auth.pyroneon.ml:8443/api/resolve-username?username=" + username,
+  formUtils.buildHeaders());
+  return response;
+}
+
 // Checks if a response returned successfully.
 // Returns true or false.
 function processResponse(response){

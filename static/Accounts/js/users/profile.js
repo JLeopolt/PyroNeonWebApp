@@ -15,8 +15,7 @@ export function GenerateProfilePage(){
   // Get the UUID to target from the URL.
   const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
-  }
-);
+  });
 
   // This should be a hexadecimal 32 long string, representing a UUID.
   let target_id = params.user;

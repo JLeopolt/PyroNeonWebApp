@@ -1,8 +1,11 @@
 import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
 import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
-import { GetFriendsList, GetPageSize, SetPageSize } from '/static/Accounts/js/libs/services/api/friends-api.js';
+import { GetFriendsList } from '/static/Accounts/js/libs/services/api/friends-api.js';
+import { AcceptFriendRequest,RemoveFriendship } from '/static/Accounts/js/libs/services/api/friends-api.js';
+import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
 
-SetPageSize(1);
+let alertPopup = new AlertPopup();
+const pageSize = 5;
 
 // The main function which performs all setup for the page.
 export function GenerateFriendsPage(){
@@ -14,11 +17,13 @@ export function GenerateFriendsPage(){
     // if not logged in, redirect.
     if(claims == null){
       console.log("You must be logged in to view your friends list.");
-      window.location.href = "/missing";
+      // Invalid JWT, send them to the login page.
+      window.location.href = "/accounts/login";
       return;
     }
     // generate the page here. this can be done before requesting friendship list.
     generatePage();
+
     // use URL Params to set the tab.
     autoListFromURLParams();
   });
@@ -106,7 +111,7 @@ function disableThrobber(){
 
 // Fills the Friends list panel with friend elements.
 // NOTICE: Assumes the friends list is already CLEARED.
-function populateFriendsList(friends){
+function populateFriendsList(friends, canAcceptReq){
   // Now, since API request is finished, disable the throbber.
   disableThrobber();
 
@@ -119,12 +124,11 @@ function populateFriendsList(friends){
   // Loop through the whole Friends list.
   for (let i in friends) {
     // Add the user to the HTML page.
-    createFriendElement(friends[i]);
+    createFriendElement(friends[i], canAcceptReq);
   }
 
   var parent = document.getElementById("friendsList");
   // fill remaining space with empty rows.
-  let pageSize = GetPageSize();
   for(var n = friends.length-1; n < pageSize-1; n++){
     createEmptyRow(parent);
   }
@@ -156,18 +160,76 @@ friendEntryNode.style.display = "table-row";
 friendEntryNode.setAttribute('id', "");
 
 // Takes in a JSON Object representing the Friendship with another user.
+// canAcceptReq is a bool which specifies if accept friend request button is enabled.
 // Automatically adds an element representing that user to the corresponding section in the HTML page.
-function createFriendElement(friendship){
+function createFriendElement(friendship, canAcceptReq){
   // clone the saved friend entry node.
   var entry = friendEntryNode.cloneNode(true);
+
   // set the onclick event to redirect user to the friend's profile page.
   entry.setAttribute('onclick', "window.location.href = \"/accounts/profile?user=" + friendship.friend.uuid + "\";");
+
   // set the nametag to Username.
   entry.getElementsByTagName("p")[0].textContent = friendship.friend.username;
+
   // set the background color to the user's special profile color.
   // entry.style.backgroundColor = "#" + friendship.friend.uuid.slice(0,6) + "A5";
+
+  // Remove Friend button. May also be used as Reject Friend Request button.
+  var removeFriendButton = entry.getElementsByClassName("redButton")[0];
+  // set removeFriendButton to use REJECT-FRIEND function (no confirm) if in request mode, otherwise use regular remove friend with confirm mode.
+  removeFriendButton.onclick = function(){removeFriend(friendship.friend.uuid, !canAcceptReq)};
+  // prevent background clickevent firing alongside this button, by using jquery stopPropagation.
+  $(removeFriendButton).click(function(e) {
+   e.stopPropagation();
+  });
+
+  if(canAcceptReq){
+    // enable accept friend request button.
+    var acceptFriendButton = entry.getElementsByClassName("greenButton")[0];
+    acceptFriendButton.style.display = "inline-block";
+    acceptFriendButton.onclick = function(){acceptFriendRequest(friendship.friend.uuid)};
+
+    // prevent background clickevent firing alongside this button, by using jquery stopPropagation.
+    $(acceptFriendButton).click(function(e) {
+     e.stopPropagation();
+    });
+  }
+
   // add the user entry to the friends list.
   document.getElementById("friendsList").appendChild(entry);
+}
+
+// api request for accept friend request.
+function acceptFriendRequest(target_id){
+  AcceptFriendRequest(target_id).then((result) => {
+    if(result == true){
+      alertPopup.createAlertPopup("success", "Accepted friend request.");
+      return;
+    }
+    alertPopup.createAlertPopup("error", "Failed to accept friend request.");
+  });
+}
+
+// api request for reject friend request / remove friend.
+// requireConfirm is bool which determines if a confirmation is required to execute.
+function removeFriend(target_id, requireConfirm){
+  // confirm check , if required.
+  if(requireConfirm){
+    var isConfirmed = confirm("Do you want to end your friendship with this user?");
+    // If refused, do nothing.
+    if(!isConfirmed){
+      return;
+    }
+  }
+  // If confirmed, proceed with removing friend.
+  RemoveFriendship(target_id).then((result) => {
+    if(result == true){
+      alertPopup.createAlertPopup("success", "Removed friend.");
+      return;
+    }
+    alertPopup.createAlertPopup("error", "Failed to remove friend.");
+  });
 }
 
 let noResultsNotice = document.getElementById("noResultsNotice");
@@ -223,12 +285,20 @@ function listEntries(tabIndex, urlMode, isAccepted, sent_by_friend, startId, rev
   if(reverse == undefined){
     reverse = null;
   }
-  GetFriendsList(isAccepted, sent_by_friend, startId, reverse).then((friends) => {
+  // Get 1 more result than actual page size, to check if a next page exists.
+  GetFriendsList(pageSize+1, isAccepted, sent_by_friend, startId, reverse).then((friends) => {
+    // if next page exists, if more than pageSize results then a next page exists.
+    const nextPageExists = friends.length > pageSize;
+    // truncate the array to remove extra result, if one exists.
+    if(nextPageExists == true){
+      friends.splice(pageSize);
+    }
     currentFriendsList = friends;
     // Populate the friends list with the results.
-    populateFriendsList(friends);
+    // if not accepted & sent by friend, it can be accepted/rejected, so enable accept button.
+    populateFriendsList(friends, (!isAccepted && sent_by_friend));
     // enable/disable page buttons.
-    checkPossiblePageButtons(friends, newPageNo);
+    checkPossiblePageButtons(nextPageExists || reverse, newPageNo);
   });
 }
 
@@ -248,13 +318,13 @@ const pageButtons = ["prevPageButton", "nextPageButton"];
 const pageButtonFunctions = [function(){prevPage()}, function(){nextPage()}];
 
 // checks which page buttons are available.
-function checkPossiblePageButtons(friends, pageNo){
-  // If list isn't pageSize, there are no more pages.
-  if(friends.length < GetPageSize()){
-    disableButton(1);
+function checkPossiblePageButtons(nextPageExists, pageNo){
+  // If a next page exists
+  if(nextPageExists){
+    enableButton(1);
   }
   else{
-    enableButton(1);
+    disableButton(1);
   }
   // If page 1, disable prev
   if(pageNo < 2){
@@ -268,24 +338,24 @@ function checkPossiblePageButtons(friends, pageNo){
 function addPageButtonEvents(){
   for(var i = 0; i < pageButtons.length; i++){
     document.getElementById(pageButtons[i]).onclick = pageButtonFunctions[i];
+    // disable by default, will be enabled on load.
+    disableButton(i);
   }
 }
 
 function prevPage(){
   var newPage = getCurrentPageNumber() - 1;
-  // get first entry's uuid for start id.
   var startID = currentFriendsList[0].friend.uuid;
   setListURLParams(null, newPage, startID, true);
-  // listOutgoingFriendRequests(newPage, startID, true);
   autoListFromURLParams();
 }
+
 // This will only be called if current page is full of results.
 function nextPage(){
   var newPage = getCurrentPageNumber() + 1;
   // get last entry's uuid for start id.
-  var startID = currentFriendsList[GetPageSize()-1].friend.uuid;
+  var startID = currentFriendsList[pageSize-1].friend.uuid;
   setListURLParams(null, newPage, startID);
-  // listOutgoingFriendRequests(newPage, startID);
   autoListFromURLParams();
 }
 

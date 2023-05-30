@@ -185,10 +185,6 @@ def enterManualConfirmationCode():
 def login():
     return render_template('Accounts/login.html')
 
-@app.route('/accounts/dashboard')
-def accountDashboard():
-    return render_template('Accounts/users/dashboard.html')
-
 @app.route('/accounts/update/delete-account')
 def deleteAccount():
     return render_template('Accounts/updates/delete-account.html')
@@ -226,6 +222,9 @@ def privacyPolicy():
 
 
 
+@app.route('/accounts/dashboard')
+def accountDashboard():
+    return render_template('Accounts/users/dashboard.html')
 
 # Gets a profile for a user - depending on provided uuid url tag.
 @app.route('/accounts/profile')
@@ -237,7 +236,13 @@ def userProfile():
 def userFriendsList():
     return render_template('Accounts/users/friends.html')
 
+@app.route('/accounts/settings')
+def accountSettings():
+    return render_template('Accounts/users/settings.html')
 
+@app.route('/accounts/search')
+def searchAccounts():
+    return render_template('Accounts/users/search.html')
 
 
 

@@ -13,6 +13,8 @@ export function SetupAccountsHeader(claims) {
 }
 
 function loadAsGuest(){
+  document.getElementById("headerLoginButton").style.display = "inline-block";
+  document.getElementById("headerRegisterButton").style.display = "inline-block";
   document.getElementById("headerLogoutButton").style.display = "none";
   document.getElementById("headerDashboardButton").style.display = "none";
 }
@@ -21,6 +23,8 @@ function loadAsUser(claims){
   updateSpans("set-to-username",claims.username);
   document.getElementById("headerLoginButton").style.display = "none";
   document.getElementById("headerRegisterButton").style.display = "none";
+  document.getElementById("headerLogoutButton").style.display = "inline-block";
+  document.getElementById("headerDashboardButton").style.display = "inline-block";
 }
 
 // Updates all instances of the class to contain newText.

@@ -1,18 +1,9 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 
-// config
-var pageSize = 5;
 // Prepare utils
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
-
-export function GetPageSize(){
-  return pageSize;
-}
-export function SetPageSize(newSize){
-  pageSize = newSize;
-}
 
 // Gets JWT from cookies, asks Friends API if the authenticated user is friends with UUID.
 // Will return a Friendship object if success, or null if failed.
@@ -91,7 +82,7 @@ export async function RemoveFriendship(target_uuid) {
 // startId is used for pagination. If startId is null, starts from 0.
 // reverse is used for pagination. If reverse is true, gets elements in reverse order. If false or null, uses forward order.
 // Returns a JSON Array of friends, or null.
-export async function GetFriendsList(isAccepted, sent_by_friend, startId, reverse) {
+export async function GetFriendsList(pageSize, isAccepted, sent_by_friend, startId, reverse) {
   // Check if the client is Logged in (has a valid JWT saved in storage)
   const jwt = localStorage.getItem("pn-jwt");
   // If no JWT saved, fail.

@@ -47,7 +47,7 @@ async function submitForm(e, form){
     // Account manager page
     alertPopup.createAlertPopup("success", "Successfully logged in. Redirecting you..");
     setTimeout(() => {
-      window.location.href = "/accounts/account-dashboard";}, 1000);
+      window.location.href = "/accounts/dashboard";}, 1000);
   }
   // Client error
   else if(statusType === "4"){

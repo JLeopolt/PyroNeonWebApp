@@ -10,8 +10,18 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/account_dashboard.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- Import.js handles importing HTML elements from other files. -->
-  <script type="module" src="/static/Global/js/import.js"></script>
+  <!-- This buildscript specifies how JS should be executed. -->
+  <script type="module" id="buildscript">
+    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
+    import { GeneratePage } from "/static/Accounts/js/users/account_dashboard.js";
+    // First, include all requested elements.
+    ImportHTML();
+    // Code inside this funct only executes AFTER elements are imported.
+    $(window).on('load', function () {
+      // Activate the dashboard page's javascript. Automatically sets up AccountHeader.
+      GeneratePage();
+    });
+  </script>
 </head>
 
 <body>
@@ -30,42 +40,47 @@
   <a href="/community">Community</a>
 </div>
 
-<!-- Loading animation -->
-<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<h1>Welcome back, <span class="set-to-username" style="color: #FFBB01;">username</span>.</h1>
 
-<article id="dashboard" style="display: none; position: fixed; top: 13%;">
+<p style="margin: 0;">Remember to <a class="logoutLink" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">log out</a> when you're done.</p>
 
-  <img src="/static/PyroNeon/img/banner.png" alt="PyroNeon Banner" id="logoBanner">
+<div class="grid-container" style="padding-top: 1vh; padding-bottom: 1vh;">
 
-  <h1>Welcome back, <span class="set-to-username" style="color: #FFBB01;">username</span>.</h1>
+  <a id="myProfileButton">
+    <div class="grid-item"">
+      <h1>Profile</h1>
+    </div>
+  </a>
 
-  <div class="paragraph" style="padding: 0; margin-top: 0;">
-    <p>Remember to log out when you're done.</p>
-  </div>
+  <a href="/accounts/settings">
+    <div class="grid-item">
+      <h1>Settings</h1>
+    </div>
+  </a>
 
-  <button class="redButton" style="margin-top: 2vh;" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
+  <a href="/accounts/friends">
+    <div class="grid-item">
+      <h1>Friends</h1>
+    </div>
+  </a>
 
-  <h1 style="margin-top: 4vh;">Update Credentials</h1>
+  <a href="/accounts/search">
+    <div class="grid-item">
+      <h1>Discover</h1>
+    </div>
+  </a>
 
-  <table style="margin: auto; border-collapse: separate; border-spacing: 2vh;">
-    <tr>
-      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-username';">Change Username</button></td>
-    </tr>
-    <tr>
-      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-password';">Change Password</button></td>
-    </tr>
-    <tr>
-      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-email-address';">Change Email Address</button></td>
-    </tr>
-    <tr>
-      <td><button class="redButton" onclick="window.location.href = '/accounts/update/delete-account';">Delete Account</button></td>
-    </tr>
-  </table>
+</div>
 
-</article>
+<h1 style="padding-top: 1vh;">News Timeline</h1>
+<p style="margin: 0; padding-bottom: 2vh;">View the latest developments from <a href="/community" class="logoutLink">PyroNeon Software</a>.</p>
 
-<!-- Handles the dashboard functionality. -->
-<script type="module" src="/static/Accounts/js/users/account_dashboard.js"></script>
+<!-- Integrated Twitter Timeline with PyroNeon updates. -->
+<a class="twitter-timeline" data-theme="dark" href="https://twitter.com/PyroNeonGames?ref_src=twsrc%5Etfw">
+  <!-- Loading throbber -->
+  <div class="lds-roller" style="position: absolute; top: 70%;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!-- Footer with extra links at the bottom of the page. -->
 <div class="footer">

@@ -1,25 +1,32 @@
 <!--
-  Displays the currently logged-in user's Friends List, and other friendship information.
+  A page where the user can search for other users by their usernames.
  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My Friends - PyroNeon</title>
+  <title>Search For A User - PyroNeon</title>
   <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/static/Accounts/css/users/friends.css">
+  <link rel="stylesheet" href="/static/Accounts/css/users/search.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
     import { ImportHTML } from '/static/Global/js/import-nobuild.js';
-    import { GenerateFriendsPage } from '/static/Accounts/js/users/friendslist.js';
+    import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
+    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
+    import { GeneratePage } from '/static/Accounts/js/users/search.js';
     // First, include all requested elements.
     ImportHTML();
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {
-      // Activate the profile page's javascript. Automatically sets up AccountHeader.
-      GenerateFriendsPage();
+      // Get auth claims.
+      GetAuthClaims().then((claims) => {
+        // setup account header
+        SetupAccountsHeader(claims);
+        // process page. does not require claims
+        GeneratePage();
+      });
     });
   </script>
 </head>
@@ -44,30 +51,18 @@
 <!-- Alert popup. -->
 <div data-include="alert-box" style="width: 100%;"></div>
 
-<h1>My Friends</h1>
-<br>
-
+<h1>Search</h1>
 <!-- Search field, where user can search for other accounts by their usernames. -->
-<!-- <form action="" id="login_submit_form" class="searchField">
-
-  <input type="text" class="input-text-field" name="username" id="username" placeholder="Search for an account..">
-  <button type="submit" class="submitButton" id="loginSubmitButton"><img src="/static/Accounts/img/search.png" alt="Search"></button>
-
-</form> -->
+<div class="searchField" style="margin-top: 0; margin-bottom: 1vh;">
+  <input type="text" class="input-text-field" id="searchTextField" placeholder="Search for an account..">
+  <button class="submitButton" id="searchSubmitButton"><img src="/static/Accounts/img/search.png" alt="Search"></button>
+</div>
 
 <!-- Display everything using an HTML Table. -->
-<table class="friendPanel">
-  <!-- Header -- Contains 'Tabs' which toggle which mode is being used. -->
-  <thead>
-    <tr>
-      <th id="friendsTab">Friends</th>
-      <th id="incomingTab">Incoming</th>
-      <th id="outgoingTab">Outgoing</th>
-    </tr>
-  </thead>
+<table class="resultPanel">
 
   <!-- Body -- Contains the friend entries, which are procedurally generated. -->
-  <tbody id="friendsList">
+  <tbody id="resultList">
     <!-- Throbber, which is visible while the list is loading. Removed after list is generated. -->
     <tr id="throbber" style="background-color: inherit; cursor: inherit; display: none;">
       <td colspan="3">
@@ -80,14 +75,14 @@
     <tr id="noResultsNotice" style="display: none; background-color: inherit; cursor: inherit;">
       <td colspan="3">
         <p>
-          There's nothing here.
+          No results found.
         </p>
       </td>
     </tr>
 
     <!-- A prebuilt friendEntry node which is cloned by JS and reproduced to create new user entries.  -->
     <!-- The entire row is clickable, and should redirect client to the user's profile page. -->
-    <tr id="friendEntryNode" class="friendEntry" style="display:none;">
+    <tr id="resultEntryNode" class="resultEntry" style="display:none;">
       <td colspan="3">
         <div class="nameplate">
 
@@ -98,16 +93,12 @@
             <p>User</p>
           </div>
 
-          <!-- Friend control buttons -- remove friend, accept/reject pending requests, etc. -->
-          <button class="greenButton" onclick="" style="display: none;"><img src="/static/Accounts/img/checkmark.png" alt="Accept"></button>
-          <!-- removeFriend is always an option. -->
-          <button class="redButton" onclick=""><img src="/static/Accounts/img/trashbin.png" alt="Delete"></button>
         </div>
       </td>
     </tr>
 
     <!-- An empty row used for placeholder. -->
-    <tr id="emptyRowEntry" class="friendEntry" style="display:none; background-color: inherit; cursor: inherit;">
+    <tr id="emptyRowEntry" class="resultEntry" style="display:none; background-color: inherit; cursor: inherit;">
       <td colspan="3"></td>
     </tr>
 

@@ -1,0 +1,98 @@
+<!--
+Allows a logged-in user to overview account management settings.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Settings - PyroNeon</title>
+  <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/Accounts/css/settings.css">
+  <link rel="stylesheet" href="/static/Global/css/loader.css">
+
+  <!-- This buildscript specifies how JS should be executed for the page. -->
+  <script type="module" id="buildscript">
+    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
+    import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
+    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
+    import { UpdateSpans } from '/static/Accounts/js/libs/utils/update-elements.js';
+    // First, include all requested elements.
+    ImportHTML();
+    // Code inside this funct only executes AFTER elements are imported.
+    $(window).on('load', function () {
+      // Confirm the JWT and get user data from it.
+      GetAuthClaims().then((claims) => {
+        // setup account header
+        SetupAccountsHeader(claims);
+
+        // if not logged in, redirect.
+        if(claims == null){
+          console.log("You must be logged in to view account settings.");
+          // Invalid JWT, send them to the login page.
+          window.location.href = "/accounts/login";
+          return;
+        }
+
+        // Perform page setup here.
+        document.getElementsByClassName("lds-roller")[0].style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        UpdateSpans("set-to-username", claims.username);
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+<!-- Account Header above the navbar -->
+<div data-include="account-header-nojs"></div>
+
+<!-- The top navbar header.  -->
+<div class="navbar">
+  <a href="/" class="logo">
+    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
+  </a>
+
+  <a href="/">Home</a>
+  <a href="/products">Products</a>
+  <a href="/community">Community</a>
+</div>
+
+
+
+<!-- Loading animation -->
+<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+
+
+<article id="dashboard" style="display: none; position: fixed; top: 13%;">
+
+  <h1>Update Settings For <span class="set-to-username" style="color: #FFBB01;">username</span>.</h1>
+
+  <table style="margin: auto; border-collapse: separate; border-spacing: 2vh;">
+    <tr>
+      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-username';">Change Username</button></td>
+    </tr>
+    <tr>
+      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-password';">Change Password</button></td>
+    </tr>
+    <tr>
+      <td><button class="submitButton" onclick="window.location.href = '/accounts/update/change-email-address';">Change Email Address</button></td>
+    </tr>
+    <tr>
+      <td><button class="redButton" onclick="window.location.href = '/accounts/update/delete-account';">Delete Account</button></td>
+    </tr>
+  </table>
+
+</article>
+
+<!-- Footer with extra links at the bottom of the page. -->
+<div class="footer">
+  <a href="/">Home</a>
+  <a href="/accounts/legal/terms-of-service">TOS</a>
+  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
+  <a href="/community">Community</a>
+</div>
+
+</body>
+</html>
