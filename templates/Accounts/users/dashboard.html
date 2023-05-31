@@ -13,13 +13,19 @@
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
     import { ImportHTML } from '/static/Global/js/import-nobuild.js';
+    import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
     import { GeneratePage } from "/static/Accounts/js/users/account_dashboard.js";
+    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
+
     // First, include all requested elements.
     ImportHTML();
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {
+      const claims = GetAuthClaims();
+      // setup account header
+      SetupAccountsHeader(claims);
       // Activate the dashboard page's javascript. Automatically sets up AccountHeader.
-      GeneratePage();
+      GeneratePage(claims);
     });
   </script>
 </head>

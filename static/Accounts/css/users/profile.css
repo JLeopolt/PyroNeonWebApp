@@ -79,19 +79,20 @@ p {
 
 @media (orientation: portrait) {
   .grid-container{
-    width: 75%;
+    width: 100%;
+    min-height: 90vh;
   }
   .grid-item h1{
     font-size: 2rem;
   }
   .grid-item h2{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .grid-item h3{
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
   .grid-item p{
-    font-size: 0.9rem;
+    font-size: 1.3rem;
   }
   .grid-container a{
     font-size: 1.3rem;
@@ -127,5 +128,11 @@ p {
   .submitButton, .redButton, .greenButton{
     padding: 0.25vh;
     font-size: 1.5rem;
+  }
+  .profileEditButton {
+    font-size: 2vh;
+  }
+  .paragraph {
+    inline-size: 90%;
   }
 }

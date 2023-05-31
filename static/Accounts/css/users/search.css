@@ -75,7 +75,7 @@ p {
     padding: 0.5vh;
   }
   .searchField {
-    inline-size: 90%;
+    inline-size: 100%;
   }
 }
 
@@ -169,7 +169,10 @@ p {
 
 @media (orientation: portrait) {
   .resultPanel {
-    inline-size: 90%;
+    inline-size: 100%;
+  }
+  .nameBadge p {
+    font-size: 2rem;
   }
   .pageButton{
     font-size: 1.5rem;

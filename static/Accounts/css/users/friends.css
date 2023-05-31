@@ -35,40 +35,6 @@ p {
   }
 }
 
-.searchField {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
-.input-text-field {
-  border: 0;
-  outline: none;
-  font-family: HighwayGothic;
-  font-size: 1.5vw;
-  padding: 0.5vw;
-  display: inline-block;
-  margin-right: 0.5%;
-}
-#loginSubmitButton{
-  max-width: 10%;
-  max-height: 10%;
-  display: inline-block;
-  font-size: 0;
-}
-#loginSubmitButton img {
-  max-width: 100%;
-  max-height: 100%;
-  display: inline-block;
-}
-
-@media (orientation: portrait) {
-  .input-text-field {
-    font-size: 2vh;
-    padding: 0.5vh;
-  }
-}
-
 .friendPanel {
   background-color: #2B2B2B;
   inline-size: 33%;
@@ -155,4 +121,19 @@ p {
 }
 .pageButton:hover {
   background-color: #484848;
+}
+
+@media (orientation: portrait) {
+  .friendPanel {
+    inline-size: 100%;
+  }
+  .friendPanel th {
+    font-size: 1.5rem;
+  }
+  .nameBadge p {
+    font-size: 2rem;
+  }
+  .pageButton{
+    font-size: 1.5rem;
+  }
 }

@@ -191,7 +191,8 @@ let currentResultsList = undefined;
 // Helper method for listFriend functions.
 function listEntries(searchQuery, startUsername, reverse, newPageNo){
   // Deactivate the submit button.
-  disableButton("searchSubmitButton");
+  document.getElementById("searchSubmitButton").onclick = null;
+
   // remove whatever is already in the friends list.
   clearResultList();
   // Enable loading animation.

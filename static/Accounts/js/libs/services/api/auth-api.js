@@ -1,46 +1,42 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 
-// Automatically checks cookies for auth token, then tries to validate it and return claims.
+// Prepare utils
+const fetchService = new FetchService();
+const formUtils = new FormUtils();
+
+// Gets auth token from cookies, and checks if it's expired.
+// Notice: Does not actually contact the AuthServer. This is clientside only..
 // Will return a Claims object if success, or null if failed.
-export async function GetAuthClaims() {
+export function GetAuthClaims() {
   // Check if the client is Logged in (has a valid JWT saved in storage)
   const jwt = localStorage.getItem("pn-jwt");
-
   // If no JWT saved, fail.
   if(jwt == null){
     return null;
   }
 
-  // Prepare utils
-  const fetchService = new FetchService();
-  const formUtils = new FormUtils();
+  // convert JWT body to base64.
+  const body_base64 = atob(jwt.split(".")[1]);
+  // convert b64 to JSON
+  const body = JSON.parse(body_base64);
 
-  // Send the post request, body contains key pair "jwt":<token>
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/validate", formUtils.buildHeaders(), {"jwt":jwt});
-  console.log(response);
-
-  // Convert the HTTP Status into a single digit, representing response type.
-  const statusType = String(response.status)[0];
-
-  // Successful responses
-  if(statusType === "2"){
-    return response.claims;
-  }
-  else{
+  // compare expiration timestamp of the auth token.
+  const currTime = new Date().getTime();
+  // if expired, return null
+  if(currTime >= body.exp){
     return null;
   }
+
+  // return claims as a json obj.
+  return body;
 }
 
 // Searches for users based on a search form.
 // Returns the response.
 export async function SearchUsers(searchQuery, startUsername, reverse, pageSize) {
-  // Prepare utils
-  const fetchService = new FetchService();
-  const formUtils = new FormUtils();
-
   // Send the post request
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/search-username", 
+  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/search-username",
                                                               formUtils.buildHeaders(),
                                                               {"search":searchQuery, "start_username":startUsername, "reverse":reverse, "page_size":pageSize});
   return response;

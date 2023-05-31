@@ -27,15 +27,6 @@ p {
   color: #C9C9C9;
 }
 
-.logoutLink{
-  color:#0098FF;
-  cursor:pointer;
-  text-decoration: none;
-}
-.logoutLink:hover{
-  color:white;
-}
-
 @media (orientation: portrait) {
   h1{
     font-size: 3rem;
@@ -43,6 +34,15 @@ p {
   p{
     font-size: 1.5rem;
   }
+}
+
+.logoutLink{
+  color:#0098FF;
+  cursor:pointer;
+  text-decoration: none;
+}
+.logoutLink:hover{
+  color:white;
 }
 
 .grid-container {
@@ -63,12 +63,18 @@ p {
     /* Vertical Grid */
     grid-template-columns: 1fr;
     width: 90%;
+    /* grid-gap: 2vh; */
   }
 }
 
 :root {
   --grid-item-size: 20vh;
   --grid-item-size-grow: calc(var(--grid-item-size) + 2vh);
+}
+@media (orientation: portrait) {
+  :root {
+    --grid-item-size-grow: calc(var(--grid-item-size) + 0.5vh;);
+  }
 }
 
 .grid-item{
@@ -109,13 +115,22 @@ p {
   max-height: 100%;
 }
 
-@media (orientation: portrait) {
-  .grid-item h1{
-    font-size: 2rem;
-  }
-}
-
 .twitter-timeline{
   width: 33%;
   margin: auto;
+}
+
+@media (orientation: portrait) {
+  .grid-item h1{
+    font-size: 1.5rem;
+  }
+  .grid-item {
+    width: 66%;
+    height: 100%;
+    margin: auto;
+    padding: 0.5vh 0;
+  }
+  .twitter-timeline{
+    width: 90%;
+  }
 }
