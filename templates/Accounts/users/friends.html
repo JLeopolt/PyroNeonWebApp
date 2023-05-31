@@ -12,14 +12,30 @@
 
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
+    import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
+
+    // Get auth token claims
+    const claims = GetAuthClaims();
+    // if not logged in, redirect.
+    if(claims == null){
+      // No JWT was found, so redirect them to the login page.
+      window.location.href = "/accounts/login";
+      process.exit(0);
+    }
+
     import { ImportHTML } from '/static/Global/js/import-nobuild.js';
-    import { GenerateFriendsPage } from '/static/Accounts/js/users/friendslist.js';
+    import { GeneratePage } from '/static/Accounts/js/users/friendslist.js';
+    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
+
     // First, include all requested elements.
     ImportHTML();
+
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {
-      // Activate the profile page's javascript. Automatically sets up AccountHeader.
-      GenerateFriendsPage();
+      // setup account header
+      SetupAccountsHeader(claims);
+      // Activate the profile page's javascript.
+      GeneratePage(claims);
     });
   </script>
 </head>

@@ -16,17 +16,16 @@
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
     import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
     import { GeneratePage } from '/static/Accounts/js/users/search.js';
-    // First, include all requested elements.
+    // Get auth token claims (optional)
+    const claims = GetAuthClaims();
+    // include all requested elements.
     ImportHTML();
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {
-      // Get auth claims.
-      GetAuthClaims().then((claims) => {
-        // setup account header
-        SetupAccountsHeader(claims);
-        // process page. does not require claims
-        GeneratePage();
-      });
+      // setup account header
+      SetupAccountsHeader(claims);
+      // process page. does not require claims
+      GeneratePage();
     });
   </script>
 </head>
@@ -34,7 +33,6 @@
 <body>
 
 <!-- Account Header above the navbar -->
-<!-- The account header is powered by profile.js -->
 <div data-include="account-header-nojs"></div>
 
 <!-- The top navbar header.  -->

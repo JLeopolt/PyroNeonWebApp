@@ -1,8 +1,6 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import DateUtil from '/static/Accounts/js/libs/utils/date-util.js';
 import { UpdateSpans, UpdateLinks, UpdateSpansVisibility } from '/static/Accounts/js/libs/utils/update-elements.js';
-import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
 import { EnableFriendshipControls, DisableFriendshipControls } from '/static/Accounts/js/users/friend-controls.js';
 import { UpdateProfileBio, UpdateProfileWebsiteLink, UpdateProfileLocation } from '/static/Accounts/js/libs/services/api/profile-api.js';
 import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
@@ -11,44 +9,25 @@ let alertPopup = new AlertPopup();
 let userProfileData = undefined;
 
 // The main function which performs all setup for the page.
-export function GenerateProfilePage(){
-  // Get the UUID to target from the URL.
-  const params = new Proxy(new URLSearchParams(window.location.search), {
-    get: (searchParams, prop) => searchParams.get(prop),
-  });
-
-  // This should be a hexadecimal 32 long string, representing a UUID.
-  let target_id = params.user;
-  // If no target was specified, OR an invalid length uuid was provided, redirect to 404.
-  if(target_id == null || target_id.length < 32){
-    console.log("Target ID invalid: \"" + target_id + "\".");
-    window.location.href = "/missing";
-  }
-
+export function GeneratePage(claims, target_id){
   // Resolve the uuid.
   resolveUUID(target_id);
 
-  // Async get auth claims
-  GetAuthClaims().then((claims) => {
-    // setup account header
-    SetupAccountsHeader(claims);
+  // if not logged in , disable friendship panel.
+  if(claims == null){
+    DisableFriendshipControls();
+    return;
+  }
+  // if own profile, disable friendship panel, and enable Edit mode.
+  if(target_id === claims.uuid){
+    DisableFriendshipControls();
+    // allow user to edit their profile.
+    enableEditMode();
+    return;
+  }
 
-    // if not logged in , disable friendship panel.
-    if(claims == null){
-      DisableFriendshipControls();
-      return;
-    }
-    // if own profile, disable friendship panel, and enable Edit mode.
-    if(target_id === claims.uuid){
-      DisableFriendshipControls();
-      // allow user to edit their profile.
-      enableEditMode();
-      return;
-    }
-
-    // Enable the friendship control panel.
-    EnableFriendshipControls(target_id);
-  });
+  // Enable the friendship control panel.
+  EnableFriendshipControls(target_id);
 }
 
 // Asks the Auth API to resolve the provided UUID to a Public User Profile.

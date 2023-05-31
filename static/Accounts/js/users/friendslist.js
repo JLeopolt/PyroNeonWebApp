@@ -1,5 +1,4 @@
 import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
 import { GetFriendsList } from '/static/Accounts/js/libs/services/api/friends-api.js';
 import { AcceptFriendRequest,RemoveFriendship } from '/static/Accounts/js/libs/services/api/friends-api.js';
 import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
@@ -8,25 +7,11 @@ let alertPopup = new AlertPopup();
 const pageSize = 5;
 
 // The main function which performs all setup for the page.
-export function GenerateFriendsPage(){
-  // Async get auth claims
-  GetAuthClaims().then((claims) => {
-    // setup account header
-    SetupAccountsHeader(claims);
-
-    // if not logged in, redirect.
-    if(claims == null){
-      console.log("You must be logged in to view your friends list.");
-      // Invalid JWT, send them to the login page.
-      window.location.href = "/accounts/login";
-      return;
-    }
-    // generate the page here. this can be done before requesting friendship list.
-    generatePage();
-
-    // use URL Params to set the tab.
-    autoListFromURLParams();
-  });
+export function GeneratePage(claims){
+  // generate the page here. this can be done before requesting friendship list.
+  generatePage();
+  // use URL Params to set the tab.
+  autoListFromURLParams();
 }
 
 function autoListFromURLParams(){

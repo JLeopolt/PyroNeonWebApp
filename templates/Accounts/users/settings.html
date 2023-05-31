@@ -12,32 +12,32 @@ Allows a logged-in user to overview account management settings.
 
   <!-- This buildscript specifies how JS should be executed for the page. -->
   <script type="module" id="buildscript">
-    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
-    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-    import { UpdateSpans } from '/static/Accounts/js/libs/utils/update-elements.js';
+    // Get auth token claims
+    const claims = GetAuthClaims();
+    // if not logged in, redirect.
+    if(claims == null){
+      // No JWT was found, so redirect them to the login page.
+      window.location.href = "/accounts/login";
+      process.exit(0);
+    }
+
+    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
     // First, include all requested elements.
     ImportHTML();
+
+    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
+    import { UpdateSpans } from '/static/Accounts/js/libs/utils/update-elements.js';
+
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {
-      // Confirm the JWT and get user data from it.
-      GetAuthClaims().then((claims) => {
-        // setup account header
-        SetupAccountsHeader(claims);
+      // setup account header
+      SetupAccountsHeader(claims);
 
-        // if not logged in, redirect.
-        if(claims == null){
-          console.log("You must be logged in to view account settings.");
-          // Invalid JWT, send them to the login page.
-          window.location.href = "/accounts/login";
-          return;
-        }
-
-        // Perform page setup here.
-        document.getElementsByClassName("lds-roller")[0].style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-        UpdateSpans("set-to-username", claims.username);
-      });
+      // Perform page setup here.
+      document.getElementsByClassName("lds-roller")[0].style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
+      UpdateSpans("set-to-username", claims.username);
     });
   </script>
 </head>

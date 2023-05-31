@@ -13,6 +13,7 @@ export function GetAuthClaims() {
   const jwt = localStorage.getItem("pn-jwt");
   // If no JWT saved, fail.
   if(jwt == null){
+    console.log("You are not logged in.");
     return null;
   }
 
@@ -20,15 +21,18 @@ export function GetAuthClaims() {
   const body_base64 = atob(jwt.split(".")[1]);
   // convert b64 to JSON
   const body = JSON.parse(body_base64);
+  console.log(body);
 
   // compare expiration timestamp of the auth token.
-  const currTime = new Date().getTime();
+  const currTime = new Date().getTime() / 1000;
   // if expired, return null
   if(currTime >= body.exp){
+    console.log("Session expired.");
     return null;
   }
 
   // return claims as a json obj.
+  console.log(body);
   return body;
 }
 

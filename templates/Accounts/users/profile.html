@@ -11,19 +11,36 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/profile.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- Import.js handles importing HTML elements from other files. -->
-  <!-- <script type="module" src="/static/Global/js/import.js"></script> -->
-
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
+    // Get the UUID to target from the URL.
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    // This should be a hexadecimal 32 long string, representing a UUID.
+    let target_id = params.user;
+    // If no target was specified, OR an invalid length uuid was provided, redirect to 404.
+    if(target_id == null || target_id.length < 32){
+      window.location.href = "/missing";
+      process.exit(0);
+    }
+
+    import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
     import { ImportHTML } from '/static/Global/js/import-nobuild.js';
-    import { GenerateProfilePage } from '/static/Accounts/js/users/profile.js';
-    // First, include all requested elements.
+    import { GeneratePage } from '/static/Accounts/js/users/profile.js';
+    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
+
+    // Get auth token claims (optional)
+    const claims = GetAuthClaims();
+    // include all requested elements.
     ImportHTML();
+
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {
-      // Activate the profile page's javascript. Automatically sets up AccountHeader.
-      GenerateProfilePage();
+      // setup account header
+      SetupAccountsHeader(claims);
+      // Activate the profile page's javascript.
+      GeneratePage(claims, target_id);
     });
   </script>
 </head>
@@ -31,7 +48,6 @@
 <body>
 
 <!-- Account Header above the navbar -->
-<!-- The account header is powered by profile.js -->
 <div data-include="account-header-nojs"></div>
 
 <!-- The top navbar header.  -->

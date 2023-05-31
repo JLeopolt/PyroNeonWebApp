@@ -1,5 +1,5 @@
 <!--
-  This is the dashboard for logged in users to manage their accounts. If accessed while not logged in, it will redirect to the log in page.
+  This is the dashboard for logged in users to view account status. If accessed while not logged in, it will redirect to the log in page.
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,19 +12,29 @@
 
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
-    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
+
+    // Get auth token claims
+    const claims = GetAuthClaims();
+    // if not logged in, redirect.
+    if(claims == null){
+      // No JWT was found, so redirect them to the login page.
+      window.location.href = "/accounts/login";
+      process.exit(0);
+    }
+
+    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
     import { GeneratePage } from "/static/Accounts/js/users/account_dashboard.js";
     import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
 
-    // First, include all requested elements.
+    // Include all requested elements.
     ImportHTML();
+
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {
-      const claims = GetAuthClaims();
       // setup account header
       SetupAccountsHeader(claims);
-      // Activate the dashboard page's javascript. Automatically sets up AccountHeader.
+      // Activate the dashboard page's javascript.
       GeneratePage(claims);
     });
   </script>

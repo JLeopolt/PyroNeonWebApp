@@ -14,8 +14,7 @@
   import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
   import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
   // Gets auth claims
-  GetAuthClaims().then((claims) => {
-    // setup account header
-    SetupAccountsHeader(claims);
-  });
+  const claims = GetAuthClaims();
+  // setup account header
+  SetupAccountsHeader(claims);
 </script>
