@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/profile.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
+  <!-- Import.js is executed before the buildscript, so the imported assets should be ready before buildscript starts manipulating them. -->
+  <script type="module" id="importscript" src="/static/Global/js/import.js"></script>
+
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
     // Get the UUID to target from the URL.
@@ -26,14 +29,11 @@
     }
 
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
-    import { ImportHTML } from '/static/Global/js/import-nobuild.js';
     import { GeneratePage } from '/static/Accounts/js/users/profile.js';
     import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
 
     // Get auth token claims (optional)
     const claims = GetAuthClaims();
-    // include all requested elements.
-    ImportHTML();
 
     // Code inside this funct only executes AFTER elements are imported.
     $(window).on('load', function () {

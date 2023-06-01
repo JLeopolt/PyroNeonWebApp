@@ -21,7 +21,6 @@ export function GetAuthClaims() {
   const body_base64 = atob(jwt.split(".")[1]);
   // convert b64 to JSON
   const body = JSON.parse(body_base64);
-  console.log(body);
 
   // compare expiration timestamp of the auth token.
   const currTime = new Date().getTime() / 1000;
