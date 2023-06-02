@@ -10,9 +10,6 @@ Allows a logged-in user to overview account management settings.
   <link rel="stylesheet" href="/static/Accounts/css/settings.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- Import.js is executed before the buildscript, so the imported assets should be ready before buildscript starts manipulating them. -->
-  <script type="module" id="importscript" src="/static/Global/js/import.js"></script>
-
   <!-- This buildscript specifies how JS should be executed for the page. -->
   <script type="module" id="buildscript">
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
