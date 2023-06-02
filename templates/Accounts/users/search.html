@@ -10,30 +10,34 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/search.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- Import.js is executed before the buildscript, so the imported assets should be ready before buildscript starts manipulating them. -->
-  <script type="module" id="importscript" src="/static/Global/js/import.js"></script>
-
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
+    import { ImportHTML } from '/static/Global/js/import.js';
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
     import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
     import { GeneratePage } from '/static/Accounts/js/users/search.js';
+
     // Get auth token claims (optional)
     const claims = GetAuthClaims();
-    // Code inside this funct only executes AFTER elements are imported.
-    $(window).on('load', function () {
+
+    // Import HTML when page 'ready', with the afterInclude() function as a callback.
+    // afterInclude() will only be executed after ALL HTML elements are guaranteed to be loaded.
+    $(ImportHTML(afterInclude));
+
+    // Code in this function will only be executed after ALL HTML elements are guaranteed to be loaded.
+    function afterInclude(){
       // setup account header
       SetupAccountsHeader(claims);
       // process page. does not require claims
       GeneratePage();
-    });
+    }
   </script>
 </head>
 
 <body>
 
 <!-- Account Header above the navbar -->
-<div data-include="account-header-nojs"></div>
+<div data-include="account-header"></div>
 
 <!-- The top navbar header.  -->
 <div class="navbar">

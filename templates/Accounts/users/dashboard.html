@@ -10,13 +10,9 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/account_dashboard.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- Import.js is executed before the buildscript, so the imported assets should be ready before buildscript starts manipulating them. -->
-  <script type="module" id="importscript" src="/static/Global/js/import.js"></script>
-
   <!-- This buildscript specifies how JS should be executed. -->
   <script type="module" id="buildscript">
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
-
     // Get auth token claims
     const claims = GetAuthClaims();
     // if not logged in, redirect.
@@ -26,22 +22,28 @@
       process.exit(0);
     }
 
+    import { ImportHTML } from '/static/Global/js/import.js';
     import { GeneratePage } from "/static/Accounts/js/users/account_dashboard.js";
     import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
 
-    $(window).on('load', function () {
+    // Import HTML when page 'ready', with the afterInclude() function as a callback.
+    // afterInclude() will only be executed after ALL HTML elements are guaranteed to be loaded.
+    $(ImportHTML(afterInclude));
+
+    // Code in this function will only be executed after ALL HTML elements are guaranteed to be loaded.
+    function afterInclude(){
       // setup account header
       SetupAccountsHeader(claims);
       // Activate the dashboard page's javascript.
       GeneratePage(claims);
-    });
+    }
   </script>
 </head>
 
 <body>
 
 <!-- Account Header above the navbar -->
-<div data-include="account-header-nojs"></div>
+<div data-include="account-header"></div>
 
 <!-- The top navbar header.  -->
 <div class="navbar">

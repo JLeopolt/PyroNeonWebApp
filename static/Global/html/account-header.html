@@ -8,13 +8,3 @@
   <button class="submitButton" id="headerDashboardButton" style="display: none;" onclick="window.location.href = '/accounts/dashboard';">Dashboard</button>
   <button class="redButton" id="headerLogoutButton" style="display: none;" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
 </div>
-
-<!-- Handles the accounts header functionality. -->
-<script type="module">
-  import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
-  import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-  // Gets auth claims
-  const claims = GetAuthClaims();
-  // setup account header
-  SetupAccountsHeader(claims);
-</script>

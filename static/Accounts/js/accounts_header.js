@@ -4,7 +4,6 @@ import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 // Sets up the account header. If claims is null, uses Guest header.
 // Be careful not to provide a promise here.
 export function SetupAccountsHeader(claims) {
-    console.log("SetupAccountsHeader called.");
     if(claims != null){
       loadAsUser(claims);
     }
