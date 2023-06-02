@@ -190,6 +190,7 @@ function acceptFriendRequest(target_id){
   AcceptFriendRequest(target_id).then((result) => {
     if(result == true){
       alertPopup.createAlertPopup("success", "Accepted friend request.");
+      autoListFromURLParams();
       return;
     }
     alertPopup.createAlertPopup("error", "Failed to accept friend request.");
@@ -211,6 +212,7 @@ function removeFriend(target_id, requireConfirm){
   RemoveFriendship(target_id).then((result) => {
     if(result == true){
       alertPopup.createAlertPopup("success", "Removed friend.");
+      autoListFromURLParams();
       return;
     }
     alertPopup.createAlertPopup("error", "Failed to remove friend.");
