@@ -35,7 +35,7 @@ async function submitForm(e, form){
   // Prepare headers
   const headers = formUtils.buildHeaders();
 
-  const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.ml:8443/api/resend-confirmation-code?un="+jsonFormData.username, headers);
+  const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/resend-confirmation-code?un="+jsonFormData.username, headers);
   console.log(response);
 
   // Convert the HTTP Status into a single digit, representing response type.

@@ -29,7 +29,7 @@ async function validateToken(token){
     const fetchService = new FetchService();
     const headers = formUtils.buildHeaders();
 
-    const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.ml:8443/api/activate?token="+token, headers);
+    const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/activate?token="+token, headers);
     console.log(response);
 
     const statusType = String(response.status)[0];

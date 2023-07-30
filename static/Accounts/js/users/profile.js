@@ -35,7 +35,7 @@ async function resolveUUID(uuid){
   // Prepare utils
   const fetchService = new FetchService();
   // Send the get request, url param is the UUID to resolve. No headers.
-  const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.ml:8443/api/get-user-profile?uuid="+uuid, {});
+  const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/get-user-profile?uuid="+uuid, {});
   console.log(response);
 
   // Convert the HTTP Status into a single digit, representing response type.

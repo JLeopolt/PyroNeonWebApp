@@ -17,7 +17,7 @@ async function sendTemporaryPassword(username, emailAddress, token){
     const fetchService = new FetchService();
     const headers = formUtils.buildHeaders();
 
-    const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.ml:8443/api/reset_password?username="+username+"&emailAddress="+emailAddress+"&token="+token, headers);
+    const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/reset_password?username="+username+"&emailAddress="+emailAddress+"&token="+token, headers);
     console.log(response);
 
     const statusType = String(response.status)[0];

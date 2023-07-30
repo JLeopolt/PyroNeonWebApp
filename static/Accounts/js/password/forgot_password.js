@@ -35,7 +35,7 @@ async function submitForm(e, form){
   // Prepare headers
   const headers = formUtils.buildHeaders();
 
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/forgot_password", headers, jsonFormData);
+  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.net:8443/api/forgot_password", headers, jsonFormData);
   console.log(response);
 
   // Convert the HTTP Status into a single digit, representing response type.

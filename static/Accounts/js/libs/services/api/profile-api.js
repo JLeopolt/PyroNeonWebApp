@@ -16,7 +16,7 @@ export async function UpdateProfileBio(content) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://auth.pyroneon.ml:8443/api/profile/update-bio",
+    "https://auth.pyroneon.net:8443/api/profile/update-bio",
   formUtils.buildHeaders(),{"auth_token":jwt,"content":content});
   // return response.
   return response;
@@ -33,7 +33,7 @@ export async function UpdateProfileWebsiteLink(content) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://auth.pyroneon.ml:8443/api/profile/update-personal-website",
+    "https://auth.pyroneon.net:8443/api/profile/update-personal-website",
   formUtils.buildHeaders(),{"auth_token":jwt,"content":content});
   // return response.
   return response;
@@ -50,7 +50,7 @@ export async function UpdateProfileLocation(content) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://auth.pyroneon.ml:8443/api/profile/update-location",
+    "https://auth.pyroneon.net:8443/api/profile/update-location",
   formUtils.buildHeaders(),{"auth_token":jwt,"content":content});
   // return response.
   return response;
@@ -61,7 +61,7 @@ export async function UpdateProfileLocation(content) {
 export async function ResolveUsername(username) {
   // Send the post request with body.
   const response = await fetchService.performGetHttpRequest(
-    "https://auth.pyroneon.ml:8443/api/resolve-username?username=" + username,
+    "https://auth.pyroneon.net:8443/api/resolve-username?username=" + username,
   formUtils.buildHeaders());
   return response;
 }

@@ -33,7 +33,7 @@ async function submitForm(e, form){
   // Prepare headers
   const headers = formUtils.buildHeaders();
   // Send the post request and get a JSON String as a response.
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/update_email_address", headers, jsonFormData);
+  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.net:8443/api/update_email_address", headers, jsonFormData);
   console.log(response);
   // Convert the HTTP Status into a single digit, representing response type.
   const statusType = String(response.status)[0];

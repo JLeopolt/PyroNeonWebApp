@@ -16,7 +16,7 @@ export async function GetFriendship(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://games.pyroneon.ml:6950/api/friends/get-friendship",
+    "https://games.pyroneon.net:6950/api/friends/get-friendship",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response.
   if(processResponse(response) == true){
@@ -36,7 +36,7 @@ export async function SendFriendRequest(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://games.pyroneon.ml:6950/api/friends/issue-request",
+    "https://games.pyroneon.net:6950/api/friends/issue-request",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response. may return true/false.
   return processResponse(response);
@@ -53,7 +53,7 @@ export async function AcceptFriendRequest(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://games.pyroneon.ml:6950/api/friends/accept-request",
+    "https://games.pyroneon.net:6950/api/friends/accept-request",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response. may return true/false.
   return processResponse(response);
@@ -70,7 +70,7 @@ export async function RemoveFriendship(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://games.pyroneon.ml:6950/api/friends/remove-friend",
+    "https://games.pyroneon.net:6950/api/friends/remove-friend",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response. may return true/false.
   return processResponse(response);
@@ -91,7 +91,7 @@ export async function GetFriendsList(pageSize, isAccepted, sent_by_friend, start
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    "https://games.pyroneon.ml:6950/api/friends/list-friends",
+    "https://games.pyroneon.net:6950/api/friends/list-friends",
   formUtils.buildHeaders(),{"auth_token":jwt, "was_accepted":isAccepted, "start_uuid":startId, "reverse":reverse, "sent_by_friend":sent_by_friend, "page_size":pageSize});
   // process response.
   if(processResponse(response)){

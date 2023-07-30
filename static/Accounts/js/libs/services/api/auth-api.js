@@ -39,7 +39,7 @@ export function GetAuthClaims() {
 // Returns the response.
 export async function SearchUsers(searchQuery, startUsername, reverse, pageSize) {
   // Send the post request
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.ml:8443/api/search-username",
+  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.net:8443/api/search-username",
                                                               formUtils.buildHeaders(),
                                                               {"search":searchQuery, "start_username":startUsername, "reverse":reverse, "page_size":pageSize});
   return response;
