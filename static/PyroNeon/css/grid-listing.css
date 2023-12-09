@@ -1,4 +1,4 @@
-.grid-container, .experimental-grid-container{
+.grid-container {
   display: grid;
   grid-gap: 2vh;
   width: 75%;
@@ -9,10 +9,6 @@
 .grid-container{
   grid-template-columns: 1fr 1fr 1fr;
 }
-.experimental-grid-container{
-  grid-template-columns: 1fr 1fr;
-  width: calc(75% / 2 - 2vh);
-}
 
 /* Fix clashing issue with slideshow */
 .navbar, .footer{
@@ -20,7 +16,7 @@
 }
 
 @media (orientation: portrait) {
-  .grid-container, .experimental-grid-container{
+  .grid-container {
     /* Vertical Grid */
     grid-template-columns: 1fr;
     width: 75%;
@@ -69,12 +65,6 @@
   font-size: 1.3vw;
 }
 .grid-container a{
-  font-size: 1.5625vw;
-  text-decoration: none;
-  font-family: HighwayGothic;
-  color: white;
-}
-.experimental-grid-container a{
   font-size: 1.5625vw;
   text-decoration: none;
   font-family: HighwayGothic;
