@@ -9,6 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/MUDTool/css/index.css">
+  <link rel="stylesheet" href="/static/Accounts/css/alert_popup.css">
 
   <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
   <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
@@ -30,6 +31,13 @@
   <a href="/community">Community</a>
 </div>
 
+<!-- Experimental projects warning alert box. -->
+<div class="alert" id="alert_box" style="display: flex; background-color: #EE7D00;">
+  <div class="alert_message">This is an experimental project. It is not a complete product, and it's development may be paused.</div>
+  <!-- Hide the alert box, then scroll to the top of the page. -->
+  <span class="close_alert_button" onclick="this.parentElement.style.display='none'; window.location.href = '#';">&times;</span>
+</div>
+
 
 <!-- Banner -->
 <img src="/static/MUDTool/img/MUD-Logo.png" alt="MUDTool Banner" id="banner">
@@ -37,17 +45,25 @@
 <div class="paragraph">
 
   <h1 style="padding-top: 1rem;">
+    Notice
+  </h1>
+  <p>
+    MUD Tool (Multimedia Utility Download Tool) has been deprecated. This project will no longer be maintained, and should only be used for educational or archival purposes.
+    If you would like to see a list of free alternatives, please visit the GitHub page linked below.
+  </p>
+
+  <h1>
     About
   </h1>
   <p>
-    MUD Tool (Multimedia Utility Download Tool) is a powerful program which allows you to download and convert media files from the web.
+    MUD Tool is a powerful program which allows you to download and convert media files from the web.
     If you've ever been browsing the web and wanted to download a video, but it's locked behind a paywall or asks you to sign up to download, just
     use the MUD Tool!
   </p>
 
   <br><br>
 
-  <button onclick="window.location.href='/mudtool/download-exe';"> Download Latest Release </button>
+  <button onclick="window.location.href='/experimental/mudtool/download-exe';"> Download Latest Release </button>
   <button onclick="window.location.href='https://github.com/JLeopolt/MultimediaUtilityDownloadTool';"> View on Github </button>
 
   <h1>

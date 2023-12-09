@@ -84,14 +84,16 @@ def puzzleMinefieldTOS():
 def clipnp():
     return render_template('CLIPnP/index.html')
 
+    
+
 
 # Landing page for MUD
-@app.route('/mudtool')
+@app.route('/experimental/mudtool')
 def mudtool():
     return render_template('MUDTool/index.html')
 
 # Downloading MUD as an EXE file
-@app.route('/mudtool/download-exe')
+@app.route('/experimental/mudtool/download-exe')
 def download_mudtool_exe():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
     return redirect("https://github.com/JLeopolt/MultimediaUtilityDownloadTool/releases/latest/download/MultimediaUtilityDownloadTool.exe", code=302)
