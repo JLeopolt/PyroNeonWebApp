@@ -194,9 +194,9 @@
 
         <summary>
 
-          <a href="#crafting">
+          <a href="#stations">
             <div class="major-link">
-              Crafting
+              Stations
             </div>
           </a>
         </summary>
@@ -204,6 +204,12 @@
         <a href="#crafting-stations">
           <div class="minor-link">
             Crafting Stations
+          </div>
+        </a>
+
+        <a href="#grinder">
+          <div class="minor-link">
+            Item Grinder
           </div>
         </a>
 
@@ -265,13 +271,91 @@
         </a>
         <a href="#monument-protection">
           <div class="minor-link">
-            Monuments
+            Monument Protection
           </div>
         </a>
       </details>
 
+    </details>
+
+    <!-- World Section -->
+    <details open style="padding-top: 1ch;">
+      <summary>
+        <a href="#world">
+          <div class="head-link">
+            World
+          </div>
+        </a>
+      </summary>
+
+      <details>
+        <summary>
+          <a href="#monuments">
+            <div class="major-link">
+              Monuments
+            </div>
+          </a>
+        </summary>
+        <a href="#road-junk">
+          <div class="minor-link">
+            Road Junk Piles
+          </div>
+        </a>
+        <a href="#substations">
+          <div class="minor-link">
+            Substations
+          </div>
+        </a>
+        <a href="#fishing-cabins">
+          <div class="minor-link">
+            Fishing Cabins
+          </div>
+        </a>
+        <a href="#picnics">
+          <div class="minor-link">
+            Picnics
+          </div>
+        </a>
+        <a href="#igloos">
+          <div class="minor-link">
+            Igloos
+          </div>
+        </a>
+        <a href="#moonshine-cabins">
+          <div class="minor-link">
+            Moonshine Cabins
+          </div>
+        </a>
+        <a href="#factory">
+          <div class="minor-link">
+            Factory
+          </div>
+        </a>
+      </details>
+
+      <details>
+        <summary>
+          <a href="#puzzles">
+            <div class="major-link">
+              Puzzles
+            </div>
+          </a>
+        </summary>
+        <a href="#factory-puzzle-1">
+          <div class="minor-link">
+            Factory Puzzle #1
+          </div>
+        </a>
+        <a href="#factory-puzzle-2">
+          <div class="minor-link">
+            Factory Puzzle #2
+          </div>
+        </a>
+      </details>
 
     </details>
+
+
   </article>
 </div>
 
@@ -541,8 +625,8 @@
 
       </section>
 
-      <h2 id="crafting" style="padding-top: 2ch;">
-        Crafting
+      <h2 id="stations" style="padding-top: 2ch;">
+        Stations
       </h2>
 
         <section id="crafting-stations" style="padding-top: 2ch; padding-bottom: 1ch;">
@@ -572,9 +656,26 @@
 
         </section>
 
+        <section id="grinder" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Item Grinder
+          </h3>
+          <p>
+            The <i>Stonecutter</i> is an <b>uncraftable</b> station block with the ability to grind items back into their components. If you've accumulated useless items from looting crates or stealing from other
+            players, you can find an Item Grinder station and turn them into raw resources instead. The Item Grinder is inefficient, and will give a random amount of resources for each
+            input item. To activate the grinder, simply place the item you want to destroy into it, <b>then close the GUI</b> to turn on the Grinder. Be careful not to put something important
+            into the Grinder, because once it turns on the item will be destroyed! The Grinder will continue to process items until they run out, or it becomes too full.
+            If the grinder's inventory is too full to fit the resulting items, they will drop on the floor instead, and the grinder will shut off. The inventory of the Grinder will remain saved
+            even on server restarts, and if the Grinder was in the middle of working, you won't lose anything. As soon as the server comes back, the Grinder will pick up where it left off.
+
+            While the Grinder is working, it will emit smoke and make a loud noise that can be heard from over 20 blocks away! Be careful of other players sneaking up on you while you're
+            using it, since you'd be a sitting duck waiting around for it to finish. The Grinder can be found in Substation monuments, and in the Factory building.
+          </p>
+        </section>
+
         <section id="composter" style="padding-top: 2ch; padding-bottom: 1ch;">
           <h3>
-            Composter
+            Enhanced Composter
           </h3>
           <p>
             The composter has been redesigned, and will drop random loot instead of bonemeal. When the composter is completely full, it has a 10% chance to drop a <i>Gunpowder</i> item.
@@ -741,7 +842,7 @@
 
     <section id="monument-protection" style="padding-top: 2ch; padding-bottom: 1ch;">
       <h3>
-        Monuments
+        Monument Protection
       </h3>
       <p>
         Monuments are regions where no players can build, break, or destroy blocks with explosives/fire. Players can open doors and chests in monuments.
@@ -751,6 +852,146 @@
       </p>
     </section>
 
+    <!-- Header title -->
+    <h1 id="world" style="padding-top: 2ch;">
+        World
+    </h1>
+
+      <!-- Major Title -->
+      <h2 id="monuments">
+        Monuments
+      </h2>
+        <!-- Sections -->
+        <section id="road-junk" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Road Junk Piles
+          </h3>
+          <p>
+            Road junk piles occur aside the roads throughout the world. There is one major black asphalt ring road connecting the interior of the map. Junk piles
+            typically have a road barrel and a crate as loot. Some junk piles only have a single road barrel. Junk piles are relatively common, and can be found
+            strewn about the map, usually leading up to a <a href="#substations">Substation</a> monument. They are generally useful to get early-game loot like
+            wool for a bed, iron, coal, etc. Additionally, junk piles often have a campfire or other light-source, which can be useful to keep warm when the player is caught
+            out in the open overnight.
+          </p>
+        </section>
+
+        <section id="substations" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Substations
+          </h3>
+          <p>
+            Substations are medium-sized monuments, consisting of tall copper structures surrounded by an iron fence. The black asphalt ring road leads
+            to all of the Substations, which exist only in the Forest, Taiga, and Desert biomes. Substations contain medium-tier loot which can include:
+            provisions, weapons, tools, electrical junk, building materials, etc. Substations also contain a single <a href="#grinder">Item Grinder</a>.
+            A substation is a great place to loot and hide from mobs, but their large footprint and high value makes them a target for other players.
+          </p>
+        </section>
+
+        <section id="fishing-cabins" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Fishing Cabins
+          </h3>
+          <p>
+            Fishing Cabins can be found near the sea, mushroom forest, and lake. They contain medium-tier loot like provisions, weapons, tools, and medicine.
+            These cabins can be a safe place to hide from mobs, and also contain a furnace, which can be useful to cook food or smelt ores in the early game.
+          </p>
+        </section>
+
+        <section id="picnics" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Picnic Tents
+          </h3>
+          <p>
+            Picnic Tents can only be found in the forest mountain biome. They are spread far apart, and navigating the rough terrain can be difficult and time-consuming in the early-game.
+            Picnic Tents are great places to get food in the early-game, sometimes contain medium-tier loot, and have a campfire where players can cook their raw meat and stay warm during the night.
+            However, these tents do not provide much protection from mobs.
+          </p>
+        </section>
+
+        <section id="igloos" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Igloos
+          </h3>
+          <p>
+            Igloos are found exclusively in the tundra and snowy mountain biomes. They contain medium-tier loot like provisions, weapons, tools, and medicine. They are the only
+            source of loot in the tundra and snowy mountain biomes. Igloos can be a good place to take shelter from mobs and weather at night. They contain furnaces, composters,
+            and empty barrels. Igloos also provide a light source inside.
+          </p>
+        </section>
+
+        <section id="moonshine-cabins" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Moonshine Cabins
+          </h3>
+          <p>
+            Moonshine Cabins can be found exclusively in the swamp biome. They contain medium-tier loot like provisions, weapons, tools, and medicine. Each moonshine cabin
+            also includes a moonshine barrel, which can drop rare potion loot, which is necessary to craft the <a href="#crafting-stations">Chemistry Station</a>. Their
+            appearance is very similar to the <a href="#fishing-cabins">Fishing Cabins</a>, but on land. They are a safe place to hide from mobs and weather.
+          </p>
+        </section>
+
+        <section id="factory" style="padding-top: 2ch; padding-bottom: 1ch;">
+          <h3>
+            Factory
+          </h3>
+          <p>
+            The factory is the largest monument in the world. It is located towards the center of the map, within the Forest biome. It is a giant facility surrounded by an iron bar fence
+            and can be identified by its four giant external copper tanks. Three of these tanks are accessible to players. One tank is extremely overgrown and covered in plant life, and
+            can easily be accessed from the ground by walking through a gaping hole in the side of it. A hidden chest can be found by following the water trail into a crevice at the back
+            of the tank. The second tank can be accessed by solving the <a href="#factory-puzzle-1">first Factory Puzzle</a>. The third tank can be accessed by solving the <a href="#factory-puzzle-2">second Factory Puzzle</a>.
+            <br>
+            There are three large semi-trucks next to the factory building, which are each full of cobwebs. If the player walks all the way through the cobwebs to the end of any truck container,
+            they can find a secret chest hidden behind a barrel. The factory building is the largest section of the monument, and is fully sealed from the outside, except for the front door entrance,
+            and through holes in the roof. The building contains an <a href="#grinder">Item Grinder</a> on the main floor. Several chests can be found in the piles of junk on the large shelves
+            in the middle of the building. Several loot barrels are hidden amongst a pile of barrels on the shelves as well. Utilities like a furnace and <a href="#crafting-stations">Improvised Kitchen</a>
+            can be found in the building.
+            <br>
+            If the player climbs through a hole in the glass of the second floor overhang, they can jump onto the second floor of the shelves and parkour around the junk piles to access even more loot.
+            The player can also access the roof without going outside by climbing up a junk pile on the second floor of the shelves. Otherwise, the player can access the roof by climbing a ladder
+            on the side of the building next to the semi-trucks. The parkour can also be bypassed by simply climbing onto the roof and dropping down. The roof has a few <a href="#road-junk">Road Junk Piles</a>.
+            <a href="#road-junk">Road Junk Piles</a> can also be found throughout the facility, and road junk barrels can even be found outside of the fence.
+          </p>
+        </section>
+
+
+      <!-- Major Title -->
+      <h2 id="puzzles" style="padding-top: 2ch;">
+        Puzzles
+      </h2>
+
+      <section id="factory-puzzle-1" style="padding-top: 2ch; padding-bottom: 1ch;">
+        <h3>
+          Factory Puzzle #1
+        </h3>
+        <p>
+          The first factory puzzle can be completed relatively easily. A player is recommended to bring armor, a decent weapon, a shield, and plenty of food to complete this puzzle safely.
+
+          Begin by climbing the half-destroyed ladder on the side of the second tank. Step onto the iron bar railing and from there, jump onto the decaying side of the overgrown tank.
+          Proceed to carefully wind around the side of the tank and climb to the top of it. From there, climb onto the top of the connecting pipe and walk over to the second tank.
+          Climb down from the pipe and find the balcony on the back-side of the second tank. Open the door and defeat the mobs to safely loot the chests. The strength and number of
+          the mobs will increase as the server difficulty increases, so if you start later in the wipe, the mobs you encounter may be very strong.
+
+          The tank contains several barrels, medium-tier loot crates, and a single tier-2 loot crate. This crate could contain valuable explosives, weapons, tools, etc. Once you
+          are finished looting, climb back out of the tank onto the balcony, then walk along the pipe back to the first tank and either jump onto a tree or descend the same way you
+          climbed onto it in the first place.
+        </p>
+      </section>
+
+      <section id="factory-puzzle-2" style="padding-top: 2ch; padding-bottom: 1ch;">
+        <h3>
+          Factory Puzzle #2
+        </h3>
+        <p>
+          The second factory puzzle requires you to use a <b>potion of fire resistance</b>, which can be crafted with the <a href="#crafting-stations">Chemistry Station</a>.
+
+          Begin by entering the overgrown tank, and climbing the water string to the top. Once you reach the top, swim into the pipe towards the second tank. Drink your potion of
+          fire resistance at this point. Crawl through the pipe to the end, then drop into the pit of lava in the third tank. Three medium-tier chests and the tier-2 loot crate
+          can be accessed from here. In order to access the last chest, climb the stairs at the side of the pit, then jump across the platform to reach it.
+
+          Once you are finished looting, dive under the lava and head towards the back of the tank (West). From here, you can flip a trap door to being crawling, and crawl through the
+          last trapdoor to exit the tank. This exit point could also be used to crawl into the tank, as a fast way to complete the puzzle.
+        </p>
+      </section>
 
 </article>
 </div>
