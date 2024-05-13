@@ -84,7 +84,7 @@ def puzzleMinefieldTOS():
 def clipnp():
     return render_template('CLIPnP/index.html')
 
-    
+
 
 
 # Landing page for MUD
