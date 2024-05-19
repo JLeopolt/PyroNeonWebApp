@@ -27,6 +27,11 @@ def emailContactUs():
 def missingpage():
     return render_template('PyroNeon/404.html')
 
+# Directs to the discord invite.
+@app.route('/discord')
+def discordRedirect():
+    return redirect("https://www.discord.gg/CvYVuSCXvk", code=302)
+
 
 
 
