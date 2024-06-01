@@ -31,7 +31,7 @@ export function GetAuthClaims() {
   }
 
   // return claims as a json obj.
-  console.log("[auth-api.js] Authentication token claims: ", body);
+  //console.log("[auth-api.js] Authentication token claims: ", body);
   return body;
 }
 
