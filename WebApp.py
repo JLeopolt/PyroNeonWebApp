@@ -1,31 +1,61 @@
+import os
+import time
 # Handles serving html files and other content
-from flask import Flask, send_file, render_template, redirect
+from flask import Flask, render_template, redirect, url_for, send_from_directory, abort
 app = Flask(__name__)
 
-# Homepage for the entire website.
+"""
+Handles users entering a wrong link or other 404 errors.
+:param e: The error.
+:returns: The website's 404 error page.
+"""
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('PyroNeon/404.html'), 404
+
+"""
+Attempts to route a URL dynamically, when provided a path to use. If the resource can't be found, throws a 404.
+:param relpath: The relative path to the resource to access. Automatically given a suffix '.html' and does NOT require a leading '/'
+:param context: A dict containing context to provide to the template through Jinja. Includes site modified date, creation date by default.
+:returns: The resulting html resource, or an error 404 if the resource wasn't found.
+"""
+def route_page(relpath, context = {}):
+    relpath += '.html'
+    # merge default context with the custom context provided (if any)
+    context.update(default_context(relpath))
+    try:
+        # Try getting the requested resource first
+        return render_template(relpath, **context)
+    except Exception as e:
+        abort(404)
+
+"""
+Tries to build default contextual data in the form of a dict containing context about the file being accessed.
+Includes the creation date of the file, and the last modified date of the file.
+:param relpath: The relative path to the resource. Assumed to be a resource within templates folder.
+:returns: A dict containing context about the file.
+"""
+def default_context(relpath):
+    path = './templates/'+relpath
+    context = {
+        'creation_date': time.ctime(os.path.getctime(path)),
+        'last_modified': time.ctime(os.path.getmtime(path))
+    }
+    return context
+
+
+
+
+# Routes the site root to homepage (index).
 @app.route('/')
-def home():
+def main_index_route():
     return render_template('PyroNeon/index.html')
 
-# Showcase for all the products provided by PN
-@app.route('/products')
-def products():
-    return render_template('PyroNeon/products.html')
-
-# Contacts / Social links page for the company
-@app.route('/community')
-def community():
-    return render_template('PyroNeon/community.html')
-
-# Contact Us by email.
-@app.route('/contact-us/email')
-def emailContactUs():
-    return render_template('PyroNeon/contact-us/emails.html')
-
-# Directs to the 404 page.
-@app.route('/missing')
-def missingpage():
-    return render_template('PyroNeon/404.html')
+# Route main site pages
+@app.route('/<path:path>')
+def main_page_router(path):
+    return route_page('PyroNeon/'+path)
 
 # Directs to the discord invite.
 @app.route('/discord')
@@ -35,28 +65,28 @@ def discordRedirect():
 
 
 
+# Route accounts to the dashboard by default
+@app.route('/accounts')
+def accounts_index_route():
+    return redirect("/accounts/users/dashboard", code=302)
+
+# Route Accounts pages
+@app.route('/accounts/<path:path>')
+def accounts_page_router(path):
+    return route_page('Accounts/'+path)
 
 
 
-# Landing page for the Puzzle Minefield game
-@app.route('/PuzzleMinefield')
-def puzzleMinefield():
+
+# Routes PuzzleMinefield index.
+@app.route('/PuzzleMinefield/')
+def pmf_index_route():
     return render_template('PuzzleMinefield/index.html')
 
-# Puzzle Minefield's downloads page
-@app.route('/PuzzleMinefield/downloads')
-def puzzleMinefieldDownloads():
-    return render_template('PuzzleMinefield/downloads.html')
-
-# Contacts and social links for Puzzle Minefield
-@app.route('/PuzzleMinefield/community')
-def puzzleMinefieldCommunity():
-    return render_template('PuzzleMinefield/community.html')
-
-# Frequently Asked Questions about Puzzle Minefield
-@app.route('/PuzzleMinefield/FAQ')
-def puzzleMinefieldFAQ():
-    return render_template('PuzzleMinefield/faq.html')
+# Route PuzzleMinefield pages
+@app.route('/PuzzleMinefield/<path:path>')
+def pmf_page_router(path):
+    return route_page('PuzzleMinefield/'+path)
 
 # Downloading Puzzle Minefield as a JAR file
 @app.route('/PuzzleMinefield/download-jar')
@@ -75,27 +105,38 @@ def download_pmf_exe():
 def puzzleMinefieldBugReport():
     return redirect("https://forms.gle/jJkvXrN67hCTx2ot7", code=302)
 
-# Puzzle Minefield TOS
-@app.route('/PuzzleMinefield/tos')
-def puzzleMinefieldTOS():
-    return render_template('PuzzleMinefield/legal/tos.html')
+
+
+
+# Routes Scraps index page.
+@app.route('/scraps/')
+def scraps_index_route():
+    return render_template('Scraps/index.html')
+
+# Route Scraps pages
+@app.route('/scraps/<path:path>')
+def scraps_page_router(path):
+    return route_page('Scraps/'+path)
 
 
 
 
 
-# Landing page for CLIPnP
-@app.route('/clipnp')
-def clipnp():
-    return render_template('CLIPnP/index.html')
 
+# Route Experimental pages -- Does not have a root index page.
+@app.route('/experimental/<path:path>')
+def experimental_page_router(path):
+    return route_page('Experimental/'+path)
 
+# Routes MUDTool index page.
+@app.route('/experimental/mudtool/')
+def mudtool_index_route():
+    return render_template('Experimental/mudtool/index.html')
 
-
-# Landing page for MUD
-@app.route('/experimental/mudtool')
-def mudtool():
-    return render_template('MUDTool/index.html')
+# Routes TUMULT index page.
+@app.route('/experimental/TUMULT/')
+def tumult_index_route():
+    return render_template('Experimental/TUMULT/index.html')
 
 # Downloading MUD as an EXE file
 @app.route('/experimental/mudtool/download-exe')
@@ -103,47 +144,6 @@ def download_mudtool_exe():
     # This will only work for Full Releases; 'Pre-Releases' will not work..
     return redirect("https://github.com/JLeopolt/MultimediaUtilityDownloadTool/releases/latest/download/MultimediaUtilityDownloadTool.exe", code=302)
 
-
-
-# Landing page for muSign
-@app.route('/musign')
-def musignTool():
-    return render_template('muSign/index.html')
-
-# Downloading muSign as an EXE file
-@app.route('/musign/download-exe')
-def download_musign_exe():
-    # This will only work for Full Releases; 'Pre-Releases' will not work..
-    return redirect("https://github.com/JLeopolt/muSign/releases/latest/download/muSign.exe", code=302)
-
-
-
-
-# Landing page for Scraps
-@app.route('/scraps')
-def scraps():
-    return render_template('Scraps/index.html')
-
-@app.route('/scraps/join')
-def scrapsJoin():
-    return render_template('Scraps/join.html')
-
-@app.route('/scraps/community')
-def scrapsCommunity():
-    return render_template('Scraps/community.html')
-
-@app.route('/scraps/guide')
-def scrapsGuide():
-    return render_template('Scraps/guide.html')
-
-
-
-
-
-
-@app.route('/experimental/TUMULT')
-def tumult():
-    return render_template('TUMULT/index.html')
 # Downloading TUMULT as a JAR file
 @app.route('/experimental/TUMULT/download-jar')
 def tum_download_jar():
@@ -160,111 +160,29 @@ def tum_download_exe():
 
 
 
+# Route muSign index page
+@app.route('/musign/')
+def musign_index_route(path):
+    return render_template('muSign/index.html')
 
-
-
-@app.route('/accounts')
-def accountsHomepage():
-    return redirect("/accounts/dashboard", code=302)
-
-# Register for a new PN account
-@app.route('/accounts/register')
-def registerAccount():
-    return render_template('Accounts/register.html')
-
-@app.route('/accounts/email/account-created-success')
-def createdAccountSuccessfully():
-    return render_template('Accounts/email/account-created-success.html')
-
-@app.route('/accounts/email/activate')
-def activateEmailAddress():
-    return render_template('Accounts/email/activate-email-address.html')
-
-@app.route('/accounts/email/resend-email-code')
-def resendEmailCode():
-    return render_template('Accounts/email/resend-confirmation-code.html')
-
-@app.route('/accounts/email/enter-manual-confirmation-code')
-def enterManualConfirmationCode():
-    return render_template('Accounts/email/enter-manual-confirmation-code.html')
-
-@app.route('/accounts/login')
-def login():
-    return render_template('Accounts/login.html')
-
-@app.route('/accounts/update/delete-account')
-def deleteAccount():
-    return render_template('Accounts/updates/delete-account.html')
-
-@app.route('/accounts/update/change-username')
-def changeUsername():
-    return render_template('Accounts/updates/change-username.html')
-
-@app.route('/accounts/update/change-password')
-def changePassword():
-    return render_template('Accounts/updates/change-password.html')
-
-@app.route('/accounts/update/change-email-address')
-def changeEmailAddress():
-    return render_template('Accounts/updates/change-email-address.html')
-
-@app.route('/accounts/forgot-password')
-def forgotPassword():
-    return render_template('Accounts/password/forgot-password.html')
-@app.route('/accounts/reset-password')
-def resetPassword():
-    return render_template('Accounts/password/reset-password.html')
-
-# Terms of service for PyroNeon Accounts
-@app.route('/accounts/legal/terms-of-service')
-def termsOfService():
-    return render_template('Accounts/legal/tos.html')
-
-# Privacy policy for PyroNeon Accounts
-@app.route('/accounts/legal/privacy-policy')
-def privacyPolicy():
-    return render_template('Accounts/legal/privacy-policy.html')
+# Downloading muSign as an EXE file
+@app.route('/musign/download-exe')
+def download_musign_exe():
+    # This will only work for Full Releases; 'Pre-Releases' will not work..
+    return redirect("https://github.com/JLeopolt/muSign/releases/latest/download/muSign.exe", code=302)
 
 
 
 
 
-@app.route('/accounts/dashboard')
-def accountDashboard():
-    return render_template('Accounts/users/dashboard.html')
-
-# Gets a profile for a user - depending on provided uuid url tag.
-@app.route('/accounts/profile')
-def userProfile():
-    return render_template('Accounts/users/profile.html')
-
-# Shows the friends list for the currently logged-in user.
-@app.route('/accounts/friends')
-def userFriendsList():
-    return render_template('Accounts/users/friends.html')
-
-@app.route('/accounts/settings')
-def accountSettings():
-    return render_template('Accounts/users/settings.html')
-
-@app.route('/accounts/search')
-def searchAccounts():
-    return render_template('Accounts/users/search.html')
+# Route CLIPnP index page
+@app.route('/clipnp/')
+def clipnp_index_route(path):
+    return render_template('CLIPnP/index.html')
 
 
 
 
-
-
-
-# Handles users entering a wrong link or other 404 errors.
-@app.errorhandler(404)
-def page_not_found(e):
-    # note that we set the 404 status explicitly
-    return render_template('PyroNeon/404.html'), 404
-
-# Registers the 404 error handler
-app.register_error_handler(404, page_not_found)
 
 # Runs the program, accepting traffic from any ip address
 if __name__ == "__main__":

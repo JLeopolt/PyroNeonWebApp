@@ -1,0 +1,22 @@
+@import "/static/Global/css/submit_buttons.css";
+
+.account-navbar{
+  background-color: black;
+  font-family: HighwayGothic;
+  font-size: 1.56vw;
+  color: white;
+  position: relative;
+  top: 0;
+}
+.account-navbar button {
+  padding: 0 0.5vh;
+  font-size: 1.5vh;
+  display:table-cell;
+  vertical-align:middle;
+}
+
+@media (orientation: portrait) {
+  .account-navbar{
+    font-size: 1.75vh;
+  }
+}

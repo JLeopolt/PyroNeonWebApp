@@ -17,20 +17,10 @@
 
 <body>
 
-<!-- Account Header above the navbar -->
-<div data-include="account-header"></div>
-
-<!-- The top navbar header.  -->
-<div class="navbar">
-  <a href="/" class="logo">
-    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
-  </a>
-
-  <a href="/">Home</a>
-  <a href="/products">Products</a>
-  <a href="/community">Community</a>
-</div>
-
+  <!-- Account Header above the navbar -->
+  <div data-include="account-header"></div>
+  <!-- Include global navbar -->
+  <div data-include="navbar"></div>
 
 <article>
 
@@ -46,31 +36,21 @@
       IP Addresses (Network addresses), usernames, email addresses, user-generated content,
       and API requests/responses.
       <br><br>
-      We will not sell your information like email addresses, ip addresses, or other data to third
+      We will not sell your information like email addresses, IP addresses, or other data to third
       parties like advertisers or email spammers. Your privacy is very important to us.
       <br><br>
-      By logging in to your account, you are agreeing to let us store and use cookies on your device.
+      By logging in to your account, you agree to let us store and use cookies on your device.
       We will only access cookies that were created by us (PyroNeon Software).
       <br><br>
-      Sensitive data like account passwords are kept confidential. In fact, your raw password is
-      never stored on our database, but rather a cryptographic hash (using the bcrypt algorithm) of it.
-      <br><br>
-      We will not publish your information to the public. However, in the event of illegal use
+      We will never publish your personal information to the public or to third parties. However, in the event of illegal use
       of our services, we may send account information to law enforcement to aid in an investigation.
     </p>
   </div>
 
 </article>
 
-
-
-<!-- Footer with extra links at the bottom of the page. -->
-<div class="footer">
-  <a href="/">Home</a>
-  <a href="/accounts/legal/terms-of-service">TOS</a>
-  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
-  <a href="/community">Community</a>
-</div>
+<!-- Include global footer -->
+<div data-include="footer"></div>
 
 </body>
 </html>

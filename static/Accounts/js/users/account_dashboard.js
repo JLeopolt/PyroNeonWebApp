@@ -4,5 +4,5 @@ import { UpdateSpans } from '/static/Accounts/js/libs/utils/update-elements.js';
 export function GeneratePage(claims){
   UpdateSpans("set-to-username", claims.username);
   // set the profile to redirect to profile page of this user.
-  document.getElementById("myProfileButton").href="/accounts/profile?user="+claims.uuid;
+  document.getElementById("myProfileButton").href="/accounts/users/profile?user="+claims.uuid;
 }

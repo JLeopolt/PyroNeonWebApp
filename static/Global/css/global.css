@@ -1,0 +1,15 @@
+/* Globally applicable style data which can be used throughout the website. */
+
+/* Define custom fonts */
+@font-face {
+   font-family: HighwayGothic;
+   src: url('/static/Global/fonts/HWYGNRRW.TTF');
+}
+@font-face {
+    font-family: 'Newtown';
+    src: url('/static/Global/fonts/Newtown.woff2') format('woff2'),
+        url('/static/Global/fonts/Newtown.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

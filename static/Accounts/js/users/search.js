@@ -166,7 +166,7 @@ function createFriendElement(user){
   // clone the saved friend entry node.
   var entry = resultEntryNode.cloneNode(true);
   // set the onclick event to redirect user to the friend's profile page.
-  entry.setAttribute('onclick', "window.location.href = \"/accounts/profile?user=" + user.uuid + "\";");
+  entry.setAttribute('onclick', "window.location.href = \"/accounts/users/profile?user=" + user.uuid + "\";");
   // set the nametag to Username.
   entry.getElementsByTagName("p")[0].textContent = user.username;
   // add the user entry to the friends list.

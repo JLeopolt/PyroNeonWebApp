@@ -42,19 +42,10 @@
 
 <body>
 
-<!-- Account Header above the navbar -->
-<div data-include="account-header"></div>
-
-<!-- The top navbar header.  -->
-<div class="navbar">
-  <a href="/" class="logo">
-    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
-  </a>
-
-  <a href="/">Home</a>
-  <a href="/products">Products</a>
-  <a href="/community">Community</a>
-</div>
+  <!-- Account Header above the navbar -->
+  <div data-include="account-header"></div>
+  <!-- Include global navbar -->
+  <div data-include="navbar"></div>
 
 <h1>Welcome back, <span class="set-to-username" style="color: #FFBB01;">username</span>.</h1>
 
@@ -68,19 +59,19 @@
     </div>
   </a>
 
-  <a href="/accounts/settings">
+  <a href="/accounts/users/settings">
     <div class="grid-item">
       <h1>Settings</h1>
     </div>
   </a>
 
-  <a href="/accounts/friends">
+  <a href="/accounts/users/friends">
     <div class="grid-item">
       <h1>Friends</h1>
     </div>
   </a>
 
-  <a href="/accounts/search">
+  <a href="/accounts/users/search">
     <div class="grid-item">
       <h1>Discover</h1>
     </div>
@@ -98,13 +89,8 @@
 </a>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<!-- Footer with extra links at the bottom of the page. -->
-<div class="footer">
-  <a href="/">Home</a>
-  <a href="/accounts/legal/terms-of-service">TOS</a>
-  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
-  <a href="/community">Community</a>
-</div>
+<!-- Include global footer -->
+<div data-include="footer"></div>
 
 </body>
 </html>

@@ -1,10 +1,16 @@
+<!-- The topmost header on a given page, which shows the user name (if the user is logged in) and some account control options -->
 <!-- Can be imported using import.js -->
+
+<!-- Define styles used in this navbar. -->
+<style>
+  @import "/static/Global/css/elements/account-header.css";
+</style>
 
 <div class="account-navbar">
   Welcome, <span class="set-to-username" style="color: #FFBB01;">Guest</span>!
   <button class="submitButton" id="headerLoginButton" style="display: none;" onclick="window.location.href = '/accounts/login';">Login</button>
   <button class="greenButton" id="headerRegisterButton" style="display: none;" onclick="window.location.href = '/accounts/register';">Sign Up</button>
 
-  <button class="submitButton" id="headerDashboardButton" style="display: none;" onclick="window.location.href = '/accounts/dashboard';">Dashboard</button>
+  <button class="submitButton" id="headerDashboardButton" style="display: none;" onclick="window.location.href = '/accounts/users/dashboard';">Dashboard</button>
   <button class="redButton" id="headerLogoutButton" style="display: none;" onclick="localStorage.removeItem('pn-jwt'); window.location.href = '/';">Logout</button>
 </div>

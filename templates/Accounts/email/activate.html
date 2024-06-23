@@ -17,19 +17,10 @@
 
 <body style="background: linear-gradient(10deg, rgba(15,223,74,1) 0%, rgba(2,105,0,1) 100%); background-attachment: fixed; background-repeat: no-repeat;">
 
-<!-- Account Header above the navbar -->
-<div data-include="account-header"></div>
-
-<!-- The top navbar header.  -->
-<div class="navbar">
-  <a href="/" class="logo">
-    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
-  </a>
-
-  <a href="/">Home</a>
-  <a href="/products">Products</a>
-  <a href="/community">Community</a>
-</div>
+  <!-- Account Header above the navbar -->
+  <div data-include="account-header"></div>
+  <!-- Include global navbar -->
+  <div data-include="navbar"></div>
 
 
 <article style="position: fixed; top: 40%; text-shadow: -1px 1px 2px #000,1px 1px 2px #000,1px -1px 0 #000,-1px -1px 0 #000;">
@@ -46,13 +37,8 @@
 
 <script type="module" src="/static/Accounts/js/email/confirm_email_address.js"></script>
 
-<!-- Footer with extra links at the bottom of the page. -->
-<div class="footer">
-  <a href="/">Home</a>
-  <a href="/accounts/legal/terms-of-service">TOS</a>
-  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
-  <a href="/community">Community</a>
-</div>
+<!-- Include global footer -->
+<div data-include="footer"></div>
 
 </body>
 </html>

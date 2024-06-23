@@ -1,5 +1,5 @@
-/* Import navbar/footer stuff */
-@import "/static/Global/css/header-navbar.css";
+/* Import global styles */
+@import "/static/Global/css/global.css";
 
 /* Adjust accordingly for mobile */
 @media (orientation: portrait) {
@@ -53,25 +53,29 @@ p{
 
 /* Wrap paragraphs into blocks without using <br> */
 .paragraph {
-  inline-size: 50%;
-  overflow-wrap: break-word;
-  margin: auto;
-  margin-bottom: 0;
-  margin-top: 0;
+   inline-size: 50%;
+   overflow-wrap: break-word;
+   margin: auto;
+   margin-bottom: 0;
+   margin-top: 0;
 
-  color:white;
+   color: white;
 
-  /* Stroke text */
-  text-shadow:
-       3px 3px 0 black,
-     -3px -3px 0 black,
-      3px -3px 0 black,
-      -3px 3px 0 black,
-       3px 3px 0 black;
+   /* Stroke text */
+   text-shadow:
+     -2.35px -2.35px 0 #000,
+      0   -2.35px 0 #000,
+      2.35px -2.35px 0 #000,
+      2.35px  0   0 #000,
+      2.35px  2.35px 0 #000,
+      0    2.35px 0 #000,
+     -2.35px  2.35px 0 #000,
+     -2.35px  0   0 #000;
+   -webkit-font-smoothing: antialiased;
 
-  text-decoration: none;
-  font-family: HighwayGothic;
-  font-size: 1.5625vw;
+   text-decoration: none;
+   font-family: HighwayGothic;
+   font-size: 1.5625vw;
 }
 .paragraph h3 {
   /* font-size: 50px; */

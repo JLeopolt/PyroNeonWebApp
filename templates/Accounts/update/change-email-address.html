@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Change Password - PyroNeon</title>
+  <title>Change Email Address - PyroNeon</title>
   <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,30 +17,20 @@
 
 <body>
 
-<!-- Account Header above the navbar -->
-<div data-include="account-header"></div>
-
-<!-- The top navbar header.  -->
-<div class="navbar">
-  <a href="/" class="logo">
-    <img src="/static/PyroNeon/img/Circular-PyroNeon-Crest.png" alt="PyroNeon Logo">
-  </a>
-
-  <a href="/">Home</a>
-  <a href="/products">Products</a>
-  <a href="/community">Community</a>
-</div>
+  <!-- Account Header above the navbar -->
+  <div data-include="account-header"></div>
+  <!-- Include global navbar -->
+  <div data-include="navbar"></div>
 
 
 <article style="position: fixed; top: 15%;">
 
-  <h1>Change Password</h1>
+  <h1>Change Email Address</h1>
 
   <div class="paragraph" style="padding-bottom: 0;">
     <p>
-      Change your password here.
-      Please note, your password change may take some time to take effect.
-      If you think your account is compromised, <a style="color:gold;" href="/community">contact us</a> to lock it.
+      Change your email address here.
+      Note: Your account will be inactivated, and you will need to reconfirm your email address before you can log in again.
     </p>
   </div>
 
@@ -52,22 +42,16 @@
         <td><input type="text" class="input-text-field" name="username" id="username"></td>
       </tr>
       <tr class="form-row">
-        <td class="form-label">Current Password</td>
+        <td class="form-label">Password</td>
         <td><input type="password" class="input-text-field" name="password" id="password"></input></td>
         <td><input type="checkbox" onclick="togglePasswordVisibility('password')">Show Password</input></td>
       </tr>
       <tr class="form-row">
-        <td class="form-label">New Password</td>
-        <td><input type="password" class="input-text-field" name="new_password" id="new_password"></input></td>
-        <td><input type="checkbox" onclick="togglePasswordVisibility('new_password')">Show Password</input></td>
+        <td class="form-label">New Email Address</td>
+        <td><input type="text" class="input-text-field" name="new_email_address" id="new_email_address"></input></td>
       </tr>
       <tr class="form-row">
-        <td class="form-label">Confirm New Password</td>
-        <td><input type="password" class="input-text-field" name="confirm_new_password" id="confirm_new_password"></input></td>
-        <td><input type="checkbox" onclick="togglePasswordVisibility('confirm_new_password')">Show Password</input></td>
-      </tr>
-      <tr class="form-row">
-        <td colspan=3><button type="submit" class="submitButton" id="updateSubmitButton">Update Password</button></td>
+        <td colspan=3><button type="submit" class="submitButton" id="updateSubmitButton">Update Email Address</button></td>
       </tr>
     </table>
   </form>
@@ -83,15 +67,10 @@
 <script src="/static/Accounts/js/password_visibility.js"></script>
 
 <!-- Used to send POST requests to the API. -->
-<script type="module" src="/static/Accounts/js/updates/change_password.js"></script>
+<script type="module" src="/static/Accounts/js/updates/change_email_address.js"></script>
 
-<!-- Footer with extra links at the bottom of the page. -->
-<div class="footer">
-  <a href="/">Home</a>
-  <a href="/accounts/legal/terms-of-service">TOS</a>
-  <a href="/accounts/legal/privacy-policy">Privacy Policy</a>
-  <a href="/community">Community</a>
-</div>
+<!-- Include global footer -->
+<div data-include="footer"></div>
 
 </body>
 </html>

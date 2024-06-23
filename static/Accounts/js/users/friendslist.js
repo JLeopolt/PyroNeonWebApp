@@ -152,7 +152,7 @@ function createFriendElement(friendship, canAcceptReq){
   var entry = friendEntryNode.cloneNode(true);
 
   // set the onclick event to redirect user to the friend's profile page.
-  entry.setAttribute('onclick', "window.location.href = \"/accounts/profile?user=" + friendship.friend.uuid + "\";");
+  entry.setAttribute('onclick', "window.location.href = \"/accounts/users/profile?user=" + friendship.friend.uuid + "\";");
 
   // set the nametag to Username.
   entry.getElementsByTagName("p")[0].textContent = friendship.friend.username;

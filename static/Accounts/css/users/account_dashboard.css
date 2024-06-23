@@ -1,5 +1,5 @@
-/* Import navbar/footer stuff */
-@import "/static/Global/css/header-navbar.css";
+/* Import global styles */
+@import "/static/Global/css/global.css";
 
 /* Style the body */
 body {

@@ -1,15 +1,14 @@
 <!--
   This page notifies the user that the page they are trying to access is not available
  -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Page Not Found - PyroNeon</title>
-  <link rel="icon" href="/static/Global/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/static/PyroNeon/css/index.css">
+  <link rel="stylesheet" href="/static/Scraps/css/gameguide.css">
 
   <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
   <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
@@ -20,22 +19,17 @@
   <!-- Account Header above the navbar -->
   <div data-include="account-header"></div>
   <!-- Include global navbar -->
-  <div data-include="navbar"></div>
-
+  <div data-include="scraps-navbar"></div>
 
 <article>
 
-  <img src="/static/PyroNeon/img/tumult-warning-sign.png" alt="Warning Sign" style="max-width: 15rem; max-height: 15rem;">
-
   <h1>
-    Page Not Found
+    Last Updated: {{ last_modified }}
   </h1>
 
   <div class="paragraph">
     <p>
-      Unfortunately, this page either isn't ready yet, or doesn't exist.
-      If this problem persists or you're sure this page should be here, feel free to contact
-      PyroNeon Software for support on the <a href="/community" style="color: gold;">Community</a> page.
+      Created: {{ creation_date }}
     </p>
   </div>
 
