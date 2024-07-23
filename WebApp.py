@@ -4,6 +4,7 @@ import time
 import traceback
 import random
 import re
+# import logging
 from pathlib import Path
 
 # Handles serving html files and other content
@@ -100,18 +101,17 @@ Automatically protects against directory traversals. Case insensitive.
 :returns: The resulting html resource, or an error 404 if the resource wasn't found.
 """
 def route_page(relpath, context = {}):
-    # Lowercase and add suffix .html
-    relpath = relpath.lower() + '.html'
+    # add suffix .html
+    relpath = relpath + '.html'
     try:
         # protect against directory traversals
         resourcepath = str(Path(templates_dir).joinpath('./templates/' + relpath).resolve().relative_to(Path(templates_dir).resolve()))
-        #print(resourcepath)
         # merge default context with the custom context provided (if any)
         context.update(default_context(resourcepath))
         # Try rendering the requested resource
         return render_template(relpath, **context)
     except Exception:
-        #print(traceback.format_exc())
+        # print(traceback.format_exc())
         abort(404)
 
 """
@@ -121,9 +121,10 @@ Includes the creation date of the file, and the last modified date of the file.
 :returns: A dict containing context about the file.
 """
 def default_context(relpath):
+    fullpath = os.path.join(app.root_path, relpath)
     context = {
-        'creation_date': time.ctime(os.path.getctime(relpath)),
-        'last_modified': time.ctime(os.path.getmtime(relpath))
+        'creation_date': time.ctime(os.path.getctime(fullpath)),
+        'last_modified': time.ctime(os.path.getmtime(fullpath))
     }
     return context
 
@@ -306,7 +307,7 @@ def tum_download_exe():
 # Route muSign index page
 @app.route('/musign/')
 @cache.cached()
-def musign_index_route(path):
+def musign_index_route():
     return render_template('muSign/index.html')
 
 # Downloading muSign as an EXE file
@@ -322,7 +323,7 @@ def download_musign_exe():
 # Route CLIPnP index page
 @app.route('/clipnp/')
 @cache.cached()
-def clipnp_index_route(path):
+def clipnp_index_route():
     return render_template('CLIPnP/index.html')
 
 
@@ -331,4 +332,5 @@ def clipnp_index_route(path):
 
 # Runs the program, accepting traffic from any ip address
 if __name__ == "__main__":
+    # logging.basicConfig(filename='/home/PyroNeonWebApp/PNWebApp.log',level=logging.DEBUG)
     app.run(host="0.0.0.0")
