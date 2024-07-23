@@ -33,6 +33,8 @@
             To search through all articles, use the <a href="/scraps/guide/search">Search Engine</a>.
           </p>
 
+          <p>Currently serving: <strong><span id="articleCount">?</span></strong> pages.</p>
+
 					<div class="contentsPanel">
 						<div class="contentsHeader">Index</div>
 						<ul id="indexList" style="text-transform: capitalize;">
@@ -58,6 +60,8 @@
           // Get a nested dict of paths from Jinja2
           var paths = {{ paths|tojson }};
           createTableEntries(index, 0, "", paths);
+          var index_size = {{ flat|tojson }}.length;
+          document.getElementById('articleCount').innerText = index_size;
         }
 
         function createTableEntries(parentElement, catNumber, section, entries) {
