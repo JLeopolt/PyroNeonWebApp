@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Help - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Help</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article is about the Scraps Guide itself, not the game Scraps.</p>
+
+          <p>
+            The Scraps guide is a convenient resource for players looking for help while playing Scraps. To use the guide, start from the <a href="/scraps/guide/index">Index</a>, where
+            all the articles on the website are listed in a single place. The index can also be searched with the search bar at the top of the page. Most articles contain a summary
+            paragraph at the top of the page, a table of contents where each section of the article can be jumped to, and several different sections with their own distinct headers.
+          </p>
+
+          <p>
+            The sidebar to the left contains quick-reference links to the homepage, abstract page, index, contacts, and more. The top header of the page contains toggles for light/dark mode,
+            and redundant links to the index and other important pages in the guide.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

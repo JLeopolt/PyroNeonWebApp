@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Item Grinder - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Item Grinder</h1>
+          <!-- Shows a stack of enveloping articles this article 'belongs' to -->
+          <div class="categories">
+						<a href="./custom-blocks">Custom Blocks</a>
+					</div>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">Note, this article is about the Item Grinder. <a href="./crafting">Crafting Stations</a> have a separate article.</p>
+
+          <p>
+            The Item Grinder is an unobtainable custom station block, which can be found at
+            <a href="/scraps/guide/map/monuments#substations">Substations</a> and the <a href="/scraps/guide/map/monuments#factory">Factory</a>.
+            It looks like a stonecutter block, but will display a custom GUI when opened instead of the vanilla GUI.
+            The Item Grinder allows players to 'recycle' certain items by breaking them down into their crafting components.
+            It's purpose is to allow players to turn unnecessary items into useful raw materials, albeit inefficiently. For example, if a player finds loot they don't need
+            at the moment, it may be more practical to grind the item and use the materials to crafting something else, or to build their base.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#usage">Usage</a>
+    							</li>
+                  <li>
+    								<span>1</span><a href="#strategy">Strategy</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="usage">Usage</h2>
+          <p>
+            To use the Item Grinder, open the GUI and place an item into the inventory. Be careful not to place anything you don't want to destroy into the inventory.
+            Once you've confirmed that you want to grind the items in the inventory, close the inventory. Upon exiting the Item Grinder's inventory, it will automatically
+            activate and give you a confirmation/error message in your action bar. If the Grinder is functioning properly, you should hear a loud grating noise as it
+            works. This noise can be heard for over 20 blocks, so stay alert.
+          <p>
+            The Item Grinder will grind certain items more quickly than other items, based on their stack size. The Item Grinder is quite inefficient at grinding, so you might
+            only get 50% of the crafting cost of the item back. You can grind custom items like ammunition, guns, grenades, lockboxes, etc. in addition to vanilla items.
+          </p>
+
+          <!-- Major Title -->
+          <h2 id="strategy">Strategy</h2>
+          <p>
+            There is no benefit to splitting item stacks or distributing your items evenly across the Grinder, since it will only grind one item at a time anyways.
+            Make sure there is plenty of room in the inventory, as the Grinder will automatically turn off when its inventory is too full to continue grinding items.
+          </p>
+          <p>
+            It is dangerous to leave the Grinder unattended, since it's loud noise can attract many other players. However, you could use this to your advantage by camping the
+            grinder from a hidden position and waiting for another player to investigate, then ambushing them.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

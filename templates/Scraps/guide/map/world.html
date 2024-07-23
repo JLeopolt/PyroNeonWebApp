@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>World - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+					<h1>World</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article includes a resource pertaining to the ore regeneration algorithm.</p>
+
+          <p>
+            Scraps contains a single, pre-generated world that is reset on each server wipe. Multiple <a href="#biomes">Biomes</a> can be found in the world.
+            In addition, different <a href="./monuments">Monuments</a> containing loot can be found throughout the world. This world is not procedurally generated, however the
+            underworld is regenerated procedurally.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+    							<li>
+    								<span>1</span><a href="#underground">Underground</a>
+    								<ul>
+    									<li><span>1.1</span><a href="#generation">Generation</a> </li>
+                      <li><span>1.2</span><a href="#regeneration">Regeneration</a> </li>
+    								</ul>
+    							</li>
+                  <li>
+    								<span>2</span><a href="#biomes">Biomes</a>
+    								<ul>
+                      <li><span>2.1</span><a href="#taiga">Taiga</a> </li>
+                      <li><span>2.2</span><a href="#snowy-taiga">Snowy Taiga</a> </li>
+                      <li><span>2.3</span><a href="#swamp">Swamp</a> </li>
+                      <li><span>2.4</span><a href="#desert">Desert</a> </li>
+                      <li><span>2.5</span><a href="#mushroom">Mushroom</a> </li>
+                      <li><span>2.6</span><a href="#ocean">Ocean</a> </li>
+    								</ul>
+    							</li>
+                  <li>
+    								<span>3</span><a href="#wipe">Wipe</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="underground">
+            Underground
+          </h2>
+          <h3 id="generation">Generation</h3>
+          <p>
+            The underground in Scraps, which begins beneath the dirt layer and extends to bedrock (y=-63 to y=64), is different from vanilla Minecraft's underground/cave generation.
+            The main difference is that the underground in Scraps is much simpler. Caves and other underground structures will never occur in the underground. Ores however, will
+            continue to spawn underground, albeit in smaller veins (usually in veins of a single block).
+          </p>
+          <h3 id="regeneration">Regeneration</h3>
+          <p>
+            The underground will regenerate periodically, which makes building underground pointless. A lockbox can be placed underground, however during the next periodic underworld reset,
+            the lockbox and your entire base will be reset completely. Before an underworld regeneration event occurs, the server will broadcast a message to inform all players to evacuate
+            before the server begins regenerating. The server will disconnect all players and prevent new players from joining while the underworld is being regenerated. To be notified when
+            the server is back online, visit the official <a href="/discord">Scraps Discord Server</a>, which will automatically send updates whenever a regeneration event occurs and completes.
+          </p>
+          <p>A table detailing each possible ore spawn, and ore spawn y-levels is provided below. Use this table to figure out which y-level you want to mine on.</p>
+          <table>
+              <thead>
+                <tr><td>Ore</td><td>Max Y-Level*</td><td>Rarity**</td></tr>
+              </thead>
+              <tr><td>Coal Ore</td><td>64</td><td>32</td></tr>
+              <tr><td>Copper Ore</td><td>64</td><td>24</td></tr>
+              <tr><td>Gravel</td><td>64</td><td>24</td></tr>
+              <tr><td>Iron Ore</td><td>64</td><td>16</td></tr>
+
+              <tr><td>Coal Block</td><td>48</td><td>8</td></tr>
+              <tr><td>Raw Copper Block</td><td>48</td><td>8</td></tr>
+              <tr><td>Raw Iron Block</td><td>48</td><td>4</td></tr>
+
+              <tr><td>Gold Ore</td><td>32</td><td>8</td></tr>
+              <tr><td>Lapis Ore</td><td>32</td><td>8</td></tr>
+              <tr><td>Redstone Ore</td><td>32</td><td>8</td></tr>
+              <tr><td>Raw Gold Block</td><td>32</td><td>6</td></tr>
+              <tr><td>Lapis Block</td><td>32</td><td>8</td></tr>
+              <tr><td>Redstone Block</td><td>32</td><td>8</td></tr>
+              <tr><td>Gunpowder Ore</td><td>32</td><td>8</td></tr>
+
+              <tr><td>Diamond Ore</td><td>16</td><td>4</td></tr>
+              <tr><td>Obsidian</td><td>16</td><td>8</td></tr>
+              <tr><td>Lava</td><td>16</td><td>4</td></tr>
+
+              <tr><td>Ancient Debris</td><td>0</td><td>4</td></tr>
+              <tr><td>Diamond Block</td><td>0</td><td>2</td></tr>
+          </table>
+          <p>
+            <i>*Max Y-Level represents the highest Y-Level an ore can possibly spawn at.</i>
+            <br>
+            <i>**A higher weighted rarity value means the ore is MORE common.</i>
+          </p>
+
+          <!-- Major Title -->
+          <h2 id="biomes">
+            Biomes
+          </h2>
+
+          <h3 id="taiga">Taiga</h3>
+          <p>
+            The taiga biome is the most common biome in Scraps. It has abundant trees, monuments, and rivers. The forest can make fighting mobs and traversing the biome more difficult in some cases.
+            This is the most popular biome to live in, especially since the <a href="./monuments#factory">Factory</a> monument (the only source of high-tier loot) occurs in the Taiga.
+          </p>
+
+          <h3 id="snowy-taiga">Snowy Taiga</h3>
+          <p>
+            The snowy taiga is the second most common biome in Scraps. This the only biome which can inflict coldness on players. However, any hostile mobs that spawn in the biome will also
+            take cold damage. Additionally, neither skeletons nor strays will spawn in the Snowy Taiga. This biome extends over a tundra, mountain range, and forest. However, all of these
+            'sub-biomes' have the same attributes as the Snowy Taiga. The Snowy Taiga has limited loot supplies, so progressing beyond early-game may be difficult without travelling across
+            the map to other biomes with more loot.
+          </p>
+
+          <h3 id="swamp">Swamp</h3>
+          <p>
+            The swamp biome is barren, and full of obstacles. The entire biome is covered in pockets of water and soul sand, which makes traversing the biome more difficult. At night, slimes may spawn
+            and can be harvested as an easy source of slime balls. The main reason to inhabit the swamp is to be able to loot the <a href="./monuments#moonshine-cabins">Moonshine Cabins</a>, which offer
+            exclusive loot that is required to progress.
+          </p>
+
+          <h3 id="desert">Desert</h3>
+          <p>
+            The desert biome is barren, and can be very difficult to survive in at night, due to the open terrain and lack of cover, allowing skeletons and armed mobs to attack players from range.
+            The lack of trees makes the early game difficult. The desert biome also lacks monuments. There isn't much reason to live in the desert, besides the fact that other players might overlook it.
+          </p>
+
+          <h3 id="mushroom">Mushroom Forest</h3>
+          <p>
+            The mushroom forest is a unique, small biome dominated by giant spruce trees and giant red and brown mushrooms. The dense cover can make it easy to hide a starter base within the canopy.
+            However, there are no monuments within the biome itself, but the river bordering the biome leads to <a href="./monuments#fishing-cabins">Fishing Cabins</a>.
+          </p>
+
+          <h3 id="ocean">Ocean</h3>
+          <p>
+            The ocean biome is a beginner-friendly biome to inhabit. The isolated islands and abundant, easy-to-spot <a href="./monuments#fishing-cabins">Fishing Cabins</a> make gathering loot easy.
+            Additionally, mobs have difficulty swimming through the water, while players can swim much more quickly, allowing players to escape from pursuing mobs with ease. However, armed mobs and skeletons
+            can still attack players even from within the water or from shore. Since the only monuments around the ocean biomes are <a href="./monuments#fishing-cabins">Fishing Cabins</a>, there are no
+            sources of high-tier loot, meaning progression will plateau unless the player actively goes into other biomes to find better loot.
+          </p>
+
+          <!-- Major Title -->
+          <h2 id="wipe">
+            Wipe
+          </h2>
+          <p>
+            Scraps will wipe on the first day of every month, at 12:00 AM. This means that all builds, items, and other progress will be reset; So make the most out of your wipe!
+            For a short period of time, the server may be inaccessible, while it is busy resetting the world and rebooting. The <a href="/discord">Scraps Discord Server</a> will
+            automatically notify users when the server shuts down for a server reset, and when it reboots.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

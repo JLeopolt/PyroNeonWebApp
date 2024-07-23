@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Raid Strategy - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Raid Strategy</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+
+          <p>
+            Your goal when raiding another player's base is either to take their loot, or to completely evict them and force them to build elsewhere. However, typically the loot
+            room of a base is where the lockbox is located; the 'Core' of the base. This is the most secure section of the base, typically built out of the strongest material
+            with multiple branching rooms leading away from it. If you are considering raiding another player, your objective is to breach their core and if possible, take control
+            of their Lockbox.
+          </p>
+          <p>
+            By taking control of the Lockbox, you gain privileges over the entire base. You can open all their doors, chests, interact with redstone, and most importantly - build.
+            Once you've taken over the base, patch up the hole you made breaking into it, to prevent other players from entering and to secure the base for yourself. Claim or destroy
+            the original owner's beds, and make sure to clear the Lockbox's authorization list, or they could return and take over again.
+          </p>
+          <p>
+            There are multiple approaches to raiding other players' structures in Scraps. Each approach has its own pros and cons, and each approach should be considered
+            and accounted for when building your base, and when you raid another player's base.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+                    <span>1</span><a href="#approaches">Approaches</a>
+    								<ul>
+                      <li><span>1.1</span><a href="#mining">Mining</a> </li>
+                      <li><span>1.2</span><a href="#fire">Fire</a> </li>
+                      <li><span>1.3</span><a href="#explosives">Explosives</a> </li>
+    								</ul>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="approaches">
+            Approaches
+          </h2>
+
+          <h3 id="mining">Mining</h3>
+          <p>
+            The most obvious approach to raiding is to simply mine into the base. Using a fast tool like a diamond pickaxe or axe is
+            almost required to have a chance to break into the base. Mining is also the slowest way to break into a base, but it doesn't attract
+            much attention since it is relatively quiet and could be done while hiding underneath the base.
+          </p>
+          <p>
+            Only certain durability blocks are mineable. Every time you attempt to mine the block, instead of being destroyed,
+            the block will have a chance to lose one durability. The chance to damage the block is about 10%.
+          </p>
+
+          <h3 id="fire">Fire</h3>
+          <p>
+            Some blocks are flammable, especially wooden blocks. Flammable blocks will take about 3 damage every time a fire block tries to destroy it.
+            Fire has a lower chance of spreading, and it has a high chance to extinguish itself when trying to destroy a block. Because of this, fire must be
+            constantly reapplied while you wait for it to completely destroy the target.
+          </p>
+
+          <h3 id="explosives">Explosives</h3>
+          <p>
+            The quickest and flashiest way to raid a base is to blow into it with explosives. This is the most expensive approach, but can work for any durability
+            block in the game. Explosives attract attention, however, so you may end up fighting a battle on two fronts if other players come to counter you.
+            When using explosives, your objective is to break into the base quickly so you can hide within the base, using its own walls as cover while you
+            continue to drill deeper into it.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

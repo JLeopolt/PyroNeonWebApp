@@ -1,0 +1,183 @@
+<!--
+  A summary article about the game SCRAPS by PyroNeon Software.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Abstract - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Scraps - Abstract</h1>
+          <!-- Shows a stack of enveloping articles this article 'belongs' to -->
+          <!-- <div class="categories">
+						<a href="#">Category </a> <a href="#">Category </a> <a href="#">Category </a>
+					</div> -->
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+					<!-- <p class="roleNote">Provide context and references to relevant pages here</p> -->
+
+          <!-- Main summary of the article -->
+					<div class="articleRight">
+						<div class="articleRightInner">
+							<img src="/static/Scraps/img/Frog-Logo.png" alt="image" />
+						</div>
+						<i>The Scraps mascot and logo, 'Scrappy' the frog.</i>
+					</div>
+
+          <p><a href="/scraps/join">Scraps</a> is a custom-plugin based <a href="https://www.minecraft.net/en-us">Minecraft</a> server, developed by <a href="https://www.pyroneon.net/">PyroNeon Software</a>.</p>
+          <p>
+            The game was inspired by Minecraft 'Factions', <a href="https://rust.facepunch.com/">RUST</a>, and <a href="starve.io">starve.io</a>.
+            Scraps introduces new items, weapons, blocks, and mechanics through a custom plugin and resource pack. It is currently free-to-play through an open beta.
+            The server address is <a href="/scraps/join">scraps.pyroneon.net</a>. Since the server is plugin-based, no client-side mods are required. The server supports the
+            latest release of Minecraft Java Edition. Certain client-mods are allowed, such as using a custom launcher like Lunar Client, or using Optifine or shaderpacks. Please
+            review the <a href="/scraps/join">server rules</a> before connecting, as breaking the rules can result in your account being banned from the server permanently.
+          </p>
+          <p>The server resets periodically, in a monthly 'wipe'. After the wipe, the world is reset to its original state and all players' progress is reset.</p>
+
+					<div class="contentsPanel">
+						<div class="contentsHeader">Contents</div>
+						<ul>
+							<li>
+								<span>1</span><a href="#about">About</a>
+								<ul>
+									<li><span>1.1</span><a href="#plugin">Plugin</a> </li>
+                  <li><span>1.2</span><a href="#discord">Discord</a> </li>
+									<li><span>1.3</span><a href="#resource-pack">Resource Pack</a> </li>
+								</ul>
+							</li>
+							<li><span>2</span><a href="#gameplay">Gameplay</a>
+                <ul>
+                  <li><span>2.1</span><a href="#regeneration">Regeneration</a> </li>
+                  <li><span>2.2</span><a href="#environment">Environment</a> </li>
+                  <li><span>2.3</span><a href="#raiding">Raiding</a> </li>
+                  <li><span>2.4</span><a href="#weapons">Weapons</a> </li>
+                </ul>
+              </li>
+							<li><span>3</span><a href="#history">History</a>
+                <ul>
+                  <li><span>3.1</span><a href="#development">Development</a> </li>
+                </ul>
+              </li>
+              <li><span>4</span><a href="#future">Future</a>
+                <ul>
+                  <li><span>4.1</span><a href="#updates">Updates</a> </li>
+                  <li><span>4.2</span><a href="#gamemodes">Gamemodes</a> </li>
+                </ul>
+              </li>
+						</ul>
+					</div>
+
+					<h2 id="about">About</h2>
+  					<h3 id="plugin">Plugin</h3>
+              <p>
+                Scraps is based on a custom-plugin, which can be referred to as the core plugin. The official Scraps production server may also include additional plugins, such as
+                <a href="https://www.spigotmc.org/resources/viaversion.19254/">ViaVersion</a> (for version compatibility). The Scraps plugin is currently closed-source, and not available
+                to the public or to other servers. In the <a href="#future">Future</a>, this may be subject to change.
+              </p>
+            <h3 id="discord">Discord</h3>
+              <p>
+                The Scraps server is connected to our <a href="/discord">official Discord server</a>, where the status of the server, active players, in-game-chat, death messages, etc. can all be
+                viewed through the #igc channel. This integration allows players to get a sense of what's happening on the server, even when they aren't at their computer.
+              </p>
+            <h3 id="resource-pack">Resource Pack</h3>
+              <p>
+                Upon connecting to the Scraps server, you will automatically be prompted to download the Scraps official resource pack. Our resource pack includes fancy 3d models for custom blocks,
+                game features, items, weapon attachments, grenades, explosive devices, stations, and more. Our resource pack also uses third-party assets for gun models. Each gun in the game is automatically
+                given a lore tag with the author of the model, and the command '/credits' can be used in-game to view all the third-party authors and the models they created.
+              </p>
+
+					<h2 id="gameplay">Gameplay</h2>
+            <h3 id="regeneration">Regeneration</h3>
+              <p>
+                Scraps has a static map that regenerates resources periodically, with the assistance of multiple new regeneration mechanics. The main method of obtaining resources during
+                gameplay is through looting loot-boxes and chests which exist throughout the world, within monument regions. Loot-boxes will regenerate over time, giving players an incentive
+                to build near monuments which contain high-value loot.
+              </p>
+
+            <h3 id="environment">Environment</h3>
+              <p>
+                One of the most important new environmental mechanics in Scraps is coldness. Coldness will cause players to move more slowly, and can deal damage to players when severe enough.
+                Players can avoid freezing by staying away from cold biomes, wearing 'warm' armor, staying near a light source, or by hiding in a house away from skylight.
+                The day/night cycle and weather will affect how cold you feel. Players get colder at night, and much colder during a snowstorm.
+              </p>
+
+            <h3 id="raiding">Raiding</h3>
+              <p>
+                The core gameplay revolves around claimed regions, which are claimed through the use of a Lockbox, a custom block which allows a player to hold exclusive building privilege over an area.
+                Players build bases with special 'durability blocks', a kind of block that has a custom data value associated with it, storing it's current health. Durability blocks can be destroyed
+                by multiple means, such as explosives, fire damage, or by being mined repeatedly. Players can embark on raids against one another, attempting to breach a base's defenses and reaching the
+                Lockbox, which once accessed, can be cleared and claimed for the raider, giving them privilege over the base, and allowing them to secure the base and gain full control over it.
+              </p>
+
+            <h3 id="weapons">Weapons</h3>
+              <p>
+                Scraps v2.0.0-beta introduced an overhauled weapons system to the game. The new weapons system brought
+                new guns, like pistols, shotguns, SMGs, rifles, snipers, a grenade launcher, and a rocket launcher;
+                new ammunition variants like hollow-point, full-metal-jacket, incendiary, explosive, less-lethal rounds, 40mm grenade rounds, and multiple rocket variants;
+                a modular attachment system for guns including red-dot sights, extended magazines, burst triggers, suppressors;
+                new grenades including fragmentation grenades, pipe bombs, molotov cocktails;
+                and an overhaul to the existing explosives system, with all-new explosive devices and a more advanced ray-tracing algorithm for calculating explosive damage.
+              </p>
+
+          <h2 id="history">History</h2>
+            <h3 id="development">Development</h3>
+              <p>
+                Development on Scraps began in early March, 2022. In fact, the first experimental version of the game was completed in a single week. This early version of the game was
+                barebones, but laid a foundation for the early explosives system, loot-regeneration, and region-claiming. An early version of the Scraps map was developed shortly afterwards.
+                In August of 2022, the alpha version was tested in a closed-alpha.
+              </p>
+              <p>
+                Later, in early 2023, the beta version of the game was completed and released in an open-beta. This new version brought tons of new content, like the block durability system,
+                the ability to own multiple beds, a more in-depth loot regeneration system, and much more.
+              </p>
+              <p>
+                In February of 2024, development on v2.0.0-beta began, which hoped to bring tons of new content, focusing mainly on a new weapons system. v2.0.0-beta was released in June of 2024.
+              </p>
+
+          <h2 id="future">Future</h2>
+            <h3 id="updates">Updates</h3>
+              <p>
+                One of the highest-priority updates planned for Scraps is an upgraded map.
+                Some other key updates that may be added are: turrets, multi-block structures, more intelligent NPC enemies, and vehicles.
+              </p>
+            <h3 id="gamemodes">Gamemodes</h3>
+              <p>
+                Several candidates for new Scraps gamemodes are in consideration for future development, such as a tactical mini-game version of the game, and an MMORPG spin-off gamemode.
+                The Scraps core plugin could be reused with relative ease, allowing new gamemodes to share certain features and mechanics with classic Scraps. For example,
+                the weapon and explosive systems could be directly ported into a new gamemode, which could make switching between gamemodes more straight-forward for players.
+              </p>
+              <p>
+                Currently no new gamemodes have been confirmed due to higher priority projects taking up development time.
+              </p>
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Index - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Scraps - Index</h1>
+					<p class="roleNote">This article is about the Scraps Guide itself, not the game Scraps.</p>
+
+          <p>
+            This index automatically catalogs all articles in the Scraps Guide. All pages are linked in the list below this paragraph.
+            To search through all articles, use the <a href="/scraps/guide/search">Search Engine</a>.
+          </p>
+
+					<div class="contentsPanel">
+						<div class="contentsHeader">Index</div>
+						<ul id="indexList" style="text-transform: capitalize;">
+						</ul>
+					</div>
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Created by PyroNeon Software | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+			</div>
+
+      <!-- Script to generate the autoindex dynamically using entry variables provided, which are inserted with Jinja2 by flask. -->
+      <script type="text/javascript">
+        const index = document.getElementById('indexList');
+        // Generate the page
+        createIndex();
+
+        function createIndex() {
+          // Get a nested dict of paths from Jinja2
+          var paths = {{ paths|tojson }};
+          createTableEntries(index, 0, "", paths);
+        }
+
+        function createTableEntries(parentElement, catNumber, section, entries) {
+          let posNumber = 0;
+          for (const key in entries) {
+            posNumber++;
+            // If the value is not null, this is a nested directory.
+            if (entries[key] !== null) {
+              // Create a new header for each nested dictionary
+              nest = createSectionHeaderElement(posNumber, key, parentElement);
+              // Recursively call the function for nested dictionaries
+              createTableEntries(nest, posNumber, key, entries[key]);
+            }
+            // If the value is null, this is an entry.
+            else {
+              createLinkElement(catNumber + "." + posNumber, section + "/" + key, parentElement);
+            }
+          }
+        }
+
+        // Returns an object containing the URL and user-friendly title of an article.
+        function processRawPath(path){
+          // For each path, clip it's filename and prefix.
+          path = path.slice(0, -5);
+          return {
+            "url" : "./" + path,
+            // Discard everything before the last slash, replace hyphens with spaces.
+            "title" : capitalize(path.split('/').pop().replace("-", " "))
+          }
+        }
+
+        // Capitalizes the first letter of the string.
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Creates a list element containing an id tag and a hyperlink to an article.
+        function createLinkElement(id, path, parentElement){
+          // setup a new element list entry
+          li = document.createElement('li');
+          span = document.createElement('span');
+          span.innerText = id;
+          li.appendChild(span);
+
+          let article = processRawPath(path);
+          // build a hyperlink element
+          link = document.createElement('a');
+          link.href = article.url;
+          link.text = article.title;
+
+          li.appendChild(link);
+          // insert the new list entry into the page
+          parentElement.appendChild(li);
+        }
+
+        function createSectionHeaderElement(id, title, parentElement){
+          // setup a new element list entry
+          li = document.createElement('li');
+          span = document.createElement('span');
+          span.innerText = id;
+          li.appendChild(span);
+
+          // build a hyperlink element
+          link = document.createElement('a');
+          link.text = capitalize(title);
+
+          li.appendChild(link);
+          ul = parentElement.appendChild(document.createElement('ul'));
+          li.appendChild(ul);
+          // insert the new section header into the page
+          parentElement.appendChild(li);
+          // return the newly created list for subsequent entries.
+          return ul;
+        }
+
+      </script>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Survival Mechanics - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Survival Mechanics</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+
+          <p>
+            Scraps introduces several new mechanics to make survival more challenging, to bring purpose to unappreciated items, and to help level the playing field between new and OP players.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+    							<li>
+    								<span>1</span><a href="#temperature">Temperature</a>
+    								<ul>
+                      <li><span>1.1</span><a href="#temperature-overview">Overview</a> </li>
+    									<li><span>1.2</span><a href="#temperature-damage">Damage Calculation</a> </li>
+                      <li><span>1.3</span><a href="#cold-resist">Cold Resistance</a> </li>
+    								</ul>
+    							</li>
+                  <li>
+    								<span>2</span><a href="#hunger">Hunger</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="temperature">
+            Temperature
+          </h2>
+          <h3 id="temperature-overview">Overview</h3>
+          <p>
+            Scraps introduces a new mechanic called 'Temperature', which currently only occurs in the <a href="/scraps/guide/map/world#snowy-taiga">Snowy Taiga</a> biome.
+            Players and <b>hostile mobs</b> can both take cold damage.
+            When the player suffers from coldness, it becomes more difficult to move. If the coldness is severe enough, the player will slowly begin to take damage, in a fashion similar
+            to the vanilla poison effect. Like the vanilla poison effect, coldness will not kill the player, but will keep inflicting damage until they have only half a heart remaining.
+          </p>
+          <h3 id="temperature-damage">Damage Calculation</h3>
+          <p>
+            Coldness occurs when the player is exposed to a sky-light value greater than 10 while in a cold biome. Cold will only inflict damage on the player when they are
+            outside during the nighttime, or are in a snowstorm (or both). These conditions will also increase the severity value of the coldness the player experiences.
+            The damage inflicted by cold can be determined with the following simplified code excerpt (Java):
+          </p>
+
+          <pre>
+              int minimumFreezeTicks = 220;
+
+              // If close enough to a block light source, skip
+              if(block.getLightFromBlocks() >= 13){
+                  return;
+              }
+              // Summate cold resist values of all player's armor.
+              double coldProtection = getArmorFrostResistanceFactor(player.getInventory().getArmorContents());
+              // Default freeze ticks in snowy biome.
+              int freezeTicks = minimumFreezeTicks;
+              boolean allowColdDamage = false;
+
+              // Apply extra freeze ticks during storm.
+              if(world.hasStorm()){
+                  freezeTicks += minimumFreezeTicks;
+                  allowColdDamage = true;
+              }
+              // Apply extra freeze ticks during nighttime.
+              if(world.getTime() > 13000 && world.getTime() < 23500){
+                  freezeTicks += minimumFreezeTicks;
+                  allowColdDamage = true;
+              }
+              // Reduce freeze ticks based on cold protection value.
+              freezeTicks = Math.max((int)Math.round(freezeTicks + (coldProtection * -minimumFreezeTicks)), 0);
+
+              // The cold damage to apply to the player.
+              double damageToApply = freezeTicks / (minimumFreezeTicks*4.0);
+
+              if(freezeTicks > 0){
+                  // Apply the freeze ticks to the player. (Minimum of the delay period)
+                  setFreezeTicks(player, freezeTicks);
+              }
+              if(damageToApply > 0){
+                  // If cold damage is allowed, or if cold protection is negative, inflict damage.
+                  if(allowColdDamage || coldProtection < 0){
+                      // Don't apply lethal damage to players.
+                      if(player.getHealth() > Math.max(0.5, damageToApply)){
+                          // Apply the damage to the player, with the Freeze damage source.
+                          player.damage(damageToApply, getFreezeDamageSource());
+                      }
+                  }
+              }
+          </pre>
+
+          <h3 id="cold-resist">Cold Resistance</h3>
+          <p>
+            Cold-resistance is a hidden metric based on the kind and amount of armor a player is wearing. Some equippable items, like player/mob heads and pumpkins will have no effect on cold resistance.
+            However, regular armor items will have an effect on the player's cold-resistance. A positive value means the overall cold-resistance is increased, whereas a negative value means the overall
+            cold-resistance is reduced. If a player's overall cold-resistance falls negative, they may take frost damage even during the daytime.
+          </p>
+          <table>
+            <thead><tr><td>Armor Type</td><td>Cold Resistance</td></tr></thead>
+            <tr><td>Leather</td><td>1.0</td></tr>
+            <tr><td>Golden</td><td>0.75</td></tr>
+            <tr><td>Chainmail</td><td>-0.25</td></tr>
+            <tr><td>Iron</td><td>0.5</td></tr>
+            <tr><td>Diamond</td><td>0.25</td></tr>
+            <tr><td>Netherite</td><td>-0.25</td></tr>
+          </table>
+
+          <!-- Major Title -->
+          <h2 id="hunger">
+            Hunger
+          </h2>
+
+          <h3>Overview</h3>
+          <p>
+            Players will get hungry in Scraps about twice as fast as in Vanilla hard mode. Finding enough food to stay alive is a significant challenge of the early-game in Scraps. However, to mitigate
+            the severe hunger, players can craft certain more advanced food with much higher saturation values than vanilla food.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

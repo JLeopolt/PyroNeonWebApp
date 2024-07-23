@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Lockbox - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Lockbox</h1>
+          <!-- Shows a stack of enveloping articles this article 'belongs' to -->
+          <div class="categories">
+						<a href="/scraps/guide/stations/custom-blocks">Custom Blocks</a>
+					</div>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article is encompasses both the Lockbox itself and Lockbox regions.</p>
+
+          <p>
+            The Lockbox is a custom block that can be crafted with a vanilla crafting table.
+            It defines a region where only authorized players are able to build, and interact with certain blocks like containers and doors.
+            Additionally, some redstone items like levers, buttons, trapdoors, dispensers, etc. are also interaction-protected. However, pressure plates are not.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#usage">Usage</a>
+                    <ul>
+                      <li><span>1.1</span><a href="#region">Region</a> </li>
+                      <li><span>1.2</span><a href="#controls">Controls</a> </li>
+    								</ul>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <h2 id="usage">Usage</h2>
+          <p>
+            When you decide on a location for your base, place the lockbox first to ensure you are allowed to secure that region.
+            Lockbox regions are not allowed to overlap other lockbox regions, or <a href="./monument">Monument Regions</a>, and must be built far
+            away from any other claimed regions. Upon placing the lockbox, you will automatically have privilege over the region. However, if you want
+            to give privileges to a friend as well, they must right click on the lockbox themselves to gain privileges.
+            Lockboxes have no restriction on the maximum number of admins.
+          </p>
+
+          <h3 id="region">Region</h3>
+          <p>
+            Lockboxes will secure a 40x40 square region, extending all y-levels. The radius of a lockbox is 20 blocks in either direction.
+            Other players will not be able to build/place blocks in your region, or interact with doors/containers.
+            Players with lockbox privileges will be able to 'fast-mine' durability blocks within the region.
+          </p>
+
+          <h3 id="controls">Controls</h3>
+          <p>
+            <li>R+Click - Authorize yourself.</li>
+            <li>Shift+R+Click - Deauthorize only yourself.</li>
+            <li>L+Click - List admins.</li>
+            <li>Shift+L+Click - Deauthorize all admins.</li>
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

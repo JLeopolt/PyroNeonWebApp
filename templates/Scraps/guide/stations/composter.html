@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Composter - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Composter</h1>
+          <!-- Shows a stack of enveloping articles this article 'belongs' to -->
+          <div class="categories">
+						<a href="./custom-blocks">Composter</a>
+					</div>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">Note, this article is about the Composter. <a href="./crafting">Crafting Stations</a> have a separate article.</p>
+
+          <p>
+            The Composter is a vanilla block, but in Scraps it has been given more functionality. The composter appears to behave in the same manner as the vanilla composter, but
+            once it is fully filled, it will drop a random item instead of bonemeal. The possible items it can drop include: Mycelium, Kelp, Sugar Cane, Bamboo, Red Mushroom, Brown Mushroom.
+            Additionally, the composter has a 10% chance to drop Gunpowder. Note, the composter will never drop bonemeal.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

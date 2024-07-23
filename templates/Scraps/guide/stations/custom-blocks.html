@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Custom Blocks - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Custom Blocks</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+
+          <p>
+            Scraps introduces new 'Custom Blocks' into the game, which have custom models and custom functionality. All custom blocks have a durability value, and can be repaired.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#technology">Technology</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="technology">
+            Technology
+          </h2>
+          <p>
+            Custom blocks were only possible through a creative workaround of Minecraft resource pack limitations. If Scraps was a Minecraft mod, it would be extremely simple to add new blocks, entities, armor,
+            weapons, items, etc. However, since the game is plugin-based, we can only do as much as can be handled by the vanilla Minecraft client. Thankfully, Minecraft has support for resource packs. Resource packs
+            allow developers to create their own textures, sounds, and 3D models to replace vanilla resources with. It is relatively simple to replace vanilla item textures with new textures; however blocks work differently.
+          </p>
+          <p>
+            Blocks can't persist model data like items can. This means that if we were to add a new texture for a block, <b>every</b> block of that type would use the same texture. Yet, Scraps v2.0.0-beta released with custom blocks
+            implemented - as a plugin-based game? The solution was to use regular barrier blocks as a 'foundation', since they can be walked on and behave like a solid hitbox, while being completely invisible (which cannot be
+            achieved in vanilla with resource packs, as Minecraft will render transparent block textures as pitch-black). Then, with this invisible hitbox, an invisible armor stand wearing a custom modeled item on it's head
+            can be summoned inside of the block, creating the illusion of a custom model on a solid block. A custom event listener will simulate the block being mined over time, with particles and sound effects when its punched
+            by a player. The invulnerable, invisible armor stand is associated with the block, and is always spawned when the block is placed. When the block is destroyed, the armor stand is also destroyed.
+          </p>
+          <p>
+            This solution has its problems, but it works more than well enough for our purposes.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

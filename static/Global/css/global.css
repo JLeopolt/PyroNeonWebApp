@@ -1,5 +1,10 @@
 /* Globally applicable style data which can be used throughout the website. */
 
+/* Import global assets, quicker than waiting for them to be imported. */
+@import "/static/Global/css/elements/account-header.css";
+@import "/static/Global/css/elements/header.css";
+@import "/static/Global/css/elements/footer.css";
+
 /* Define custom fonts */
 @font-face {
    font-family: HighwayGothic;

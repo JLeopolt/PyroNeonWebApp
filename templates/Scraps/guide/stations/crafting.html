@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Crafting Stations - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Crafting Stations</h1>
+          <!-- Shows a stack of enveloping articles this article 'belongs' to -->
+          <div class="categories">
+						<a href="./custom-blocks">Custom Blocks</a>
+					</div>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">Note, the <a href="./repair-station">Repair Station</a> is not considered a 'Crafting Station', hence it has a separate article.</p>
+
+          <p>
+            Scraps introduces several new Crafting Stations to the game, which allow the player to create new custom items like weapons, traps, explosives, foods, etc.
+            When the player opens the custom GUI with the specified keybind, the crafting station will offer several different recipes for custom items to craft.
+            Simply select the item you wish to craft, and if you have the prerequisite resources they will automatically be withdrawn from your inventory. Some items
+            like milk buckets and water bottles will return the empty bucket/bottle after crafting along with the product.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#overview">Overview</a>
+    							</li>
+                  <li>
+                    <span>2</span><a href="#variants">Variants</a>
+    								<ul>
+                      <li><span>2.1</span><a href="#workbench">Workbench</a> </li>
+                      <li><span>2.2</span><a href="#workstation">Workstation</a> </li>
+                      <li><span>2.3</span><a href="#cauldron">Cooking Cauldron</a> </li>
+                      <li><span>2.4</span><a href="#oven">Salvaged Oven</a> </li>
+                      <li><span>2.5</span><a href="#chemistry">Chemistry Station</a> </li>
+    								</ul>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="overview">
+            Overview
+          </h2>
+          <p>
+            Crafting Stations are a subset of <a href="./custom-blocks">Custom Blocks</a>, which can all be crafted in a vanilla crafting table.
+            Some crafting stations have different 'Tiers', meaning there is another crafting station which has a similar purpose, but offers more advanced crafting recipes.
+            However, a higher tier crafting station will NOT provide recipes from lower tier crafting stations. You must have both stations available to be able to craft all
+            recipes.
+          </p>
+
+          <!-- Major Title -->
+          <h2 id="variants">
+            Variants
+          </h2>
+          <h3 id="workbench">Workbench</h3>
+          <p>
+            The workbench is a tier 1 crafting station. Its successor is the <a href="#workstation">Workstation</a>.
+            The workbench is used to create weapons, ammunition, traps, weapon attachments, small explosives, and more.
+            It can never occur naturally in loot and must be crafted or taken from another player.
+          </p>
+          <h3 id="workstation">Workstation</h3>
+          <p>
+            The workstation is a tier 2 crafting station. Its predecessor is the <a href="#workbench">Workbench</a>.
+            The workstation can also create weapons, ammunition, and weapons attachments. However, it can also be used to create advanced explosives, like C-4.
+            It can never occur naturally in loot and must be crafted or taken from another player.
+          </p>
+          <h3 id="cauldron">Cooking Cauldron</h3>
+          <p>
+            The cooking cauldron is a tier 1 crafting station. Its successor is the <a href="#oven">Salvaged Oven</a>.
+            The cooking cauldron is exclusively used to create soups and stews (Soups are plant-based, Stews are meat-based).
+            In Scraps, all vanilla stews/soups are uncraftable and must be created in a cooking cauldron.
+            The cooking cauldron also introduces many new soups/stews, like Borscht, Kelp Stew, Spider Eye Stew, etc.
+            Stews and soups can offer a high saturation and hunger value from low-tier food items.
+          </p>
+          <h3 id="oven">Salvaged Oven</h3>
+          <p>
+            The salvaged oven is a tier 2 crafting station. Its predecessor is the <a href="#cauldron">Cooking Cauldron</a>.
+            The salvaged oven is used to create valuable food items, like cakes, cookies, bread, etc. These high tier foods
+            offer a huge amount of saturation and hunger value compared to vanilla food items.
+          </p>
+          <h3 id="chemistry">Chemistry Station</h3>
+          <p>
+            The chemistry station does not have a tier, it is a unique crafting station. It can be used to craft more advanced
+            potions, such as potions with an infinite duration, non-vanilla potions, and precursors to other items, like plastic
+            explosives - which are used to craft advanced explosives like C-4 and HEAT rockets.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

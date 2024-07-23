@@ -7,11 +7,12 @@
   color: white;
   position: relative;
   top: 0;
+  text-align: center;
 }
 .account-navbar button {
   padding: 0 0.5vh;
   font-size: 1.5vh;
-  display:table-cell;
+  display:inline-block;
   vertical-align:middle;
 }
 

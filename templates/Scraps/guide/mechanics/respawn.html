@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Respawn Mechanics - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Respawn Mechanics</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article also encompasses beds, and bed management.</p>
+
+          <p>
+            Due to the nature of Scraps, the vanilla respawn mechanic had to be replaced with a new custom system, to replace the default 'server spawn' location; and to add a cooldown
+            to respawning at beds, in order to nerf players from being able to respawn as frequently as they want.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#beds">Beds</a>
+    								<ul>
+                      <li><span>1.1</span><a href="#respawn-menu">Respawn Menu</a> </li>
+    									<li><span>1.2</span><a href="#claim-beds">Bed Management</a> </li>
+    								</ul>
+    							</li>
+                  <li>
+    								<span>2</span><a href="#random-spawn">Random Spawning</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="beds">
+            Beds
+          </h2>
+          <h3 id="respawn-menu">Respawn Menu</h3>
+          <p>
+            Upon dying, you will be put into a state of limbo, and prompted to select a bed to respawn at. If you hadn't claimed any beds, or if your beds were destroyed, you will have no choice
+            but to respawn <a href="#random-spawn">randomly</a>. You can always choose to respawn randomly if you want to. You can also select any claimed bed (provided it isn't on cooldown) to
+            respawn at instead. The respawn menu will also give you insight as to how far away each claimed bed is from your most recent death location. There is no time limit to respawn, so
+            you could remain in the respawn menu until your favorite bed fully cools down to select it. If you are disconnected while in the respawn menu, you will automatically be respawned randomly.
+          </p>
+          <h3 id="claim-beds">Bed Management</h3>
+          <p>
+            Any player can claim a bed, regardless whether or not they have building privilege over it. Beds can also be managed through the '/beds' command. The '/beds' command allows the player
+            to manage their owned beds in several ways, such as renaming an existing bed, abandoning the bed (unclaiming it without breaking the bed), and gifting the bed to another player on the server.
+            Only one player can own a bed at a time, and the original owner will be notified when their bed is claimed by another player.
+          </p>
+
+          <!-- Major Title -->
+          <h2 id="random-spawn">
+            Random Spawning
+          </h2>
+          <p>
+            Whenever you die without a bed, or join for the first time, you will be spawned on a random position along the shoreline or along a river, in any biome.
+            If you build too close to these rivers, you may find players spawning inside of your base. If you sleep in a bed, you can choose to respawn at your bed instead
+            (See <a href="#beds">Beds</a>).
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

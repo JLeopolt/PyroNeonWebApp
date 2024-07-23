@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Repair Station - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Repair Station</h1>
+          <!-- Shows a stack of enveloping articles this article 'belongs' to -->
+          <div class="categories">
+						<a href="./custom-blocks">Custom Blocks</a>
+					</div>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">Note, this article is about the Repair Station. <a href="./crafting">Crafting Stations</a> have a separate article.</p>
+
+          <p>
+            The Repair Station allows players to repair their weapons. In Scraps, weapons are given an intrinsic custom durability, which is stored in PersistentDataContainers.
+            This custom durability can be more finely adjusted than the vanilla item durability. Since weapons can't be repaired in an anvil like normal, the Repair Station was created
+            as a way to allow players to restore durability for their weapons.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#usage">Usage</a>
+    							</li>
+                  <li>
+    								<span>1</span><a href="#strategy">Strategy</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="usage">Usage</h2>
+          <p>
+            To use the repair station, simply open the GUI and left click on a gun in your inventory. The repair station will display the prerequisite resources required to repair the item, to full
+            durability. If you are missing at least ONE of the items in the list, you will not be able to repair the gun at all.
+          </p>
+
+          <!-- Major Title -->
+          <h2 id="strategy">Strategy</h2>
+          <p>
+            The items required to repair a weapon are based on the crafting recipe of the weapon. All items in the crafting recipe must be used in each repair, with at least 1 of each item being used always. However, you
+            will never have to use the maximum amount of items to repair a weapon, so it is almost always more efficient to repair a damaged weapon than to craft a new one.
+          </p>
+          <p>
+            If you have all the items required, but you don't have enough of one or more items, you will still be able to repair the weapon, but not to full durability.
+            Repairs are calculated proportionally, where the LOWEST amount provided / amount required (for each different item) will set a cap as to how much the weapon can be repaired.
+            To get the most bang for your buck, you should only repair a gun when it has a low or very low durability, since you will be able to get much more durability restored for less high value materials
+            like netherite ingots.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

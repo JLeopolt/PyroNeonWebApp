@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Explosives - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Explosives</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article is about raid explosives, not PvP-Explosives or Grenades.</p>
+
+          <p>
+            Explosives are special items that can be used to blow up other players' structures. Most explosives require gunpowder to craft. Some advanced explosives require plastic explosives to craft.
+            Some explosives are 'standalone', or plantable. These must be placed against the target block, which activates them. However, other explosives are projectiles, like bullets, grenade rounds,
+            or rockets. Projectile explosives must be fired at the target block. Each explosive item has a 'yield' property which can be viewed in the item lore, describing the strength and radius
+            of the explosion it creates. See <a href="#algorithm">Algorithm</a> for more details about explosive yield.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#algorithm">Algorithm</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="algorithm">Algorithm</h2>
+          <p>
+            Explosives use a ray-tracing algorithm to inflict damage in a spherical radius, based on their 'yield' value. The yield value, a float, determines the damage dealt by the explosive and its radius.
+            However, the radius of the explosive is limited to a maximum radius of 4 (spherical). The damage dealt by the explosive is uncapped, and is directly proportional to the yield.
+            The durability damage dealt by the explosive is approximately equal to <strong>10 * yield</strong>.
+          </p>
+          <p>
+            Most explosives have a fuse period of a few seconds, which is listed in the item lore, and indicator sounds when planted. Upon detonating, the explosive will calculate how much damage each block in
+            its vicinity will take. Rays will instantly destroy non-indestructible blocks in their range, but will be blocked by durability blocks. Each ray is given a damage value, and once a durability block
+            takes enough damage, it may be destroyed. If there are more rays remaining, they may continue onwards and pass through the new hole. However, if a durability block survives the explosion, all
+            blocks behind it (with respect to the explosive) will be spared and take 0 damage. This is internally described as 'sponge absorption'.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

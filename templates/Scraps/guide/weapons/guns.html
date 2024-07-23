@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Guns - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Guns</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article encompasses guns, ammo, attachments, and armor.</p>
+
+          <p>
+            Scraps introduces a variety of new guns to the game. Some guns, like the Homemade Gun, can be crafted in a vanilla crafting table.
+            However, most guns require a <a href="/scraps/guide/stations/crafting#workbench">Workbench</a> or <a href="/scraps/guide/stations/crafting#workstation">Workstation</a>
+            to craft. All guns require Netherite to craft. Guns can be repaired in a <a href="/scraps/guide/stations/repair-station">Repair Station</a>.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li><span>1</span><a href="#controls">Controls</a></li>
+                  <li><span>2</span><a href="#types">Types</a></li>
+                  <li><span>3</span><a href="#ammo">Ammo</a></li>
+                  <ul>
+                    <li><span>3.1</span><a href="#ammo-attributes">Attributes</a> </li>
+                    <li><span>3.2</span><a href="#heavy">Heavy Ammo</a> </li>
+                    <li><span>3.3</span><a href="#ammo-effects">Effects</a> </li>
+                  </ul>
+                  <li><span>4</span><a href="#attachments">Attachments</a></li>
+                  <li><span>5</span><a href="#armor">Armor</a></li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <h2 id="controls">Controls</h2>
+          <p>
+            With the gun in your main hand, R+Click to fire, and L+Click to reload. Additionally, if your gun is a Sniper, SHIFT to toggle between Zoom modes.
+            When reloading your gun, ensure that you have enough suitable ammunition in your inventory to reload with. By hovering over your gun in the inventory, you can
+            view the currently loaded ammunition (if any). Your gun will automatically try to reload the same type of ammo when you reload. To unload a gun, hover over it
+            in the inventory and press CTRL+Q. Otherwise, use the command '/unload' while holding the gun in your main hand. Unloading a gun while it is empty will remove
+            any equipped attachments from it. To equip an attachment, simply open your inventory and click the attachment onto the gun you want to equip it to.
+          </p>
+
+          <h2 id="types">Types</h2>
+          <p>
+            The main types of guns in Scraps are: pistols, shotguns, SMGs, rifles, sniper rifles, the rocket launcher, and the grenade launcher.
+            Each type is associated with an ammo category. For example, Pistols only accept pistol ammo, Rifles only accept rifle ammo, etc.
+            Most gun types (groups) have low-tier members, intermediate members, and high-tier members. For example, SMGs have a low-tier member, the
+            Thompson, an intermediate member, the MPX, and finally a high-tier member, the P90. Lower-tier guns are usually cheaper or can be made
+            in a workbench rather than a workstation, and higher-tier guns are usually more expensive and require a workstation. Higher-tier guns usually
+            deal more damage, have a better fire-rate, and have higher durability.
+          </p>
+
+          <h2 id="ammo">Ammo</h2>
+          <h3 id="ammo-attributes">Attributes</h3>
+          <p>
+            Weapon ammunition in Scraps can take multiple forms. Ammo is considered any item that can be loaded into a weapon and used as a projectile.
+            Ammo types will display all information about them in their item lore. For example, some ammo types deal extra damage. To calculate how much damage
+            an ammo will do when fired, simply multiply the base damage value of the gun (Which can be viewed in the gun lore) by any damage modifiers
+            the ammo have. Some ammo types will shoot multiple projectiles, in which case the damage value shown in the lore will apply to each individual pellet.
+            (This is why shotgun shells show a '90%' decrease in damage; the damage is per-pellet).
+          </p>
+          <h3 id="ammo-effects">Effects</h3>
+          <p>
+            Certain ammo types have special attributes, called 'Projectile Effects' associated with them, which describe what happens when the projectile hits.
+            Additionally, some ammo types have 'Transient Effects' which describe how the projectile ricochets or penetrates a target.
+            Finally, some ammo types are 'armor-piercing'. This means that the projectile will mostly ignore armor points when inflicting damage on a target.
+            This can be highly useful in the later stages of the game, as high-tier enchanted armor can greatly reduce incoming damage from non armor-piercing
+            bullets.
+          </p>
+          <h3 id="heavy">Heavy Ammo</h3>
+          <p>
+            Rockets and Grenade Rounds (Not to be confused with <a href="./grenades">Grenades</a>) are ammunition types in Scraps.
+            Rockets can only be fired when loaded into a Rocket Launcher; likewise Grenade Rounds can only be fired when loaded into a Grenade Launcher.
+            Rockets and Grenade Rounds also have explosive variants which can be used to raid, in a similar fashion to explosive rifle rounds.
+          </p>
+          <p>
+            It should be noted that rockets are 'self-propelled', meaning that unlike regular guns, they will continue to accelerate when fired.
+          </p>
+
+          <h2 id="attachments">Attachments</h2>
+          <p>
+            Attachments are items that can be equipped to a gun to modify it. Attachments will describe their function, and what guns they can be attached to in
+            their item lore. See <a href="#controls">Controls</a> to learn how to equip and remove attachments to/from your gun.
+          </p>
+
+          <h2 id="armor">Armor</h2>
+          <p>
+            In order to protect yourself against gunfire, you must wear armor. Armor points will reduce the amount of incoming damage from most bullets, except for
+            Armor Piercing rounds, like rifle bullets and shotgun slugs. Enchanting your armor, especially with Projectile Protection, will improve its effectiveness
+            significantly. The damage you deal to other players and entities with guns/projectiles can be measured by using the '/combatlog' command.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

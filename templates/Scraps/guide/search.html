@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Search - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/index.css">
+      <link rel="stylesheet" href="/static/Scraps/css/guide/search.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+    </head>
+
+    <body>
+      <!-- Account Header above the navbar -->
+      <div data-include="account-header"></div>
+      <!-- Include global navbar -->
+      <div data-include="scraps-navbar"></div>
+
+      <div class="paragraph">
+        <small>New? Get started <a href="/scraps/guide/abstract">here</a>.</small>
+      </div>
+      <!-- style="padding-top: 6%;" -->
+      <div class="paragraph">
+        <!-- Titlecard for the page -->
+        <img src="/static/Scraps/img/guide/scraps-guide-titlecard-logo.png" alt="Scraps Official Guide" style="max-width: 40%; user-select: none;">
+
+        <div class="searchSection">
+          <div class="searchWrapper">
+            <input type="text" id="searchfield" placeholder="Search by keyword.." size="24"/>
+            <div class="searchButton" id="searchButton">🔎︎</div>
+          </div>
+          <!-- Contains search results -->
+          <div id="resultsContainer"></div>
+        </div>
+
+        <!-- Script to handle search functionality, including checking for URL params to search for automatically. -->
+        <script type="module" src="/static/Scraps/js/guide/search.js"></script>
+
+      </div>
+
+      <!-- Include global footer -->
+      <div data-include="footer"></div>
+    </body>
+</html>

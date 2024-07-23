@@ -1,0 +1,233 @@
+<!--
+  Describes monuments in Scraps.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Monuments - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Monuments</h1>
+          <!-- Shows a stack of enveloping articles this article 'belongs' to -->
+          <div class="categories">
+						<a href="./world">World </a>
+					</div>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+					<p class="roleNote">See <a href="/scraps/guide/regions/monument">Monument Regions</a> and 'loot chests' for further context.</p>
+
+          <p>
+            Monuments are permanent, region-protected structures which can be found throughout the world. All monuments contain loot of some kind, and many monuments also include utilities like furnaces, campfires, etc.
+            Players are permitted to use doors, chests, and other interact-protected blocks as if they have privileges over the region. However, build-protection still applies. In addition, destroy-protection also applies.
+            Explosives will not be able to destroy blocks of any kind within a monument region. Monument region protection extends in a spherical radius around the center of the structure, meaning that players can continue
+            to mine underneath the region and build/destory blocks above the region, but will be unable to claim the region with a Lockbox.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+    							<li>
+    								<span>1</span><a href="#monuments">Monuments</a>
+    								<ul>
+    									<li><span>1.1</span><a href="#road-junk">Road Junk Piles</a> </li>
+                      <li><span>1.2</span><a href="#substations">Substations</a> </li>
+                      <li><span>1.3</span><a href="#fishing-cabins">Fishing Cabins</a> </li>
+                      <li><span>1.4</span><a href="#picnics">Picnic Tents</a> </li>
+                      <li><span>1.5</span><a href="#igloos">Igloos</a> </li>
+                      <li><span>1.6</span><a href="#moonshine-cabins">Moonshine Cabins</a> </li>
+                      <li><span>1.7</span><a href="#factory">Factory</a> </li>
+    								</ul>
+    							</li>
+                  <li>
+    								<span>2</span><a href="#puzzles">Puzzles</a>
+    								<ul>
+                      <li><span>2.1</span><a href="#factory-puzzle-1">Factory Puzzle #1</a> </li>
+    									<li><span>2.2</span><a href="#factory-puzzle-2">Factory Puzzle #2</a> </li>
+    								</ul>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="monuments">
+            Monuments
+          </h2>
+            <!-- Sections -->
+            <section id="road-junk">
+              <h3>
+                Road Junk Piles
+              </h3>
+              <p>
+                Road junk piles occur aside the roads throughout the world. There is one major black asphalt ring road connecting the interior of the map. Junk piles
+                typically have a road barrel and a crate as loot. Some junk piles only have a single road barrel. Junk piles are relatively common, and can be found
+                strewn about the map, usually leading up to a <a href="#substations">Substation</a> monument. They are generally useful to get early-game loot like
+                wool for a bed, iron, coal, etc. Additionally, junk piles often have a campfire or other light-source, which can be useful to keep warm when the player is caught
+                out in the open overnight.
+              </p>
+            </section>
+
+            <section id="substations">
+              <h3>
+                Substations
+              </h3>
+              <p>
+                Substations are medium-sized monuments, consisting of tall copper structures surrounded by an iron fence. The black asphalt ring road leads
+                to all of the Substations, which exist only in the Forest, Taiga, and Desert biomes. Substations contain medium-tier loot which can include:
+                provisions, weapons, tools, electrical junk, building materials, etc. Substations also contain a single <a href="/scraps/guide/stations/grinder">Item Grinder</a>.
+                A substation is a great place to loot and hide from mobs, but their large footprint and high value makes them a target for other players.
+              </p>
+            </section>
+
+            <section id="fishing-cabins">
+              <h3>
+                Fishing Cabins
+              </h3>
+              <p>
+                Fishing Cabins can be found near the sea, mushroom forest, and lake. They contain medium-tier loot like provisions, weapons, tools, and medicine.
+                These cabins can be a safe place to hide from mobs, and also contain a furnace, which can be useful to cook food or smelt ores in the early game.
+              </p>
+            </section>
+
+            <section id="picnics">
+              <h3>
+                Picnic Tents
+              </h3>
+              <p>
+                Picnic Tents can only be found in the forest mountain biome. They are spread far apart, and navigating the rough terrain can be difficult and time-consuming in the early-game.
+                Picnic Tents are great places to get food in the early-game, sometimes contain medium-tier loot, and have a campfire where players can cook their raw meat and stay warm during the night.
+                However, these tents do not provide much protection from mobs.
+              </p>
+            </section>
+
+            <section id="igloos">
+              <h3>
+                Igloos
+              </h3>
+              <p>
+                Igloos are found exclusively in the tundra and snowy mountain biomes. They contain medium-tier loot like provisions, weapons, tools, and medicine. They are the only
+                source of loot in the tundra and snowy mountain biomes. Igloos can be a good place to take shelter from mobs and weather at night. They contain furnaces, composters,
+                and empty barrels. Igloos also provide a light source inside.
+              </p>
+            </section>
+
+            <section id="moonshine-cabins">
+              <h3>
+                Moonshine Cabins
+              </h3>
+              <p>
+                Moonshine Cabins can be found exclusively in the swamp biome. They contain medium-tier loot like provisions, weapons, tools, and medicine. Each moonshine cabin
+                also includes a moonshine barrel, which can drop rare potion loot, which is necessary to craft the <a href="#crafting-stations">Chemistry Station</a>. Their
+                appearance is very similar to the <a href="#fishing-cabins">Fishing Cabins</a>, but on land. They are a safe place to hide from mobs and weather.
+              </p>
+            </section>
+
+            <section id="factory">
+              <h3>
+                Factory
+              </h3>
+              <p>
+                The factory is the largest monument in the world. It is located towards the center of the map, within the Forest biome. It is a giant facility surrounded by an iron bar fence
+                and can be identified by its four giant external copper tanks. Three of these tanks are accessible to players. One tank is extremely overgrown and covered in plant life, and
+                can easily be accessed from the ground by walking through a gaping hole in the side of it. A hidden chest can be found by following the water trail into a crevice at the back
+                of the tank. The second tank can be accessed by solving the <a href="#factory-puzzle-1">first Factory Puzzle</a>. The third tank can be accessed by solving the <a href="#factory-puzzle-2">second Factory Puzzle</a>.
+              </p>
+              <p>
+                There are three large semi-trucks next to the factory building, which are each full of cobwebs. If the player walks all the way through the cobwebs to the end of any truck container,
+                they can find a secret chest hidden behind a barrel. The factory building is the largest section of the monument, and is fully sealed from the outside, except for the front door entrance,
+                and through holes in the roof. The building contains an <a href="/scraps/guide/stations/grinder">Item Grinder</a> on the main floor. Several chests can be found in the piles of junk on the large shelves
+                in the middle of the building. Several loot barrels are hidden amongst a pile of barrels on the shelves as well. Utilities like a furnace and <a href="#crafting-stations">Improvised Kitchen</a>
+                can be found in the building.
+              </p>
+              <p>
+                If the player climbs through a hole in the glass of the second floor overhang, they can jump onto the second floor of the shelves and parkour around the junk piles to access even more loot.
+                The player can also access the roof without going outside by climbing up a junk pile on the second floor of the shelves. Otherwise, the player can access the roof by climbing a ladder
+                on the side of the building next to the semi-trucks. The parkour can also be bypassed by simply climbing onto the roof and dropping down. The roof has a few <a href="#road-junk">Road Junk Piles</a>.
+                <a href="#road-junk">Road Junk Piles</a> can also be found throughout the facility, and road junk barrels can even be found outside of the fence.
+              </p>
+            </section>
+
+
+            <!-- Major Title -->
+            <h2 id="puzzles">
+              Puzzles
+            </h2>
+
+            <p>
+              Some monuments, namely the <a href="#factory">Factory</a> monument, can contain 'puzzles' which yield highly valuable loot, but require skill and equipment to complete.
+            </p>
+
+            <section id="factory-puzzle-1">
+              <h3>
+                Factory Puzzle #1
+              </h3>
+                <p>
+                  The first factory puzzle can be completed relatively easily. A player is recommended to bring armor, a decent weapon, a shield, and plenty of food to complete this puzzle safely.
+                </p>
+                <p>
+                  Begin by climbing the half-destroyed ladder on the side of the second tank. Step onto the iron bar railing and from there, jump onto the decaying side of the overgrown tank.
+                  Proceed to carefully wind around the side of the tank and climb to the top of it. From there, climb onto the top of the connecting pipe and walk over to the second tank.
+                  Climb down from the pipe and find the balcony on the back-side of the second tank. Open the door and defeat the mobs to safely loot the chests. The strength and number of
+                  the mobs will increase as the server difficulty increases, so if you start later in the wipe, the mobs you encounter may be very strong.
+                </p>
+                <p>
+                  The tank contains several barrels, medium-tier loot crates, and a single tier-2 loot crate. This crate could contain valuable explosives, weapons, tools, etc. Once you
+                  are finished looting, climb back out of the tank onto the balcony, then walk along the pipe back to the first tank and either jump onto a tree or descend the same way you
+                  climbed onto it in the first place.
+                </p>
+            </section>
+
+            <section id="factory-puzzle-2">
+              <h3>
+                Factory Puzzle #2
+              </h3>
+              <p>
+                The second factory puzzle requires you to use a <b>potion of fire resistance</b>, which can be crafted with the <a href="#crafting-stations">Chemistry Station</a>.
+              </p>
+                <p>
+                  Begin by entering the overgrown tank, and climbing the water string to the top. Once you reach the top, swim into the pipe towards the second tank. Drink your potion of
+                  fire resistance at this point. Crawl through the pipe to the end, then drop into the pit of lava in the third tank. Three medium-tier chests and the tier-2 loot crate
+                  can be accessed from here. In order to access the last chest, climb the stairs at the side of the pit, then jump across the platform to reach it.
+                </p>
+                <p>
+                  Once you are finished looting, dive under the lava and head towards the back of the tank (West). From here, you can flip a trap door to being crawling, and crawl through the
+                  last trapdoor to exit the tank. This exit point could also be used to crawl into the tank, as a fast way to complete the puzzle.
+                </p>
+            </section>
+
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

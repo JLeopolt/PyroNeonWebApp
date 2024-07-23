@@ -1,0 +1,86 @@
+.searchSection{
+  margin: auto;
+  max-width: 50%;
+  margin-top: 0.25em;
+  margin-bottom: 3vh;
+}
+.searchWrapper{
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+}
+.searchWrapper input{
+  border: 0;
+  font-size:0.7em;
+  padding: 0.3em;
+  font-family: HighwayGothic;
+  width: 100%;
+}
+.searchWrapper input:focus {
+  outline: none;
+}
+.searchWrapper .searchButton {
+  text-shadow: none;
+  color: gray;
+	cursor: pointer;
+  padding-right: 0.2em;
+  margin-top: -0.1em;
+  user-select: none;
+}
+
+#resultsContainer {
+  display: none;
+  margin: auto;
+  margin-top: 0.25em;
+  width: 100%;
+  word-wrap: normal;
+  background: rgba(100,100,100,0.7);
+  /* Set a max height so the page doesn't have to scroll to accomodate results */
+  overflow: visible auto;
+  max-height: 50vh;
+  /* To fix border issues */
+  padding-right: 1px;
+  padding-bottom: 1px;
+}
+#resultsContainer i{
+  /* Don't capitalize quotes. */
+  text-transform: none;
+}
+#resultsContainer a{
+  /* Create a border without having the border collapse issue. */
+  --border-color: rgba(150,150,150,0.7);
+  box-shadow:
+    1px 0 0 0 var(--border-color),
+    0 1px 0 0 var(--border-color),
+    1px 1px 0 0 var(--border-color),
+    1px 0 0 0 var(--border-color) inset,
+    0 1px 0 0 var(--border-color) inset;
+
+  font-family: sans-serif;
+  font-size: 0.6em;
+  color: white;
+
+  display: block;
+  width: 100%;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0.3em 0;
+}
+#resultsContainer a:hover{
+  background: rgba(120,120,120,0.7);
+  text-decoration: none;
+}
+
+.searchResultTitle {
+  color: gold;
+}
+.searchResultHighlight {
+  color: orange;
+}
+/* Styles the 'No Results Found' message */
+.emptyResultNotice {
+  font-size: 1em;
+  color: rgb(220,220,220);
+  padding: 0.5em 0;
+}

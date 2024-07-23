@@ -1,0 +1,49 @@
+<!-- <div class="headerLinks">
+  <span class="user">Not logged in</span> <a href="#">Talk</a> <a href="#">Contributions</a> <a href="#">Create account</a> <a href="#">Log in</a>
+</div> -->
+<div class="tabs clearfix">
+  <div class="tabsLeft">
+    <ul>
+      <li><a href="/scraps/guide/search">Search</a></li>
+      <li><a href="/scraps/guide/index">Index</a></li>
+    </ul>
+  </div>
+
+  <!-- Style the search bar and results container. -->
+  <link rel="stylesheet" href="/static/Scraps/css/guide/search-integrated.css">
+  <div class="searchSection">
+    <!-- Search bar -->
+    <div class="searchWrapper">
+      <input type="text" id="searchfield" placeholder="Search by keyword.." size="12"/>
+      <div id="searchButton"></div>
+    </div>
+    <!-- Contains search results -->
+    <div id="resultsContainer"></div>
+  </div>
+
+  <div class="tabsRight">
+    <ul>
+      <!-- Switches between light and dark mode -->
+      <li><a onclick="toggleLightDarkMode();" style="cursor:pointer;">Light/Dark Mode</a></li>
+      <li><a href="/scraps">Main Site</a></li>
+      <li><a href="/scraps/community">Community</a></li>
+    </ul>
+  </div>
+
+  <!-- Script to handle search functionality, including checking for URL params to search for automatically. -->
+  <script type="module" src="/static/Scraps/js/guide/search.js"></script>
+
+  <script type="text/javascript">
+      // This script is triggered by the Light/Dark mode toggle button, attempts to invert the text and background colors.
+      function toggleLightDarkMode() {
+          // Set the page to dark mode for the client
+          let element = document.body;
+          // Result is true if dark mode is enabled
+          let result = element.classList.toggle("light-mode");
+          // Set a field in localstorage to remember this setting
+          localStorage.setItem("pn-light-mode", result);
+          console.log("[page] Light mode set to: " + result);
+      }
+  </script>
+
+</div>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Grenades - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Grenades</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article is about grenades, not <a href="./explosives">Raid Explosives</a>.</p>
+
+          <p>
+            Grenades are a new type of explosive weapon in Scraps. Grenades are a type of 'PvP-Explosive', which means they don't deal damage to blocks, but
+            will deal damage to players and entities. Grenades can have projectile effects, similar to <a href="./guns">Ammunition</a>.
+            Like bullets, grenades may bounce, or ricochet, when they hit the ground.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#usage">Usage</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="usage">Usage</h2>
+          <p>
+            Like raid explosives, grenades have an explosive yield value which can be viewed in their item lore. This determines the size, and therefore damage, of the explosion.
+            While holding the grenade, use R+Click to 'toss' the grenade a short distance in front of you. Otherwise, use L+Click to 'charge throw' the grenade. When pressing L+Click,
+            a charge bar will appear above your hotbar, which will quickly fill up. Press R+Click to throw the grenade with the force shown on the charge bar. However, don't charge the
+            grenade for too long, or it will drop from your hand and activate on you.
+          </p>
+          <p>
+            Grenades like the Fragmentation Grenade and Pipe Bomb will spawn shrapnel when they detonate. Shrapnel is similar to bullets, and will deal a lot of damage if it manages
+            to hit a player or entity. Shrapnel is evenly distributed in a sphere around the grenade, and despawns almost immediately, unlike a bullet.
+          </p>
+          <p>
+            Grenades have fuses, or time delays before they detonate. Once the grenade is thrown, the fuse will begin to run down even while the grenade flies through the air. This means
+            that in some cases, a grenade can be thrown in such a way that it detonates before hitting the ground, which can be advantageous in some situations. However, certain grenades
+            detonate on impact.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>NPCs - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>NPCs</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article covers sleeping players, corpses, and loot bags.</p>
+
+          <p>
+            Scraps introduces new NPCs which resemble players in the game for certain mechanics. For example, upon logging out of the server, an NPC 'sleeper'
+            will take the player's place. This sleeper will have a health value, and have an inventory associated with the player's inventory.
+            Additionally, when a player dies, an NPC 'corpse' spawns in their place containing all the items the player died with. This corpse can be harvested for human flesh
+            and in some cases, the player's head.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#sleepers">Sleepers</a>
+    							</li>
+                  <li>
+    								<span>2</span><a href="#corpses">Corpses</a>
+    							</li>
+                  <li>
+    								<span>3</span><a href="#loot-bags">Loot Bags</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="sleepers">
+            Sleepers
+          </h2>
+          <p>
+            Sleeping NPCs have a health value, and can be killed if they aren't safe inside of a base. R+Click on a sleeping player to access their inventory, in the top
+            row of the inventory, the player's armor and offhand slot can be looted. The rest of the inventory contains the contents of their inventory. You can also place
+            items into the inventory, and equip armor to a sleeping player. When a sleeping player is killed, the chat is notified, and the player will enter the <a href="./respawn">Respawn Menu</a>
+            upon rejoining, instead of waking up where they were.
+          </p>
+
+          <h2 id="corpses">Corpses</h2>
+          <p>
+            When a player dies, a corpse will be spawned on their death location. Corpses are very similar to sleeping players, however they do not have a health value, and items cant be put back
+            into their inventories. Items can only be removed from the inventory; new items cannot be inserted into a corpse. A corpse can be harvested by punching it repeatedly. Depending on the
+            player's hunger value, the corpse may drop raw human meat, which can be eaten or cooked into long pork.
+          </p>
+
+          <h2 id="loot-bags">Loot Bags</h2>
+          <p>
+            When a corpse or sleeping player is killed/harvested while they had items in their inventory, a loot bag will spawn in their place. The loot bag is simply a container for items.
+            Like the corpse, items can only be removed from the loot bag, they cannot be readded. When a loot bag despawns, it will drop all the items it was holding.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

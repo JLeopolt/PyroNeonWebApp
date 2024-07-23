@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Durability Blocks - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Durability Blocks</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article includes the Raid Chart resource. Not to be confused with <a href="/scraps/guide/stations/custom-blocks">Custom Blocks</a>.</p>
+
+          <p>
+            Durability blocks are reserved vanilla blocks with extra functionality. As the name implies, they have a durability, or health value, associated with them.
+            Different blocks have different durability values, depending on how strong they are. Your base should be built out of durability blocks, or other players could
+            simply mine their way in.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+                    <span>1</span><a href="#overview">Overview</a>
+    							</li>
+                  <li>
+                    <span>2</span><a href="#raid-chart">Raid Charts</a>
+    								<ul>
+                      <li><span>2.1</span><a href="#builds">Building Blocks</a> </li>
+                      <li><span>2.2</span><a href="#base-features">Base Features</a> </li>
+                      <li><span>2.3</span><a href="#furniture">Furniture</a> </li>
+                      <li><span>2.4</span><a href="#misc">Miscellaneous</a> </li>
+    								</ul>
+                  </li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="overview">
+            Overview
+          </h2>
+          <p>
+            Upon being placed, a durability block will start at 0 health. Over the course of about a minute, it will steadily gain HP in a linear fashion until it reaches the max, at which point
+            it will stop gaining HP. This principle is called 'settling in'. If the block is interrupted while it is settling in, like by taking damage, it will stop settling in and will no longer continue
+            to gain durability. In this case, the player has no choice but to either destroy the block completely, or <a href="./block-repairs">Repair</a> it.
+          </p>
+          <p>
+            Durability blocks will never drop themselves when destroyed, even if being 'fast-mined' within a Lockbox region. This includes special blocks like <a href="/scraps/guide/stations/custom-blocks">Custom Blocks</a>
+            and beds. Certain durability blocks are resistant to fire damage or being mined.
+          </p>
+
+          <!-- Major Title -->
+          <h2 id="raid-chart">
+            Raid Charts
+          </h2>
+          <h3 id="builds">Building Blocks</h3>
+          <table>
+            <!-- Label Row -->
+            <thead><tr><td>Block</td><td>Durability</td><td>Repair Type</td><td>Mineable</td><td>Flammable</td></tr></thead>
+              <tr><td>Spruce Planks</td><td>20</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Spruce Other*</td><td>15</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Stone Bricks</td><td>100</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Stone Brick Other*</td><td>75</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Copper Block</td><td>200</td><td>Copper</td><td>No</td><td>No</td></tr>
+              <tr><td>Cut Copper Other*</td><td>150</td><td>Copper</td><td>No</td><td>No</td></tr>
+              <tr><td>Exposed Copper</td><td>175</td><td>Copper</td><td>No</td><td>No</td></tr>
+              <tr><td>Exposed Cut Copper Other*</td><td>131</td><td>Copper</td><td>No</td><td>No</td></tr>
+              <tr><td>Weathered Copper</td><td>150</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Weathered Cut Copper Other*</td><td>112</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Oxidized Copper</td><td>125</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Oxidized Cut Copper Other*</td><td>93</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Iron Block</td><td>400</td><td>Iron</td><td>No</td><td>No</td></tr>
+              <tr><td>Netherite Block</td><td>800</td><td>Netherite</td><td>No</td><td>No</td></tr>
+          </table>
+          <p><i>*Other: Slabs, Stairs, Fences/Walls</i></p>
+
+          <h3 id="base-features">Base Features</h3>
+          <table>
+            <thead><tr><td>Block</td><td>Durability</td><td>Repair Type</td><td>Mineable</td><td>Flammable</td></tr></thead>
+                <tr><td>Spruce Door</td><td>15</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+                <tr><td>Spruce Trapdoor</td><td>10</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+                <tr><td>Iron Door</td><td>125</td><td>Iron</td><td>No</td><td>No</td></tr>
+                <tr><td>Iron Trapdoor</td><td>75</td><td>Iron</td><td>No</td><td>No</td></tr>
+                <tr><td>Iron Bars</td><td>75</td><td>Iron</td><td>No</td><td>No</td></tr>
+                <tr><td>Glass Block*</td><td>50</td><td>Glass</td><td>No</td><td>No</td></tr>
+                <tr><td>Glass Pane*</td><td>25</td><td>Glass</td><td>Yes</td><td>No</td></tr>
+          </table>
+          <p><i>*Includes stained glass of any color.</i></p>
+
+          <h3 id="furniture">Furniture</h3>
+          <table>
+            <thead><tr><td>Block</td><td>Durability</td><td>Repair Type</td><td>Mineable</td><td>Flammable</td></tr></thead>
+              <tr><td>Lockbox</td><td>10</td><td>Wood</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Chest</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Barrel</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Bed*</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Fletching Table</td><td>10</td><td>Iron</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Smithing Table</td><td>20</td><td>Netherite</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Bell</td><td>20</td><td>Copper</td><td>Yes</td><td>No</td></tr>
+          </table>
+          <p><i>*Includes any colored bed.</i></p>
+
+          <h3 id="misc">Miscellaneous</h3>
+          <table>
+            <thead><tr><td>Block</td><td>Durability</td><td>Repair Type</td><td>Mineable</td><td>Flammable</td></tr></thead>
+              <tr><td>Lever</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Spruce Button</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Stone Button</td><td>20</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Note Block</td><td>10</td><td>Wood</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Dispenser</td><td>20</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Dropper</td><td>20</td><td>Stone</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Water</td><td>20</td><td>None</td><td>No</td><td>No</td></tr>
+              <tr><td>Lava</td><td>20</td><td>None</td><td>No</td><td>No</td></tr>
+              <tr><td>Barbed Wire</td><td>5</td><td>Barbed Wire</td><td>Yes</td><td>No</td></tr>
+          </table>
+
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

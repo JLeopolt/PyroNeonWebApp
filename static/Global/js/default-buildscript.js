@@ -1,5 +1,4 @@
 // This script can be used for default pages with simple JS, which doesn't require a custom buildscript.
-
 import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
 import { ImportHTML } from '/static/Global/js/import.js';
 import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';

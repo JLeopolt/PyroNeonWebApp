@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Tips and Tricks - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Tips and Tricks</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+
+          <p>
+            This article hopes to provide you with a few useful tips and tricks to give you an upper hand while playing Scraps.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#base-tips">Base Building Tips</a>
+    							</li>
+                  <li>
+    								<span>2</span><a href="#misc-tips">Miscellaneous Tips</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <section id="base-tips">
+            <h3>
+              Base Building Tips
+            </h3>
+            <p>
+              <li>Your floor and ceiling should be as strong as your walls.</li>
+              <li>Each room in your base should be made of the same strenght material. The weakest link breaks first.</li>
+              <li>Since the underground resets, DON'T build a base underground, because it could be reset overnight.</li>
+              <li>Iron doors can be opened by right-clicking them.</li>
+              <li>Keep your base modular with many separate, individual loot rooms.</li>
+              <li>Always go the extra mile to upgrade your base.</li>
+              <li>Try not to leave your base unattended for too long.</li>
+              <li>Make sure no one knows where you live. Keep them guessing.</li>
+              <li>Always have an airlock at your front door, to prevent players from going deep in your base.</li>
+              <li>Put a window room next to your front door, to check if anyone's camping behind your door.</li>
+              <li>You can build a tower on your base to keep an eye on other players.</li>
+            </p>
+          </section>
+
+          <section id="misc-tips">
+            <h3>
+              Miscellaneous Tips
+            </h3>
+            <p>
+              <li>Copper blocks lose durability as they oxidize.</li>
+              <li>Use the command '/combatlog' to view how much damage you dealt something with a gun.</li>
+              <li>Creepers do not spawn naturally.</li>
+              <li>Players spawn with less HP and less hunger than normal.</li>
+              <li>Players will get hungry twice as fast.</li>
+              <li>Explosives can destroy Water and Lava blocks (including source blocks).</li>
+              <li>Obsidian is not a very good block to build bases from, due to its relatively quick mining time.</li>
+              <li>Players cannot reach the Nether or End dimension.</li>
+              <li>Offline raiding is widely frowned upon, but is not technically against the rules.</li>
+            </p>
+          </section>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

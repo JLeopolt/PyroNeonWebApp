@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Block Repairs - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Block Repairs</h1>
+          <div class="categories">
+						<a href="./durability-blocks">Durability Blocks </a>
+					</div>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">Not to be confused with the <a href="/scraps/guide/stations/repair-station">Repair Station</a>. </p>
+
+          <p>
+            <a href="./durability-blocks">Durability Blocks</a> can lose durability when being damaged by another player. For example, if you caught someone trying to mine through
+            your walls and successfully fended them off, you will need to repair the damaged blocks, since they do not naturally regenerate durability. To repair blocks, you must
+            have a <strong>Mallet</strong>, an item which can be crafted in the vanilla crafting table.
+          </p>
+          <p>
+            While holding the mallet in your main hand, hold the resource you want to use to repair the block with in your off-hand. Then, simply left-click on the target block
+            to repair it. To check which resources a block wants to be repaired with, just click on it with the mallet while holding nothing in your off-hand.
+            Note, when a block is first placed, it is on a cooldown and can't be repaired until it's building cooldown period expires, even if it is damaged and prevented from completely
+            gaining full HP. When a block is damaged, a 30 second repair cooldown is placed on it. You can repair blocks anywhere, regardless if you have privilege over their region.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+                    <span>1</span><a href="#repair-chart">Repair Chart</a>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="repair-chart">
+            Repair Chart
+          </h2>
+          <table>
+            <thead><tr><td>Resource</td><td>Repair Type</td><td>Value</td></tr></thead>
+              <tr><td>Stick</td><td>Wood</td><td>5</td></tr>
+              <tr><td>Spruce Slab</td><td>Wood</td><td>10</td></tr>
+              <tr><td>Stone</td><td>Stone</td><td>10</td></tr>
+              <tr><td>Smooth Stone</td><td>Stone</td><td>20</td></tr>
+              <tr><td>Raw Copper</td><td>Copper</td><td>25</td></tr>
+              <tr><td>Copper Ingot</td><td>Copper</td><td>50</td></tr>
+              <tr><td>Raw Iron</td><td>Iron</td><td>50</td></tr>
+              <tr><td>Iron Ingot</td><td>Iron</td><td>100</td></tr>
+              <tr><td>Netherite Scrap</td><td>Netherite</td><td>50</td></tr>
+              <tr><td>Netherite Ingot</td><td>Netherite</td><td>200</td></tr>
+              <tr><td>Glass Pane</td><td>Glass</td><td>10</td></tr>
+              <tr><td>Copper Ingot</td><td>Glass</td><td>50</td></tr>
+              <tr><td>String</td><td>Barbed Wire</td><td>5</td></tr>
+          </table>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>
