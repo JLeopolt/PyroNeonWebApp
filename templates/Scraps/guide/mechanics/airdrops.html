@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Airdrops - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Airdrops</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">Also known as supply drops. This article also discusses Signal Grenades.</p>
+
+          <p>
+            Scraps introduces a new server-wide event, called an Airdrop (or Supply Drop). This event is broadcasted to the chat, along with positional coordinates and an E.T.A. (estimated time to arrival).
+            Airdrops contain high-tier loot, including armor, weapons, food, medicine, explosives, and resources like netherite. Airdrops will despawn less than 10 minutes after landing, so be sure to loot them quickly!
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#spawning">Spawning</a>
+                    <ul>
+                      <li><span>1.1</span><a href="#natural">Natural</a> </li>
+                      <li><span>1.2</span><a href="#signal">Signals</a> </li>
+    								</ul>
+    							</li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <!-- Major Title -->
+          <h2 id="spawning">
+            Spawning
+          </h2>
+
+          <p>
+            When an airdrop is spawned by any means, its location and an ETA are broadcasted to the server. The location specified is not the exact location of the airdrop, but an 'anchor' location.
+            The 'anchor' location may either be the coordinates where a player activated a signal grenade, or randomly selected coordinates. The airdrop will land somewhere within 20 blocks (square radius)
+            of the anchor location. The airdrop spawns thousands of blocks in the sky, and falls slowly over time. It can take up to 7 minutes for an airdrop to land.
+          </p>
+
+          <h3 id="natural">
+            Natural
+          </h3>
+          <p>
+            An airdrop can spawn naturally, once every four hours, without warning. If an airdrop tries to spawn while fewer than two players are online, it will fail to spawn and will try again in another four hours.
+          </p>
+
+          <h3 id="signal">
+            Signals
+          </h3>
+          <p>
+            An airdrop can be 'called in' by a player with the <strong>Signal Grenade</strong> item. Signal Grenades can be found very rarely in high-tier loot boxes.
+            The signal grenade can be thrown like an ordinary grenade, but instead of detonating and causing damage, it creates a smoke cloud and summons an airdrop anchored on its location.
+            It should be noted that airdrops called in with a signal grenade will still be broadcasted to the server, including the anchor coordinates.
+          </p>
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

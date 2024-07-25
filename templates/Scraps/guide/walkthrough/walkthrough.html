@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Walkthrough - Scraps Guide</title>
+      <link rel="icon" href="/static/Scraps/img/Frog-Logo.png" type="image/x-icon">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
+      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
+      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      <!-- Call a new script to update the page to dark mode if necessary -->
+      <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
+    </head>
+
+    <!-- Account header -->
+    <div data-include="account-header"></div>
+    <body>
+      <!-- Guide sidebar with convenience links -->
+      <div data-include="scraps/guide/sidebar"></div>
+
+			<div class="mainsection">
+        <!-- Guide tabs for redirects, search, and other site features. -->
+        <div data-include="scraps/guide/inner-tabs"></div>
+
+        <!-- The article contains the main contents of the page -->
+				<div class="article">
+          <!-- Main header of the page -->
+					<h1>Walkthrough</h1>
+				  <p class="siteSub"><b>Last Updated:</b> {{ last_modified }}</p>
+          <p class="roleNote">This article offers a step-by-step walkthrough of the game.</p>
+
+          <p>
+            The world of Scraps is exciting and chaotic, making it difficult for new players to find their way. This walkthrough hopes to guide new players through their first night, building a base,
+            finding loot, progressing through the game, and fighting other players. New players are highly encouraged to read this walkthrough before jumping into the game.
+            You are advised to read the <a href="/scraps/guide/abstract">Abstract</a> in addition to this article.
+          </p>
+
+          <div class="articleRight">
+						<div class="articleRightInner">
+              <div class="contentsPanel">
+    						<div class="contentsHeader">Contents</div>
+    						<ul>
+                  <li>
+    								<span>1</span><a href="#spawning-in">Spawning In</a>
+                    <ul>
+                      <li><span>1.1</span><a href="#tutorial">Tutorial Mode</a></li>
+    								</ul>
+    							</li>
+                  <li>
+                    <span>2</span><a href="#staying-alive">Staying Alive</a>
+                  </li>
+                  <li>
+                    <span>3</span><a href="#starter-base">Starter Base</a>
+                  </li>
+                  <li>
+                    <span>4</span><a href="#gameplay">Gameplay</a>
+                    <ul>
+                      <li><span>4.1</span><a href="#farming">Farming</a></li>
+                      <li><span>4.2</span><a href="#looting">Looting</a></li>
+                      <li><span>4.3</span><a href="#advancing">Advancing</a></li>
+                      <li><span>4.4</span><a href="#raiding">Raiding</a></li>
+                    </ul>
+                  </li>
+    						</ul>
+    					</div>
+            </div>
+          </div>
+
+          <h2 id="spawning-in">
+            Spawning In
+          </h2>
+          <p>
+            Upon joining the game for the first time, you'll discover yourself on a beach or river. You have just been randomly spawned somewhere on the map (See <a href="/scraps/guide/mechanics/respawn#random-spawn">Random Spawning</a>).
+            You will notice that your health and hunger are not full (See <a href="/scraps/guide/mechanics/survival#hunger">Hunger</a>).
+            If you spawned in a cold biome, you may start freezing (See <a href="/scraps/guide/mechanics/survival#temperature">Temperature</a>).
+            To make life a little easier, new players are put into <a href="#tutorial">Tutorial Mode</a> for their first hour of gameplay.
+          </p>
+
+          <h3 id="tutorial">
+            Tutorial Mode
+          </h3>
+          <p>
+            Players are granted <strong>Tutorial Mode</strong> privileges for one hour upon joining for the first time (Even after a <a href="/scraps/guide/map/world#wipe">Server Wipe</a>).
+            In tutorial mode, monsters will spawn much less frequently around the player, even if other players are nearby. The tutorial mode hopes to give an advantage to new players.
+            After your first hour of gameplay is over, you will receive a notice in the chat that you have 'graduated' tutorial mode. This indicates that any privileges granted by the tutorial
+            mode have been revoked.
+          </p>
+
+          <h2 id="staying-alive">
+            Staying Alive
+          </h2>
+          <p>
+            In Scraps, everything is out to get you. To survive your first day, your main priority is to get food and building materials. Food is critical, since players get hungry more quickly
+            in Scraps (See <a href="/scraps/guide/mechanics/survival#hunger">Hunger</a>), however an experienced player may be able to get a starter base down before starving.
+            The easiest way to get food is to find animals like sheep, chicken, cows, rabbits, etc. in the forest. You will probably encounter some animals while exploring, but if you don't,
+            you could seek out food in loot boxes within <a href="/scraps/guide/map/monuments">Monuments</a>, which occur naturally throughout the world.
+          </p>
+
+          <h2 id="starter-base">
+            Starter Base
+          </h2>
+          <p>
+            Building a base in Scraps is more difficult than in vanilla minecraft. In order to protect your base from other players, you need to build with <a href="/scraps/guide/raid/durability-blocks">Durability Blocks</a>,
+            which are special blocks that have durability (health) values associated with them. The cheapest durability block to build with is <strong>Spruce Planks</strong>. Spruce planks can easily be crafted and offer a small amount
+            of protection from other players. However, before you start building, you need a <a href="/scraps/guide/regions/lockbox">Lockbox</a> to claim your base. Without a Lockbox, anyone can build or access doors and chests
+            in your base. To craft a Lockbox, you'll need to find and smelt copper. Copper can usually be found in loot boxes, but can also be mined underground.
+          </p>
+          <p>
+            Your base should be secure from all sides, with a floor, ceiling, and walls. The floor and ceiling are often overlooked by noobs who forget that players can raid a base from any direction!
+            Make sure your base is completely build from durability blocks, and the entire base is within range of your Lockbox. You are advised to put multiple doors in your front entrance, since
+            doors are weaker than Spruce Planks. (Durability values can be checked by left-clicking a block). Remember that other players can still break blocks, even when within range of your Lockbox.
+          </p>
+          <p>
+            Once you have a small starter base, you should get a <a href="/scraps/guide/mechanics/respawn#beds">Bed</a> placed as soon as possible. Beds can be claimed by anyone who can right-click them,
+            regardless of whether they have building privileges over your base. You must keep some space between your bed and the walls and ceiling, since players can sometimes get stuck or suffocate when
+            respawning at a bed that's pressed up against a wall or another block.
+          </p>
+
+          <h2 id="gameplay">
+            Gameplay
+          </h2>
+          <p>
+            Now that you have a base to store your loot and respawn from, you can start enjoying the early-game. During this stage of gameplay, you should be focused on securing a food supply,
+            collecting resources to upgrade and expand your base, finding loot, getting weapons, and preying on weaker players while staying away from stronger players.
+            You were given a bunch of new crafting recipes upon joining the server, so open your crafting table and flip through the recipe book to see all the new stuff you can make.
+          </p>
+
+          <h3 id="farming">
+            Farming
+          </h3>
+          <p>
+            Finding a steady source of food is the second major hurdle in Scraps, right after building your starter base. Food runs out quickly in Scraps, and it's much harder to survive
+            and loot when you can't heal yourself by eating. For this reason, you should be on the lookout for carrots, potatoes, beetroots, and melons. These are the best crops to farm
+            in the early game, since they provide decent food on their own, and can be used together to make <a href="/scraps/guide/stations/crafting#cauldron">Stews</a>.
+            Building a farm is tricky, since you have to protect your crops from other players. A common strategy is to build multiple rooms out of a cheap building block like Spruce Planks,
+            and grow crops in individual rooms. This way, a player has to raid every single room to get all your crops, which is more effort than it's worth.
+          </p>
+
+          <h3 id="looting">
+            Looting
+          </h3>
+          <p>
+            Collecting loot is the core of Scraps! Loot can be found in any monument, and it constantly respawns. See the <a href="/scraps/guide/map/monuments">Monuments</a> page for a list of
+            each monument, where it's found, and what you can expect to find in it. If you're just getting started, a good strategy to stay out of other players' attention is to loot junk piles
+            by the road. Just find a road and follow it, all the roads on the map are connected in a giant ring, making it easy to navigate them and collect loot along the way.
+            If you're feeling a bit more brave, you can try grinding your leftover loot in an <a href="/scraps/guide/stations/grinder">Item Grinder</a>.
+          </p>
+
+          <h3 id="advancing">
+            Advancing
+          </h3>
+          <p>
+            By now, you might have encountered enemy players with guns and fancy items. If you want to move up in the world, you need to get a <a href="/scraps/guide/stations/crafting#workbench">Workbench</a>.
+            A workbench unlocks a ton of useful new crafting recipes, enabling you to make guns, ammo, explosives, traps, and more. With weapons, you can defend yourself from mobs and other players more effectively.
+            Your goal is to get the best guns, gear, and explosives in the game. Once you have enough resources to make explosives, you can begin raiding other players.
+          </p>
+
+          <h3 id="raiding">
+            Raiding
+          </h3>
+          <p>
+            Once you've settled in and made a <a href="/scraps/guide/stations/crafting#workbench">Workbench</a> or <a href="/scraps/guide/stations/crafting#workstation">Workstation</a>, you can start planning a raid.
+            Whether you have an unwanted neighbor looting your monuments and killing you, or just discovered a vulnerable base while exploring, it's easy to find a target to raid. Begin by scouting out their base,
+            and finding any weak points. Try digging underneath their base to check if their floor is weaker than their walls, or using jump boost to climb on their roof. If you're looking for loot, figure out
+            where their loot is stored. If you want to completely take over their base, you'll have to figure out where the core (and hence, the Lockbox) probably is.
+          </p>
+
+
+				</div>
+
+        <!-- The page footer, which includes the article Creation Date and a reference to the template creator -->
+        <div class="pagefooter">
+          <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
+          <!-- Footer with convenience links and more info -->
+          <div data-include="scraps/guide/footer"></div>
+        </div>
+
+			</div>
+    </body>
+</html>

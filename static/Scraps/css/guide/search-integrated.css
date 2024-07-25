@@ -16,6 +16,8 @@
 	background: -moz-linear-gradient(top, var(--gradient-lb) 0%, var(--background) 100%);
 	background: -webkit-linear-gradient(top, var(--gradient-lb) 0%, var(--background) 100%);
 	background: linear-gradient(to bottom, var(--gradient-lb) 0%, var(--background) 100%);
+  width: 100%;
+  padding-left: 1px;
 }
 .searchWrapper input {
 	background: transparent;
@@ -41,6 +43,7 @@
 }
 
 #resultsContainer {
+  border: solid 1px #aaa;
   display: none;
   word-wrap: normal;
   background: var(--search-results-bg);
@@ -51,9 +54,10 @@
   padding-right: 1px;
   padding-bottom: 1px;
   text-align: center;
+  width: 100%;
 
   position: absolute;
-  top: 110%;
+  top: 120%;
   left: 0;
   z-index: 2;
 }

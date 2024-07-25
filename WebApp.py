@@ -32,6 +32,7 @@ scraps_index_paths = {}
 # A dict containing the text from all Scraps Guide articles, for use in site-wide searches.
 scraps_guide_search_index = {}
 
+
 """
 Builds an index array of all articles (reference links) within the Scraps Guide.
 Additionally, builds an index object containing all article content in one giant dict, for use in searching.
@@ -67,8 +68,11 @@ def sort_files_by_subfolders(root_dir):
         if root == root_dir:
             continue
         current_dict = result
-        path = root.split(os.path.sep)
-        for folder in path[1:]:
+        # path = root.split(os.path.sep)
+        path = os.path.relpath(root, root_dir).split(os.path.sep)
+        # for folder in path[1:]:
+        #     current_dict = current_dict.setdefault(folder, {})
+        for folder in path:
             current_dict = current_dict.setdefault(folder, {})
         for file in files:
             current_dict[file] = None
@@ -77,10 +81,16 @@ def sort_files_by_subfolders(root_dir):
 # Build the search index, and simultaneously build a flat array of all articles.
 scraps_index_paths['flat'] = scraps_guide_build_index();
 # Build a nested directory for use in indexing.
-scraps_index_paths['paths'] = sort_files_by_subfolders("./templates/Scraps/guide")
+scraps_index_paths['paths'] = sort_files_by_subfolders(os.getcwd() + "/templates/Scraps/guide")
 
 
-
+"""
+Convenience endpoint for debugging purposes.
+"""
+# @app.route('/test')
+# def testapi():
+#     result = {}
+#     return result
 
 """
 Handles users entering a wrong link or other 404 errors.
