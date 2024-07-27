@@ -10,10 +10,9 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/friends.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- This buildscript specifies how JS should be executed. -->
-  <script type="module" id="buildscript">
+  <!-- This script handles friends page initialization. -->
+  <script type="module">
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
-
     // Get auth token claims
     const claims = GetAuthClaims();
     // if not logged in, redirect.
@@ -22,34 +21,22 @@
       window.location.href = "/accounts/login";
       process.exit(0);
     }
-
-    import { ImportHTML } from '/static/Global/js/import.js';
+    // If the user is permitted to view this page, build it.
     import { GeneratePage } from '/static/Accounts/js/users/friendslist.js';
-    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-
-    // Import HTML when page 'ready', with the afterInclude() function as a callback.
-    // afterInclude() will only be executed after ALL HTML elements are guaranteed to be loaded.
-    $(ImportHTML(afterInclude));
-
-    // Code in this function will only be executed after ALL HTML elements are guaranteed to be loaded.
-    function afterInclude(){
-      // setup account header
-      SetupAccountsHeader(claims);
-      // Activate the profile page's javascript.
-      GeneratePage(claims);
-    }
+    // Activate the profile page's javascript.
+    GeneratePage(claims);
   </script>
 </head>
 
 <body>
 
-  <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
-  <!-- Include global navbar -->
-  <div data-include="navbar"></div>
+<!-- Account Header above the navbar -->
+{% include '/components/account-header.html' %}
+<!-- Include global navbar -->
+{% include '/components/navbar.html' %}
 
 <!-- Alert popup. -->
-<div data-include="alert-box" style="width: 100%;"></div>
+{% include '/components/alert-box.html' %}
 
 <h1>My Friends</h1>
 <br>
@@ -134,7 +121,7 @@
 </table>
 
 <!-- Include global footer -->
-<div data-include="footer"></div>
+{% include '/components/footer.html' %}
 
 </body>
 </html>

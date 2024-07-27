@@ -9,116 +9,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/Accounts/css/users/search.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
-
-  <!-- This buildscript specifies how JS should be executed. -->
-  <script type="module" id="buildscript">
-    import { ImportHTML } from '/static/Global/js/import.js';
-    import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
-    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-    import { GeneratePage } from '/static/Accounts/js/users/search.js';
-
-    // Get auth token claims (optional)
-    const claims = GetAuthClaims();
-
-    // Import HTML when page 'ready', with the afterInclude() function as a callback.
-    // afterInclude() will only be executed after ALL HTML elements are guaranteed to be loaded.
-    $(ImportHTML(afterInclude));
-
-    // Code in this function will only be executed after ALL HTML elements are guaranteed to be loaded.
-    function afterInclude(){
-      // setup account header
-      SetupAccountsHeader(claims);
-      // process page. does not require claims
-      GeneratePage();
-    }
-  </script>
 </head>
 
 <body>
   <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
+  {% include '/components/account-header.html' %}
   <!-- Include global navbar -->
-  <div data-include="navbar"></div>
+  {% include '/components/navbar.html' %}
+  <!-- Alert popup. -->
+  {% include '/components/alert-box.html' %}
 
-<!-- Alert popup. -->
-<div data-include="alert-box" style="width: 100%;"></div>
+  <h1>Search</h1>
+  <!-- Search field, where user can search for other accounts by their usernames. -->
+  <div class="searchField" style="margin-top: 0; margin-bottom: 1vh;">
+    <input type="text" class="input-text-field" id="searchTextField" placeholder="Search for an account..">
+    <button class="submitButton" id="searchSubmitButton"><img src="/static/Accounts/img/search.png" alt="Search"></button>
+  </div>
 
-<h1>Search</h1>
-<!-- Search field, where user can search for other accounts by their usernames. -->
-<div class="searchField" style="margin-top: 0; margin-bottom: 1vh;">
-  <input type="text" class="input-text-field" id="searchTextField" placeholder="Search for an account..">
-  <button class="submitButton" id="searchSubmitButton"><img src="/static/Accounts/img/search.png" alt="Search"></button>
-</div>
+  <!-- Display everything using an HTML Table. -->
+  <table class="resultPanel">
 
-<!-- Display everything using an HTML Table. -->
-<table class="resultPanel">
+    <!-- Body -- Contains the friend entries, which are procedurally generated. -->
+    <tbody id="resultList">
+      <!-- Throbber, which is visible while the list is loading. Removed after list is generated. -->
+      <tr id="throbber" style="background-color: inherit; cursor: inherit; display: none;">
+        <td colspan="3">
+          <!-- Loading throbber -->
+          <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </td>
+      </tr>
 
-  <!-- Body -- Contains the friend entries, which are procedurally generated. -->
-  <tbody id="resultList">
-    <!-- Throbber, which is visible while the list is loading. Removed after list is generated. -->
-    <tr id="throbber" style="background-color: inherit; cursor: inherit; display: none;">
-      <td colspan="3">
-        <!-- Loading throbber -->
-        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      </td>
-    </tr>
-
-    <!-- Notifies the user that no results were found. -->
-    <tr id="noResultsNotice" style="display: none; background-color: inherit; cursor: inherit;">
-      <td colspan="3">
-        <p>
-          No results found.
-        </p>
-      </td>
-    </tr>
-
-    <!-- A prebuilt friendEntry node which is cloned by JS and reproduced to create new user entries.  -->
-    <!-- The entire row is clickable, and should redirect client to the user's profile page. -->
-    <tr id="resultEntryNode" class="resultEntry" style="display:none;">
-      <td colspan="3">
-        <div class="nameplate">
-
-          <div class="nameBadge">
-            <!-- Profile picture. Uses a span for proper resizing. -->
-            <img src="/static/Accounts/img/pfp.png" alt="Profile Photo">
-            <!-- Friend's username. -->
-            <p>User</p>
-          </div>
-
-        </div>
-      </td>
-    </tr>
-
-    <!-- An empty row used for placeholder. -->
-    <tr id="emptyRowEntry" class="resultEntry" style="display:none; background-color: inherit; cursor: inherit;">
-      <td colspan="3"></td>
-    </tr>
-
-  </tbody>
-
-  <!-- Footer -- Contains navigation controls for pagination, if available. -->
-  <tfoot>
-    <tr>
-      <td colspan="3">
-        <!-- This flex container aligns the elements within their single shared column. -->
-        <div style="display: flex; align-items: center; justify-content: center;">
-          <!-- Pagination controls. -->
-          <button class="pageButton" id="prevPageButton"> ◀ Prev </button>
-
-          <p style="margin: 0; padding-left: 1vw; padding-right: 1vw;">
-            <span id="pageNumber"> 1 </span>
+      <!-- Notifies the user that no results were found. -->
+      <tr id="noResultsNotice" style="display: none; background-color: inherit; cursor: inherit;">
+        <td colspan="3">
+          <p>
+            No results found.
           </p>
+        </td>
+      </tr>
 
-          <button class="pageButton" id="nextPageButton"> Next ▶ </button>
-        </div>
-      </td>
-    </tr>
-  </tfoot>
+      <!-- A prebuilt friendEntry node which is cloned by JS and reproduced to create new user entries.  -->
+      <!-- The entire row is clickable, and should redirect client to the user's profile page. -->
+      <tr id="resultEntryNode" class="resultEntry" style="display:none;">
+        <td colspan="3">
+          <div class="nameplate">
 
-</table>
+            <div class="nameBadge">
+              <!-- Profile picture. Uses a span for proper resizing. -->
+              <img src="/static/Accounts/img/pfp.png" alt="Profile Photo">
+              <!-- Friend's username. -->
+              <p>User</p>
+            </div>
 
-<!-- Include global footer -->
-<div data-include="footer"></div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- An empty row used for placeholder. -->
+      <tr id="emptyRowEntry" class="resultEntry" style="display:none; background-color: inherit; cursor: inherit;">
+        <td colspan="3"></td>
+      </tr>
+
+    </tbody>
+
+    <!-- Footer -- Contains navigation controls for pagination, if available. -->
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <!-- This flex container aligns the elements within their single shared column. -->
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <!-- Pagination controls. -->
+            <button class="pageButton" id="prevPageButton"> ◀ Prev </button>
+
+            <p style="margin: 0; padding-left: 1vw; padding-right: 1vw;">
+              <span id="pageNumber"> 1 </span>
+            </p>
+
+            <button class="pageButton" id="nextPageButton"> Next ▶ </button>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+
+  </table>
+
+  <!-- This script handles search functionality and issuing API requests. -->
+  <script type="module" src="/static/Accounts/js/users/search.js"></script>
+
+  <!-- Include global footer -->
+  {% include '/components/footer.html' %}
 
 </body>
 </html>

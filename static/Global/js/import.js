@@ -1,3 +1,6 @@
+// NOTICE: THIS IMPORT SYSTEM IS NOW DEPRECATED!
+// Use Jinja2's {% include '' %} to import HTML templates instead.
+
 // This file can be used as a standalone for basic pages.
 // or it can be used as a dependency in pages with js buildscripts.
 

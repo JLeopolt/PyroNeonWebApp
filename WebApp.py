@@ -4,13 +4,13 @@ import time
 import traceback
 import random
 import re
-# import logging
 from pathlib import Path
 
 # Handles serving html files and other content
 from flask import Flask, render_template, redirect, url_for, send_from_directory, abort
 # Handles caching
 from flask_caching import Cache
+
 # For HTML parsing
 from bs4 import BeautifulSoup
 

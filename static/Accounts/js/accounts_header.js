@@ -1,13 +1,18 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
+import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
+
+// Get auth token claims -- Notice this does NOT perform an API request,
+// but rather just retrieves cached auth claims based on JWT in localstorage.
+const claims = GetAuthClaims();
+SetupAccountsHeader(claims);
 
 // Sets up the account header. If claims is null, uses Guest header.
 // Be careful not to provide a promise here.
-export function SetupAccountsHeader(claims) {
-    if(claims != null){
+function SetupAccountsHeader(claims) {
+    if(claims != null) {
       loadAsUser(claims);
-    }
-    else{
+    } else {
       loadAsGuest();
     }
 }

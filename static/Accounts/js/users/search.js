@@ -6,15 +6,19 @@ const pageSize = 5;
 
 // The main function which performs all setup for the page.
 // Does not require claims.
-export function GeneratePage(){
+function GeneratePage(){
   // generate the page here.
   generatePage();
-
   // use URL Params to restore page.
   autoListFromURLParams();
-
   // add function to the search button.
   document.getElementById("searchSubmitButton").onclick = function(){searchForm()};
+  // Allow the user to press enter to search without clicking the button.
+  document.getElementById("searchTextField").addEventListener("keyup", ({key}) => {
+    if (key === "Enter") {
+        searchForm();
+    }
+  });
 }
 
 // called when Search Button is clicked.
@@ -325,3 +329,12 @@ function setPageNumber(pageNumber){
 function getCurrentPageNumber(){
   return parseInt(document.getElementById("pageNumber").textContent);
 }
+
+
+
+
+
+
+
+// After defining all variables in scope, prepare the page.
+GeneratePage();

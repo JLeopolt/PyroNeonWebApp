@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="/static/PuzzleMinefield/css/puzzleMinefield.css">
   <link rel="stylesheet" href="/static/Global/css/simple-button.css">
 
-  <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
-  <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+  
+  
 </head>
 
 
@@ -26,9 +26,9 @@
 <body>
 
   <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
+  {% include '/components/account-header.html' %}
   <!-- Include global navbar -->
-  <div data-include="pmf-navbar"></div>
+  {% include '/components/pmf-navbar.html' %}
 
     <!-- Banner -->
     <img src="/static/PuzzleMinefield/img/hd-banner.png" alt="PuzzleMinefield Banner" id="logoBanner">
@@ -65,7 +65,7 @@
       </div>
 
       <!-- Include global footer -->
-      <div data-include="pmf-footer"></div>
+      {% include '/components/pmf-footer.html' %}
 
 </body>
 </html>

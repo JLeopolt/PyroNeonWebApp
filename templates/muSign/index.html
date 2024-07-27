@@ -10,16 +10,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/muSign/css/index.css">
 
-  <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
-  <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+  
+  
 </head>
 
 <body>
 
   <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
+  {% include '/components/account-header.html' %}
   <!-- Include global navbar -->
-  <div data-include="navbar"></div>
+  {% include '/components/navbar.html' %}
 
 <!-- Banner -->
 <img src="/static/muSign/img/muSign-Logo.png" alt="muSign Banner" id="banner">
@@ -62,7 +62,7 @@
 </div>
 
 <!-- Include global footer -->
-<div data-include="footer"></div>
+{% include '/components/footer.html' %}
 
 </body>
 </html>

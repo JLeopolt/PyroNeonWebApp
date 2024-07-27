@@ -6,21 +6,21 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="/static/Scraps/css/wiki.css">
-      <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
-      <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+      
+      
       <!-- Call a new script to update the page to dark mode if necessary -->
       <script type="module" id="darkmodetoggle" src="/static/Scraps/js/toggledarkmode.js"></script>
     </head>
 
     <!-- Account header -->
-    <div data-include="account-header"></div>
+    {% include '/components/account-header.html' %}
     <body>
       <!-- Guide sidebar with convenience links -->
-      <div data-include="scraps/guide/sidebar"></div>
+      {% include '/components/scraps/guide/sidebar.html' %}
 
 			<div class="mainsection">
         <!-- Guide tabs for redirects, search, and other site features. -->
-        <div data-include="scraps/guide/inner-tabs"></div>
+        {% include '/components/scraps/guide/inner-tabs.html' %}
 
         <!-- The article contains the main contents of the page -->
 				<div class="article">
@@ -86,7 +86,7 @@
         <div class="pagefooter">
           <div>Page Created: {{ creation_date }} | Template by <a href="http://html5-templates.com/">HTML5 Templates</a></div>
           <!-- Footer with convenience links and more info -->
-          <div data-include="scraps/guide/footer"></div>
+          {% include '/components/scraps/guide/footer.html' %}
         </div>
 
 			</div>

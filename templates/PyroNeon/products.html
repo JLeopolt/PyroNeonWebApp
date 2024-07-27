@@ -13,17 +13,14 @@
   <link rel="stylesheet" href="/static/PyroNeon/css/index.css">
   <link rel="stylesheet" href="/static/Global/css/slideshow.css">
   <link rel="stylesheet" href="/static/PyroNeon/css/grid-listing.css">
-
-  <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
-  <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
 </head>
 
 <body>
 
   <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
+  {% include '/components/account-header.html' %}
   <!-- Include global navbar -->
-  <div data-include="navbar"></div>
+  {% include '/components/navbar.html' %}
 
 <!--  Slideshow  -->
 <div class="slideshow-container">
@@ -176,7 +173,7 @@
 </div>
 
 <!-- Include global footer -->
-<div data-include="footer"></div>
+{% include '/components/footer.html' %}
 
 </body>
 </html>

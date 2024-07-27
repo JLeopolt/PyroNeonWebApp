@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/profile.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- This buildscript specifies how JS should be executed. -->
-  <script type="module" id="buildscript">
+  <!-- This script handles profile page initialization. -->
+  <script type="module">
     // Get the UUID to target from the URL.
     const params = new Proxy(new URLSearchParams(window.location.search), {
       get: (searchParams, prop) => searchParams.get(prop),
@@ -24,34 +24,22 @@
       window.location.href = "/missing";
       process.exit(0);
     }
-
-    import { ImportHTML } from '/static/Global/js/import.js';
+    // If the user is permitted to view this page, build it.
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
     import { GeneratePage } from '/static/Accounts/js/users/profile.js';
-    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-
     // Get auth token claims (optional)
     const claims = GetAuthClaims();
-
-    // Import HTML when page 'ready', with the afterInclude() function as a callback.
-    $(ImportHTML(afterInclude));
-
-    // Code in this function will only be executed after ALL HTML elements are guaranteed to be loaded.
-    function afterInclude(){
-      // setup account header
-      SetupAccountsHeader(claims);
-      // Activate the profile page's javascript.
-      GeneratePage(claims, target_id);
-    }
+    // Activate the profile page's javascript.
+    GeneratePage(claims, target_id);
   </script>
 </head>
 
 <body>
 
-  <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
-  <!-- Include global navbar -->
-  <div data-include="navbar"></div>
+<!-- Account Header above the navbar -->
+{% include '/components/account-header.html' %}
+<!-- Include global navbar -->
+{% include '/components/navbar.html' %}
 
 <!-- Loading throbber -->
 <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -146,7 +134,7 @@
 </div>
 
 <!-- Include global footer -->
-<div data-include="footer"></div>
+{% include '/components/footer.html' %}
 
 </body>
 </html>

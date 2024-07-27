@@ -12,16 +12,16 @@
   <link rel="stylesheet" href="/static/Global/css/simple-button.css">
   <link rel="stylesheet" href="/static/Accounts/css/alert_popup.css">
 
-  <!-- Default buildscript handles included HTML elements, and any included JavaScript. -->
-  <script type="module" id="buildscript" src="/static/Global/js/default-buildscript.js"></script>
+  
+  
 </head>
 
 <body>
 
   <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
+  {% include '/components/account-header.html' %}
   <!-- Include global navbar -->
-  <div data-include="navbar"></div>
+  {% include '/components/navbar.html' %}
 
 <!-- Experimental projects warning alert box. -->
 <div class="alert" id="alert_box" style="display: flex; background-color: #EE7D00;">
@@ -76,7 +76,7 @@
 </div>
 
 <!-- Include global footer -->
-<div data-include="footer"></div>
+{% include '/components/footer.html' %}
 
 </body>
 </html>

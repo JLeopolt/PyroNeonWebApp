@@ -1,4 +1,3 @@
-import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
 import { GetFriendsList } from '/static/Accounts/js/libs/services/api/friends-api.js';
 import { AcceptFriendRequest,RemoveFriendship } from '/static/Accounts/js/libs/services/api/friends-api.js';
 import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
@@ -164,9 +163,10 @@ function createFriendElement(friendship, canAcceptReq){
   var removeFriendButton = entry.getElementsByClassName("redButton")[0];
   // set removeFriendButton to use REJECT-FRIEND function (no confirm) if in request mode, otherwise use regular remove friend with confirm mode.
   removeFriendButton.onclick = function(){removeFriend(friendship.friend.uuid, !canAcceptReq)};
-  // prevent background clickevent firing alongside this button, by using jquery stopPropagation.
-  $(removeFriendButton).click(function(e) {
-   e.stopPropagation();
+  // prevent background clickevent firing alongside this button, by using stopPropagation.
+  removeFriendButton.addEventListener('click', function(event) {
+    // Prevent the event from propagating
+    event.stopPropagation();
   });
 
   if(canAcceptReq){
@@ -174,10 +174,10 @@ function createFriendElement(friendship, canAcceptReq){
     var acceptFriendButton = entry.getElementsByClassName("greenButton")[0];
     acceptFriendButton.style.display = "inline-block";
     acceptFriendButton.onclick = function(){acceptFriendRequest(friendship.friend.uuid)};
-
-    // prevent background clickevent firing alongside this button, by using jquery stopPropagation.
-    $(acceptFriendButton).click(function(e) {
-     e.stopPropagation();
+    // prevent background clickevent firing alongside this button, by using stopPropagation.
+    acceptFriendButton.addEventListener('click', function(event) {
+      // Prevent the event from propagating
+      event.stopPropagation();
     });
   }
 

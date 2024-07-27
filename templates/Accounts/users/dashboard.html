@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="/static/Accounts/css/users/account_dashboard.css">
   <link rel="stylesheet" href="/static/Global/css/loader.css">
 
-  <!-- This buildscript specifies how JS should be executed. -->
-  <script type="module" id="buildscript">
+  <!-- This script handles dashboard initialization. -->
+  <script type="module">
     import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
     // Get auth token claims
     const claims = GetAuthClaims();
@@ -21,31 +21,18 @@
       window.location.href = "/accounts/login";
       process.exit(0);
     }
-
-    import { ImportHTML } from '/static/Global/js/import.js';
+    // If the user is permitted to view this page, build it.
     import { GeneratePage } from "/static/Accounts/js/users/account_dashboard.js";
-    import { SetupAccountsHeader } from '/static/Accounts/js/accounts_header.js';
-
-    // Import HTML when page 'ready', with the afterInclude() function as a callback.
-    // afterInclude() will only be executed after ALL HTML elements are guaranteed to be loaded.
-    $(ImportHTML(afterInclude));
-
-    // Code in this function will only be executed after ALL HTML elements are guaranteed to be loaded.
-    function afterInclude(){
-      // setup account header
-      SetupAccountsHeader(claims);
-      // Activate the dashboard page's javascript.
-      GeneratePage(claims);
-    }
+    // Activate the dashboard page's javascript.
+    GeneratePage(claims);
   </script>
 </head>
 
 <body>
-
-  <!-- Account Header above the navbar -->
-  <div data-include="account-header"></div>
-  <!-- Include global navbar -->
-  <div data-include="navbar"></div>
+<!-- Account Header above the navbar -->
+{% include '/components/account-header.html' %}
+<!-- Include global navbar -->
+{% include '/components/navbar.html' %}
 
 <h1>Welcome back, <span class="set-to-username" style="color: #FFBB01;">username</span>.</h1>
 
@@ -90,7 +77,7 @@
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!-- Include global footer -->
-<div data-include="footer"></div>
+{% include '/components/footer.html' %}
 
 </body>
 </html>

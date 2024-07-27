@@ -1,3 +1,6 @@
+// NOTICE: THIS IMPORT SYSTEM IS NOW DEPRECATED!
+// Use Jinja2's {% include '' %} to import HTML templates instead.
+
 // This script can be used for default pages with simple JS, which doesn't require a custom buildscript.
 import { GetAuthClaims } from '/static/Accounts/js/libs/services/api/auth-api.js';
 import { ImportHTML } from '/static/Global/js/import.js';
