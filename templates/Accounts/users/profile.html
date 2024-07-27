@@ -129,7 +129,15 @@
 
 
   <!-- Alert popup. -->
-  <div data-include="alert-box" style="position:absolute; bottom: 0; width: 100%; padding-bottom: 2vh;"></div>
+  {% include '/components/alert-box.html' %}
+  <style>
+    .alert {
+      position:absolute;
+      bottom: 0;
+      width: 100%;
+      padding-bottom: 2vh;
+    }
+  </style>
 
 </div>
 
