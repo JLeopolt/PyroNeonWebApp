@@ -23,13 +23,14 @@ html {
   background-position: center center;
   background-size: 150% 150%;
   /* Preload all images immediately, to prevent flickering during animation */
-  background-image: url("/static/Scraps/img/fancywallpaper/interior.png"),
-    url("/static/Scraps/img/fancywallpaper/factory.png"),
-    url("/static/Scraps/img/fancywallpaper/lakeside.png"),
-    url("/static/Scraps/img/fancywallpaper/shore.png"),
-    url("/static/Scraps/img/fancywallpaper/swamp.png"),
-    url("/static/Scraps/img/fancywallpaper/oasis.png"),
-    url("/static/Scraps/img/fancywallpaper/taiga.png");
+  background-image:
+    url("/static/Scraps/img/fancywallpaper/interior.webp"),
+    url("/static/Scraps/img/fancywallpaper/factory.webp"),
+    url("/static/Scraps/img/fancywallpaper/lakeside.webp"),
+    url("/static/Scraps/img/fancywallpaper/shore.webp"),
+    url("/static/Scraps/img/fancywallpaper/swamp.webp"),
+    url("/static/Scraps/img/fancywallpaper/oasis.webp"),
+    url("/static/Scraps/img/fancywallpaper/taiga.webp");
 
   /* Dynamic wallpaper animation styles */
   animation: carousel 60s cubic-bezier(1, 1, 1, 0.7) forwards infinite, zoom 60s linear infinite;
@@ -48,28 +49,28 @@ html {
 
 @keyframes carousel {
   0% {
-    background-image: url("/static/Scraps/img/fancywallpaper/oasis.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/oasis.webp");
   }
   17% {
-    background-image: url("/static/Scraps/img/fancywallpaper/factory.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/factory.webp");
   }
   34% {
-    background-image: url("/static/Scraps/img/fancywallpaper/interior.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/interior.webp");
   }
   51% {
-    background-image: url("/static/Scraps/img/fancywallpaper/shore.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/shore.webp");
   }
   68% {
-    background-image: url("/static/Scraps/img/fancywallpaper/swamp.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/swamp.webp");
   }
   86% {
-    background-image: url("/static/Scraps/img/fancywallpaper/lakeside.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/lakeside.webp");
   }
   100% {
-    background-image: url("/static/Scraps/img/fancywallpaper/taiga.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/taiga.webp");
   }
   100%{
-    background-image: url("/static/Scraps/img/fancywallpaper/interior.png");
+    background-image: url("/static/Scraps/img/fancywallpaper/interior.webp");
   }
 }
 
