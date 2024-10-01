@@ -1,6 +1,7 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
+import {AUTH_ENDPOINT} from '/static/Accounts/js/libs/services/api/endpoints.js';
 
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
@@ -33,7 +34,7 @@ async function submitForm(e, form){
   // Prepare headers
   const headers = formUtils.buildHeaders();
   // Send the post request and get a JSON String as a response.
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.net:8443/api/delete_account", headers, jsonFormData);
+  const response = await fetchService.performPostHttpRequest(AUTH_ENDPOINT+"delete_account", headers, jsonFormData);
   console.log(response);
   // Convert the HTTP Status into a single digit, representing response type.
   const statusType = String(response.status)[0];

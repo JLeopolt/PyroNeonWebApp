@@ -1,10 +1,10 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
+import {GAMES_ENDPOINT} from '/static/Accounts/js/libs/services/api/endpoints.js';
 
 // Prepare utils
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
-const friendsEndpoint = "https://games.pyroneon.net/api/";
 
 // Gets JWT from cookies, asks Friends API if the authenticated user is friends with UUID.
 // Will return a Friendship object if success, or null if failed.
@@ -17,7 +17,7 @@ export async function GetFriendship(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    friendsEndpoint + "friends/get-friendship",
+    GAMES_ENDPOINT + "friends/get-friendship",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response.
   if(processResponse(response) == true){
@@ -37,7 +37,7 @@ export async function SendFriendRequest(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    friendsEndpoint + "friends/issue-request",
+    GAMES_ENDPOINT + "friends/issue-request",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response. may return true/false.
   return processResponse(response);
@@ -54,7 +54,7 @@ export async function AcceptFriendRequest(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    friendsEndpoint + "friends/accept-request",
+    GAMES_ENDPOINT + "friends/accept-request",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response. may return true/false.
   return processResponse(response);
@@ -71,7 +71,7 @@ export async function RemoveFriendship(target_uuid) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    friendsEndpoint + "friends/remove-friend",
+    GAMES_ENDPOINT + "friends/remove-friend",
   formUtils.buildHeaders(),{"auth_token":jwt,"other_id":target_uuid});
   // process response. may return true/false.
   return processResponse(response);
@@ -92,7 +92,7 @@ export async function GetFriendsList(pageSize, isAccepted, sent_by_friend, start
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    friendsEndpoint + "friends/list-friends",
+    GAMES_ENDPOINT + "friends/list-friends",
   formUtils.buildHeaders(),{"auth_token":jwt, "was_accepted":isAccepted, "start_uuid":startId, "reverse":reverse, "sent_by_friend":sent_by_friend, "page_size":pageSize});
   // process response.
   if(processResponse(response)){

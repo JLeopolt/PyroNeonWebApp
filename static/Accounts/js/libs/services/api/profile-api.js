@@ -1,10 +1,10 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
+import {AUTH_ENDPOINT} from '/static/Accounts/js/libs/services/api/endpoints.js';
 
 // Prepare utils
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
-const authEndpoint = "https://auth.pyroneon.net/api/";
 
 // Gets JWT from cookies, updates the profile bio.
 // return response.
@@ -17,7 +17,7 @@ export async function UpdateProfileBio(content) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    authEndpoint + "profile/update-bio",
+    AUTH_ENDPOINT + "profile/update-bio",
   formUtils.buildHeaders(),{"auth_token":jwt,"content":content});
   // return response.
   return response;
@@ -34,7 +34,7 @@ export async function UpdateProfileWebsiteLink(content) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    authEndpoint + "profile/update-personal-website",
+    AUTH_ENDPOINT + "profile/update-personal-website",
   formUtils.buildHeaders(),{"auth_token":jwt,"content":content});
   // return response.
   return response;
@@ -51,7 +51,7 @@ export async function UpdateProfileLocation(content) {
   }
   // Send the post request with body.
   const response = await fetchService.performPostHttpRequest(
-    authEndpoint + "profile/update-location",
+    AUTH_ENDPOINT + "profile/update-location",
   formUtils.buildHeaders(),{"auth_token":jwt,"content":content});
   // return response.
   return response;
@@ -62,7 +62,7 @@ export async function UpdateProfileLocation(content) {
 export async function ResolveUsername(username) {
   // Send the post request with body.
   const response = await fetchService.performGetHttpRequest(
-    authEndpoint + "resolve-username?username=" + username,
+    AUTH_ENDPOINT + "resolve-username?username=" + username,
   formUtils.buildHeaders());
   return response;
 }

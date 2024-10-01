@@ -1,5 +1,6 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
+import {AUTH_ENDPOINT} from '/static/Accounts/js/libs/services/api/endpoints.js';
 
 const formUtils = new FormUtils();
 
@@ -17,7 +18,7 @@ async function sendTemporaryPassword(username, emailAddress, token){
     const fetchService = new FetchService();
     const headers = formUtils.buildHeaders();
 
-    const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/reset_password?username="+username+"&emailAddress="+emailAddress+"&token="+token, headers);
+    const response = await fetchService.performGetHttpRequest(AUTH_ENDPOINT+"reset_password?username="+username+"&emailAddress="+emailAddress+"&token="+token, headers);
     console.log(response);
 
     const statusType = String(response.status)[0];

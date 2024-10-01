@@ -1,6 +1,7 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
+import {AUTH_ENDPOINT} from '/static/Accounts/js/libs/services/api/endpoints.js';
 
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
@@ -35,7 +36,7 @@ async function submitForm(e, form){
   // Prepare headers
   const headers = formUtils.buildHeaders();
 
-  const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/resend-confirmation-code?un="+jsonFormData.username, headers);
+  const response = await fetchService.performGetHttpRequest(AUTH_ENDPOINT+"resend-confirmation-code?un="+jsonFormData.username, headers);
   console.log(response);
 
   // Convert the HTTP Status into a single digit, representing response type.

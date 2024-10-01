@@ -4,6 +4,7 @@ import { UpdateSpans, UpdateLinks, UpdateSpansVisibility } from '/static/Account
 import { EnableFriendshipControls, DisableFriendshipControls } from '/static/Accounts/js/users/friend-controls.js';
 import { UpdateProfileBio, UpdateProfileWebsiteLink, UpdateProfileLocation } from '/static/Accounts/js/libs/services/api/profile-api.js';
 import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
+import {AUTH_ENDPOINT} from '/static/Accounts/js/libs/services/api/endpoints.js';
 
 let alertPopup = new AlertPopup();
 let userProfileData = undefined;
@@ -35,7 +36,7 @@ async function resolveUUID(uuid){
   // Prepare utils
   const fetchService = new FetchService();
   // Send the get request, url param is the UUID to resolve. No headers.
-  const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/get-user-profile?uuid="+uuid, {});
+  const response = await fetchService.performGetHttpRequest(AUTH_ENDPOINT+"get-user-profile?uuid="+uuid, {});
   console.log(response);
 
   // Convert the HTTP Status into a single digit, representing response type.

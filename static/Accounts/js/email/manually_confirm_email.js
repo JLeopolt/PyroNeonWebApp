@@ -1,6 +1,7 @@
 import FetchService from '/static/Accounts/js/libs/services/FetchService.js';
 import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 import AlertPopup from '/static/Accounts/js/libs/utils/AlertPopup.js';
+import {AUTH_ENDPOINT} from '/static/Accounts/js/libs/services/api/endpoints.js';
 
 const formUtils = new FormUtils();
 const alertPopup = new AlertPopup();
@@ -29,7 +30,7 @@ async function validateToken(token){
     const fetchService = new FetchService();
     const headers = formUtils.buildHeaders();
 
-    const response = await fetchService.performGetHttpRequest("https://auth.pyroneon.net:8443/api/activate?token="+token, headers);
+    const response = await fetchService.performGetHttpRequest(AUTH_ENDPOINT+"activate?token="+token, headers);
     console.log(response);
 
     const statusType = String(response.status)[0];
