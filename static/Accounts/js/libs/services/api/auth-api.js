@@ -4,6 +4,7 @@ import FormUtils from '/static/Accounts/js/libs/utils/FormUtils.js';
 // Prepare utils
 const fetchService = new FetchService();
 const formUtils = new FormUtils();
+const authEndpoint = "https://auth.pyroneon.net/api/";
 
 // Create a claims object to be cached to improve loading performance.
 let claims = undefined;
@@ -52,7 +53,7 @@ function processAuthClaimsFromLocalStorage() {
 // Returns the response.
 export async function SearchUsers(searchQuery, startUsername, reverse, pageSize) {
   // Send the post request
-  const response = await fetchService.performPostHttpRequest("https://auth.pyroneon.net:8443/api/search-username",
+  const response = await fetchService.performPostHttpRequest(authEndpoint + "search-username",
                                                               formUtils.buildHeaders(),
                                                               {"search":searchQuery, "start_username":startUsername, "reverse":reverse, "page_size":pageSize});
   return response;
